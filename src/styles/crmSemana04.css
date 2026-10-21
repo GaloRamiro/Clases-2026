@@ -1,0 +1,338 @@
+/* ========================================
+   AULA DIGITAL · CRM SEMANA 04
+   FIDELIZACIÓN Y RETENCIÓN
+   ======================================== */
+
+.crm4 {
+  --crm4-navy: #101d3d;
+  --crm4-orange: #f59e0b;
+  --crm4-border: #e2e8f0;
+  --crm4-muted: #64748b;
+
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  color: #25364b;
+  font-family: inherit;
+}
+
+.crm4 *,
+.crm4 *::before,
+.crm4 *::after {
+  box-sizing: border-box;
+}
+
+.crm4-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 20px 24px;
+  margin-bottom: 26px;
+  background: var(--crm4-navy);
+  color: white;
+  border-radius: 14px;
+}
+
+.crm4-status > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.crm4-status strong {
+  font-size: 12px;
+  letter-spacing: 1.2px;
+}
+
+.crm4-status span {
+  color: #d8e3f2;
+  font-size: 14px;
+}
+
+.crm4-status small {
+  color: #cbd5e1;
+  font-size: 12px;
+}
+
+.crm4-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.crm4-heading {
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--crm4-border);
+}
+
+.crm4-eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 7px 12px;
+  border-radius: 7px;
+  background: #fff4db;
+  color: #92400e;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+}
+
+.crm4-heading h3 {
+  margin: 0 0 10px;
+  color: var(--crm4-navy);
+  font-size: clamp(23px, 3vw, 34px);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.crm4-heading p {
+  max-width: 760px;
+  margin: 0;
+  color: var(--crm4-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.crm4-note {
+  padding: 19px 22px;
+  background: #fff8e8;
+  border-left: 4px solid var(--crm4-orange);
+  border-radius: 0 12px 12px 0;
+}
+
+.crm4-note strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #92400e;
+  font-size: 14px;
+}
+
+.crm4-note p {
+  margin: 0;
+  color: #79511c;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.crm4-counter {
+  padding: 15px 18px;
+  border: 1px solid #dbeafe;
+  border-radius: 10px;
+  background: #eff6ff;
+  color: var(--crm4-navy);
+  font-size: 14px;
+}
+
+.crm4-counter strong {
+  font-weight: 800;
+}
+
+.crm4-card {
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid var(--crm4-border);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.045);
+}
+
+.crm4-card-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid var(--crm4-border);
+}
+
+.crm4-card-heading > span {
+  display: flex;
+  flex: 0 0 44px;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  border-radius: 11px;
+  background: var(--crm4-navy);
+  color: #fff;
+  font-weight: 800;
+}
+
+.crm4-card-heading h4 {
+  margin: 0 0 6px;
+  color: var(--crm4-navy);
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.crm4-card-heading p {
+  margin: 0;
+  color: var(--crm4-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.crm4-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 20px;
+}
+
+.crm4-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  margin-bottom: 18px;
+}
+
+.crm4-field > span {
+  color: #334155;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.crm4-field input,
+.crm4-field textarea,
+.crm4-field select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 47px;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  outline: none;
+  background: #fff;
+  color: #172b40;
+  font: inherit;
+  font-size: 14px;
+  transition:
+    border-color 180ms,
+    box-shadow 180ms;
+}
+
+.crm4-field textarea {
+  min-height: 105px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.crm4-field input:focus,
+.crm4-field textarea:focus,
+.crm4-field select:focus {
+  border-color: var(--crm4-orange);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+}
+
+.crm4-field input::placeholder,
+.crm4-field textarea::placeholder {
+  color: #94a3b8;
+}
+
+.crm4-check {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 18px;
+  padding: 13px 15px;
+  border: 1px solid #dbe5ef;
+  border-radius: 10px;
+  background: #f8fafc;
+  cursor: pointer;
+}
+
+.crm4-check input {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+  margin: 0;
+  accent-color: var(--crm4-navy);
+}
+
+.crm4-check span {
+  color: #334155;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.crm4-check:has(input:checked) {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+}
+
+.crm4-description {
+  margin: 0 0 20px;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.crm4-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  padding: 12px 22px;
+  border-radius: 9px;
+  background: var(--crm4-navy);
+  color: #fff !important;
+  text-decoration: none !important;
+  font-size: 13px;
+  font-weight: 800;
+  transition:
+    transform 180ms,
+    background 180ms;
+}
+
+.crm4-link:hover {
+  background: #243b68;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 700px) {
+  .crm4-status {
+    padding: 18px;
+  }
+
+  .crm4-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .crm4-card {
+    padding: 18px;
+    border-radius: 12px;
+  }
+
+  .crm4-card-heading {
+    gap: 11px;
+  }
+
+  .crm4-card-heading > span {
+    flex-basis: 38px;
+    height: 38px;
+  }
+
+  .crm4-heading h3 {
+    font-size: 25px;
+  }
+
+  .crm4-field input,
+  .crm4-field textarea,
+  .crm4-field select {
+    font-size: 16px;
+  }
+
+  .crm4-link {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crm4 *,
+  .crm4 *::before,
+  .crm4 *::after {
+    transition: none !important;
+  }
+}

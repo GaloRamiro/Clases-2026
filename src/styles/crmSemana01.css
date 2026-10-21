@@ -1,0 +1,645 @@
+/* ==========================================================
+   AULA DIGITAL — CRM | SEMANA 01
+   Estilos exclusivos de CrmWorkshop.jsx
+   ========================================================== */
+
+.crm-workshop {
+  --crm-primary: #142b43;
+  --crm-primary-light: #203d58;
+  --crm-accent: #f97316;
+  --crm-accent-soft: #fff3e9;
+  --crm-border: #e2e8f0;
+  --crm-text: #263648;
+  --crm-muted: #64748b;
+  --crm-surface: #ffffff;
+  --crm-background: #f6f8fb;
+
+  width: 100%;
+  min-width: 0;
+  max-width: 1120px;
+  margin: 0 auto;
+  color: var(--crm-text);
+  font-family: inherit;
+  line-height: 1.6;
+}
+
+.crm-workshop *,
+.crm-workshop *::before,
+.crm-workshop *::after {
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   1. PROGRESO Y GUARDADO
+   ========================================== */
+
+.crm-workshop__progress {
+  background: var(--crm-primary);
+  color: #ffffff;
+  border-radius: 18px;
+  padding: 22px 26px;
+  margin-bottom: 28px;
+  box-shadow: 0 12px 28px rgba(20, 43, 67, 0.12);
+}
+
+.crm-workshop__progress-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.crm-workshop__progress-top span {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  color: #d0dce7;
+}
+
+.crm-workshop__progress-top strong {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.crm-workshop__progress-track {
+  width: 100%;
+  height: 9px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.crm-workshop__progress-track > div {
+  height: 100%;
+  min-width: 0;
+  background: var(--crm-accent);
+  border-radius: inherit;
+  transition: width 350ms ease;
+}
+
+.crm-workshop__progress small {
+  display: block;
+  margin-top: 11px;
+  color: #cbd5e1;
+  font-size: 12px;
+}
+
+/* ==========================================
+   2. CABECERA DE ACTIVIDADES
+   ========================================== */
+
+.crm-workshop__section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.crm-section-heading {
+  padding: 0 0 20px;
+  border-bottom: 1px solid var(--crm-border);
+}
+
+.crm-section-heading__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 13px;
+}
+
+.crm-section-heading__meta span {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: 6px;
+  background: var(--crm-accent-soft);
+  color: #bd4d0a;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+}
+
+.crm-section-heading h3 {
+  margin: 0 0 10px;
+  color: var(--crm-primary);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.8px;
+}
+
+.crm-section-heading p {
+  max-width: 760px;
+  margin: 0;
+  color: var(--crm-muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ==========================================
+   3. INSTRUCCIONES Y EJEMPLOS
+   ========================================== */
+
+.crm-workshop__instruction {
+  padding: 20px 24px;
+  background: #edf3f8;
+  border-left: 4px solid var(--crm-primary);
+  border-radius: 0 12px 12px 0;
+}
+
+.crm-workshop__instruction strong {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--crm-primary);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.crm-workshop__instruction p {
+  margin: 0;
+  color: #45586b;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.crm-workshop__example {
+  padding: 18px 22px;
+  border: 1px solid #fed7aa;
+  border-radius: 12px;
+  background: var(--crm-accent-soft);
+}
+
+.crm-workshop__example strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #9a3412;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.crm-workshop__example p {
+  margin: 0;
+  color: #7c4225;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ==========================================
+   4. TARJETAS DE TRABAJO
+   ========================================== */
+
+.crm-workshop__panel {
+  min-width: 0;
+  padding: 26px;
+  background: var(--crm-surface);
+  border: 1px solid var(--crm-border);
+  border-radius: 16px;
+  box-shadow: 0 5px 18px rgba(15, 23, 42, 0.035);
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.crm-workshop__panel:focus-within {
+  border-color: #fdba74;
+  box-shadow: 0 8px 28px rgba(249, 115, 22, 0.07);
+}
+
+.crm-workshop__panel-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid var(--crm-border);
+}
+
+.crm-workshop__panel-title h4 {
+  margin: 0;
+  color: var(--crm-primary);
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.crm-workshop__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 43px;
+  width: 43px;
+  height: 43px;
+  border-radius: 12px;
+  background: var(--crm-primary);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+/* ==========================================
+   5. CAMPOS DE FORMULARIO
+   ========================================== */
+
+.crm-field {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.crm-field:last-child {
+  margin-bottom: 0;
+}
+
+.crm-field__label {
+  display: block;
+  color: #34465a;
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+.crm-field input,
+.crm-field textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 13px 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  outline: none;
+  background: #ffffff;
+  color: #172b40;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.6;
+  box-shadow: none;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.crm-field input {
+  min-height: 47px;
+}
+
+.crm-field textarea {
+  min-height: 105px;
+  resize: vertical;
+}
+
+.crm-field input::placeholder,
+.crm-field textarea::placeholder {
+  color: #94a3b8;
+  opacity: 1;
+}
+
+.crm-field input:hover,
+.crm-field textarea:hover {
+  border-color: #94a3b8;
+}
+
+.crm-field input:focus,
+.crm-field textarea:focus {
+  border-color: var(--crm-accent);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.12);
+}
+
+.crm-field__hint {
+  display: block;
+  color: var(--crm-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.crm-workshop__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px 20px;
+}
+
+.crm-workshop__grid > .crm-field {
+  min-width: 0;
+}
+
+/* ==========================================
+   6. LABORATORIO BITRIX24
+   ========================================== */
+
+.crm-workshop__external-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  gap: 8px;
+  min-height: 46px;
+  padding: 12px 20px;
+  border: 1px solid var(--crm-primary);
+  border-radius: 9px;
+  background: var(--crm-primary);
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-size: 13px;
+  font-weight: 800;
+  transition:
+    background 200ms ease,
+    transform 200ms ease;
+}
+
+.crm-workshop__external-link:hover {
+  background: var(--crm-primary-light);
+  transform: translateY(-2px);
+}
+
+.crm-workshop__external-link:focus-visible {
+  outline: 3px solid var(--crm-accent);
+  outline-offset: 3px;
+}
+
+.crm-workshop__warning {
+  margin: 0;
+  padding: 15px 18px;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 10px;
+  color: #9a3412;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.crm-workshop__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.crm-workshop__step {
+  position: relative;
+  min-width: 0;
+  padding: 23px 25px;
+  border: 1px solid var(--crm-border);
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.crm-workshop__step-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  flex-wrap: wrap;
+  margin-bottom: 13px;
+}
+
+.crm-workshop__step-heading > span {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #eaf0f6;
+  color: var(--crm-primary);
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.crm-workshop__step-heading h4 {
+  margin: 0;
+  color: var(--crm-primary);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.crm-workshop__step > p {
+  margin: 0 0 10px;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.crm-workshop__step > small {
+  display: block;
+  margin-bottom: 18px;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+/* ==========================================
+   7. CHECKBOX DE ETAPA COMPLETADA
+   ========================================== */
+
+.crm-workshop__checkbox {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 8px;
+  padding: 13px 15px;
+  border: 1px solid #dbe5ef;
+  border-radius: 9px;
+  background: #f8fafc;
+  cursor: pointer;
+  user-select: none;
+}
+
+.crm-workshop__checkbox input {
+  flex: 0 0 auto;
+  width: 19px;
+  height: 19px;
+  margin: 0;
+  accent-color: var(--crm-primary);
+  cursor: pointer;
+}
+
+.crm-workshop__checkbox span {
+  color: #334155;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.crm-workshop__checkbox:has(input:checked) {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+}
+
+.crm-workshop__checkbox:has(input:checked) span {
+  color: #047857;
+}
+
+/* ==========================================
+   8. RETO COMERCIAL
+   ========================================== */
+
+.crm-workshop__case {
+  padding: 25px 27px;
+  border-radius: 15px;
+  background: var(--crm-primary);
+  color: #ffffff;
+}
+
+.crm-workshop__case > span {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #fdba74;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 1.5px;
+}
+
+.crm-workshop__case p {
+  margin: 0;
+  color: #f1f5f9;
+  font-size: clamp(15px, 2vw, 19px);
+  line-height: 1.75;
+}
+
+.crm-workshop__case strong {
+  color: #fdba74;
+  font-weight: 850;
+}
+
+.crm-workshop__case em {
+  color: #ffffff;
+  font-style: italic;
+}
+
+/* ==========================================
+   9. RESPONSIVE — TABLETS
+   ========================================== */
+
+@media (max-width: 900px) {
+  .crm-workshop__progress {
+    padding: 20px;
+  }
+
+  .crm-workshop__panel {
+    padding: 22px;
+  }
+
+  .crm-workshop__step {
+    padding: 20px;
+  }
+
+  .crm-workshop__grid {
+    gap: 4px 14px;
+  }
+}
+
+/* ==========================================
+   10. RESPONSIVE — MÓVILES
+   ========================================== */
+
+@media (max-width: 640px) {
+  .crm-workshop {
+    width: 100%;
+  }
+
+  .crm-workshop__section {
+    gap: 16px;
+  }
+
+  .crm-workshop__progress {
+    padding: 18px;
+    margin-bottom: 22px;
+    border-radius: 12px;
+  }
+
+  .crm-workshop__progress-top {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .crm-section-heading {
+    padding-bottom: 17px;
+  }
+
+  .crm-section-heading__meta {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .crm-section-heading h3 {
+    font-size: 25px;
+    letter-spacing: -0.5px;
+  }
+
+  .crm-section-heading p {
+    font-size: 14px;
+  }
+
+  .crm-workshop__instruction,
+  .crm-workshop__example {
+    padding: 17px;
+  }
+
+  .crm-workshop__panel {
+    padding: 18px;
+    border-radius: 12px;
+  }
+
+  .crm-workshop__panel-title {
+    gap: 11px;
+    margin-bottom: 18px;
+  }
+
+  .crm-workshop__panel-title h4 {
+    font-size: 17px;
+  }
+
+  .crm-workshop__number {
+    width: 37px;
+    height: 37px;
+    flex-basis: 37px;
+  }
+
+  .crm-workshop__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .crm-workshop__step {
+    padding: 18px;
+    border-radius: 12px;
+  }
+
+  .crm-workshop__step-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .crm-workshop__case {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .crm-workshop__external-link {
+    width: 100%;
+    align-self: stretch;
+  }
+
+  .crm-field input,
+  .crm-field textarea {
+    font-size: 16px;
+  }
+}
+
+/* ==========================================
+   11. ACCESIBILIDAD
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .crm-workshop *,
+  .crm-workshop *::before,
+  .crm-workshop *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

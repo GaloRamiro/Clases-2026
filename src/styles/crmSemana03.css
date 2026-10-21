@@ -1,0 +1,364 @@
+/* =========================================
+   AULA DIGITAL · CRM SEMANA 03
+   ========================================= */
+
+.crm3 {
+  --crm3-navy: #102b46;
+  --crm3-orange: #f97316;
+  --crm3-border: #e2e8f0;
+  --crm3-muted: #64748b;
+
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  color: #263648;
+  font-family: inherit;
+}
+
+.crm3 *,
+.crm3 *::before,
+.crm3 *::after {
+  box-sizing: border-box;
+}
+
+.crm3-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 26px;
+  padding: 22px 26px;
+  background: var(--crm3-navy);
+  color: white;
+  border-radius: 16px;
+}
+
+.crm3-status > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.crm3-status strong {
+  font-size: 12px;
+  letter-spacing: 1.3px;
+}
+
+.crm3-status span {
+  font-size: 15px;
+  color: #dce7f1;
+}
+
+.crm3-status small {
+  color: #cbd5e1;
+  font-size: 12px;
+}
+
+.crm3-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.crm3-heading {
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--crm3-border);
+}
+
+.crm3-heading > span {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 7px 12px;
+  border-radius: 6px;
+  background: #fff0e5;
+  color: #b45309;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.crm3-heading h3 {
+  margin: 0 0 10px;
+  color: var(--crm3-navy);
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.crm3-heading p {
+  max-width: 760px;
+  margin: 0;
+  color: var(--crm3-muted);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.crm3-instructions {
+  padding: 19px 22px;
+  border-left: 4px solid var(--crm3-orange);
+  border-radius: 0 12px 12px 0;
+  background: #fff7ed;
+}
+
+.crm3-instructions strong {
+  display: block;
+  margin-bottom: 7px;
+  color: #9a3412;
+  font-size: 14px;
+}
+
+.crm3-instructions p {
+  margin: 0;
+  color: #7c4225;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.crm3-counter {
+  padding: 15px 18px;
+  border: 1px solid #dbeafe;
+  border-radius: 10px;
+  background: #eff6ff;
+  color: var(--crm3-navy);
+  font-size: 14px;
+}
+
+.crm3-counter strong {
+  font-weight: 800;
+}
+
+.crm3-card {
+  min-width: 0;
+  padding: 25px;
+  border: 1px solid var(--crm3-border);
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 5px 18px rgba(15, 23, 42, 0.04);
+}
+
+.crm3-card > h4 {
+  margin: 0 0 12px;
+  color: var(--crm3-navy);
+  font-size: 19px;
+}
+
+.crm3-card-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--crm3-border);
+}
+
+.crm3-card-title > span {
+  display: flex;
+  flex: 0 0 44px;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  border-radius: 11px;
+  background: var(--crm3-navy);
+  color: white;
+  font-weight: 800;
+}
+
+.crm3-card-title h4 {
+  margin: 0 0 5px;
+  color: var(--crm3-navy);
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.crm3-card-title p {
+  margin: 0;
+  color: var(--crm3-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.crm3-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 20px;
+}
+
+.crm3-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  margin-bottom: 18px;
+}
+
+.crm3-field > span {
+  color: #334155;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.crm3-field input,
+.crm3-field textarea,
+.crm3-field select {
+  width: 100%;
+  min-width: 0;
+  min-height: 47px;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  outline: none;
+  background: white;
+  color: #172b40;
+  font: inherit;
+  font-size: 14px;
+  transition:
+    border-color 180ms,
+    box-shadow 180ms;
+}
+
+.crm3-field textarea {
+  min-height: 105px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.crm3-field input:focus,
+.crm3-field textarea:focus,
+.crm3-field select:focus {
+  border-color: var(--crm3-orange);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.12);
+}
+
+.crm3-field input::placeholder,
+.crm3-field textarea::placeholder {
+  color: #94a3b8;
+}
+
+.crm3-check {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 20px;
+  padding: 13px 15px;
+  border: 1px solid #dbe5ef;
+  border-radius: 10px;
+  background: #f8fafc;
+  cursor: pointer;
+}
+
+.crm3-check input {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+  margin: 0;
+  accent-color: var(--crm3-navy);
+}
+
+.crm3-check span {
+  font-size: 13px;
+  font-weight: 700;
+  color: #334155;
+}
+
+.crm3-check:has(input:checked) {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+}
+
+.crm3-description {
+  margin: 0 0 20px;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.crm3-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  padding: 12px 22px;
+  border-radius: 9px;
+  background: var(--crm3-navy);
+  color: white !important;
+  text-decoration: none !important;
+  font-size: 13px;
+  font-weight: 800;
+  transition:
+    background 180ms,
+    transform 180ms;
+}
+
+.crm3-link:hover {
+  background: #244968;
+  transform: translateY(-2px);
+}
+
+.crm3-case {
+  padding: 24px;
+  border-radius: 14px;
+  background: var(--crm3-navy);
+  color: white;
+}
+
+.crm3-case strong {
+  display: block;
+  margin-bottom: 9px;
+  color: #fdba74;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.crm3-case p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+@media (max-width: 700px) {
+  .crm3-status {
+    padding: 18px;
+  }
+
+  .crm3-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .crm3-card {
+    padding: 18px;
+    border-radius: 12px;
+  }
+
+  .crm3-card-title {
+    gap: 11px;
+  }
+
+  .crm3-card-title > span {
+    flex-basis: 38px;
+    height: 38px;
+  }
+
+  .crm3-heading h3 {
+    font-size: 25px;
+  }
+
+  .crm3-field input,
+  .crm3-field textarea,
+  .crm3-field select {
+    font-size: 16px;
+  }
+
+  .crm3-link {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crm3 *,
+  .crm3 *::before,
+  .crm3 *::after {
+    transition: none !important;
+  }
+}

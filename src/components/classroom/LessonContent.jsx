@@ -4,7 +4,12 @@ import PushPullLab from "./PushPullLab";
 import { getLessonWork, saveLessonWork } from "../../services/storage";
 import "../../styles/semana01.css";
 import SeoWorkshop from "./SeoWorkshop";
+import CrmWorkshop from "./CrmWorkshop";
 import SeoDownloadPDF from "./SeoDownloadPDF";
+import CrmWeek02Workshop from "./CrmWeek02Workshop";
+import CrmWeek03Workshop from "./CrmWeek03Workshop";
+import CrmWeek04Workshop from "./CrmWeek04Workshop";
+import SeoKeywordWorkshop from "./SeoKeywordWorkshop.jsx";
 const WORK_FIELDS = [
   ["team", "Nombre del equipo"],
   ["brand", "Nombre de la marca"],
@@ -145,7 +150,9 @@ function SlideBody({ slide, lesson, studentName }) {
               <span>
                 {lesson.courseId === "seo"
                   ? "SEO · SEM · AEO · GEO"
-                  : "ESTRATEGIA DIGITAL"}
+                  : lesson.courseId === "crm"
+                    ? "CRM · VENTAS · RELACIÓN CON EL CLIENTE"
+                    : "ESTRATEGIA DIGITAL"}
               </span>
             </div>
           </div>
@@ -292,6 +299,16 @@ function SlideBody({ slide, lesson, studentName }) {
           studentName={studentName}
         />
       );
+    case "crm-glossary":
+    case "crm-bitrix-lab":
+    case "crm-followup":
+      return (
+        <CrmWorkshop
+          kind={slide.kind}
+          lessonId={lesson.id}
+          studentName={studentName}
+        />
+      );
     case "pushpull-lab":
       return <PushPullLab lessonId={lesson.id} studentName={studentName} />;
 
@@ -358,7 +375,39 @@ function SlideBody({ slide, lesson, studentName }) {
           <ImageSpace src={slide.image} hint={slide.imageHint} />
         </div>
       );
-
+    case "crm-client-segmentation":
+    case "crm-contact-lab":
+    case "crm-segmented-campaign":
+      return (
+        <CrmWeek02Workshop
+          kind={slide.kind}
+          lessonId={lesson.id}
+          studentName={studentName}
+        />
+      );
+    case "crm-automation-rules":
+    case "crm-automation-lab":
+    case "crm-opportunity-recovery":
+      return (
+        <CrmWeek03Workshop
+          kind={slide.kind}
+          lessonId={lesson.id}
+          studentName={studentName}
+        />
+      );
+    case "crm-loyalty-builder":
+    case "crm-loyalty-lab":
+    case "crm-loyalty-recovery":
+      return (
+        <CrmWeek04Workshop
+          kind={slide.kind}
+          lessonId={lesson.id}
+          studentName={studentName}
+        />
+      );
+    case "seo-keyword-lab":
+    case "seo-keyword-matrix":
+      return <SeoKeywordWorkshop slide={slide} />;
     default:
       return (
         <div>
@@ -423,7 +472,9 @@ export default function LessonContent({ lesson, studentName = "" }) {
           <span>
             {lesson.courseId === "seo"
               ? "ANÁLISIS SEO"
-              : "DISEÑO PARA GENERACIÓN DE CONTENIDO"}
+              : lesson.courseId === "crm"
+                ? "GESTIÓN Y RELACIÓN CON EL CLIENTE"
+                : "DISEÑO PARA GENERACIÓN DE CONTENIDO"}
           </span>
           <strong>
             Semana {lesson.number} · {lesson.title}
