@@ -1,21 +1,52 @@
 
+/* ==========================================================
+   AULA DIGITAL — ESTILOS GLOBALES
+   Navegación, asignaturas, perfil y diseño responsive
+
+   Los estilos de las diapositivas están en semana01.css.
+   Los del laboratorio están en PushPullLab.css.
+   ========================================================== */
+
+/* 01. IDENTIDAD Y BASE */
+
 :root {
   font-family: Inter, "Segoe UI", Arial, sans-serif;
-  color: #17243b;
+  color: #172338;
   background: #f5f7fb;
   font-synthesis: none;
+
+  --app-primary: #172338;
+  --app-primary-hover: #293d5a;
+  --app-accent: #287c91;
+  --app-accent-hover: #21687a;
+  --app-accent-soft: #eaf3f6;
+  --app-text: #172338;
+  --app-muted: #65748a;
+  --app-border: #dfe6ef;
+  --app-white: #ffffff;
+  --app-background: #f5f7fb;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  min-width: 320px;
   margin: 0;
+  overflow-x: hidden;
 }
 
 button,
-input {
+input,
+textarea,
+select {
   font: inherit;
 }
 
@@ -23,98 +54,257 @@ button {
   cursor: pointer;
 }
 
+button:disabled {
+  cursor: not-allowed;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+a:focus-visible {
+  outline: 3px solid #80b8c7;
+  outline-offset: 3px;
+}
+
+/* 02. ESTRUCTURA PRINCIPAL */
+
 .app-shell {
   display: flex;
+  align-items: stretch;
+  width: 100%;
   min-height: 100vh;
 }
 
+.main-content {
+  flex: 1 1 0;
+  min-width: 0;
+  width: auto;
+  padding: 32px clamp(20px, 3vw, 48px);
+}
+
+/* 03. MENÚ LATERAL */
+
 .sidebar {
+  flex: 0 0 265px;
   width: 265px;
-  flex-shrink: 0;
+  min-width: 0;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 0 18px 28px;
   background: #101d33;
-  color: white;
-  padding: 28px 18px;
+  color: var(--app-white);
+  transition:
+    width 0.25s ease,
+    flex-basis 0.25s ease;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 22px 0;
 }
 
 .brand {
-  font-size: 20px;
+  min-width: 0;
+  margin: 0;
+  color: var(--app-white);
+  font-size: 21px;
   font-weight: 800;
   letter-spacing: 1px;
-  margin-bottom: 42px;
+  white-space: nowrap;
+}
+
+.sidebar-toggle {
+  display: grid;
+  place-items: center;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--app-white);
+  font-size: 22px;
+  transition: background 0.2s;
+}
+
+.sidebar-toggle:hover {
+  background: rgba(255, 255, 255, 0.16);
 }
 
 .sidebar-label {
-  font-size: 11px;
-  color: #92a3be;
-  letter-spacing: 1px;
   margin: 30px 12px 12px;
+  color: #92a3be;
+  font-size: 11px;
+  letter-spacing: 1px;
 }
 
 .nav-button {
   display: block;
   width: 100%;
+  margin-bottom: 8px;
+  padding: 13px 15px;
   border: 0;
   border-radius: 10px;
-  padding: 13px;
-  margin-bottom: 8px;
   background: transparent;
   color: #dce5f3;
   text-align: left;
   font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  transition: background 0.2s;
 }
 
 .nav-button:hover,
 .nav-button.active {
   background: #263b5b;
-  color: white;
+  color: var(--app-white);
 }
 
-.main-content {
-  flex: 1;
-  min-width: 0;
-  padding: 30px 45px;
+/* 04. MENÚ CONTRAÍBLE */
+
+.sidebar-collapsed .sidebar {
+  flex-basis: 72px;
+  width: 72px;
 }
+
+.sidebar-collapsed .sidebar-header {
+  justify-content: center;
+  padding: 22px 0;
+}
+
+.sidebar-expanded .sidebar {
+  flex-basis: 265px;
+  width: 265px;
+}
+
+/* 05. BARRA SUPERIOR */
 
 .topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 24px;
   padding-bottom: 25px;
-  border-bottom: 1px solid #e1e6ef;
+  border-bottom: 1px solid var(--app-border);
+}
+
+.topbar > div {
+  min-width: 0;
 }
 
 .topbar h2 {
   margin: 3px 0;
+  color: var(--app-primary);
 }
 
 .eyebrow {
+  margin: 0;
+  color: var(--app-accent);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1.4px;
-  color: #647da2;
 }
 
-.student-input {
-  width: 260px;
-  padding: 12px;
-  border: 1px solid #d7dfeb;
-  border-radius: 9px;
-  background: white;
+/* 06. PERFIL DEL ESTUDIANTE */
+
+.student-profile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
 }
+
+.student-profile > strong,
+.student-profile > span {
+  color: var(--app-primary);
+  font-weight: 700;
+}
+
+.student-profile__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.student-profile__actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 42px;
+  padding: 10px 15px;
+  border: 1px solid var(--app-border);
+  border-radius: 9px;
+  background: var(--app-white);
+  color: var(--app-primary);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+
+.student-profile__actions button:hover:not(:disabled) {
+  background: var(--app-accent-soft);
+  border-color: var(--app-accent);
+}
+
+.student-profile__actions button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+/* 07. BOTÓN PDF DE CLASE */
+
+.student-profile__actions .class-pdf-button {
+  white-space: nowrap;
+}
+
+.class-pdf-button svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+.class-pdf-error {
+  margin: 18px 0;
+  padding: 12px 16px;
+  border: 1px solid #f1caca;
+  border-radius: 8px;
+  background: #fff1f1;
+  color: #a32626;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* 08. ENCABEZADOS DE PÁGINA */
 
 .page-heading {
-  margin: 40px 0 25px;
+  margin: 35px 0 25px;
 }
 
 .page-heading h1 {
-  font-size: clamp(26px, 3vw, 36px);
-  margin-bottom: 8px;
+  margin: 0 0 8px;
+  color: var(--app-primary);
+  font-size: clamp(25px, 2.8vw, 38px);
+  line-height: 1.2;
+  overflow-wrap: anywhere;
 }
 
 .page-heading p {
-  color: #65748c;
+  margin: 0;
+  color: var(--app-muted);
+  line-height: 1.6;
 }
+
+/* 09. TARJETAS DE ASIGNATURAS */
 
 .course-grid {
   display: grid;
@@ -125,25 +315,33 @@ button {
 .course-card,
 .week-card,
 .topic-card {
-  background: white;
-  border: 1px solid #e2e8f2;
+  min-width: 0;
+  background: var(--app-white);
+  border: 1px solid var(--app-border);
   border-radius: 15px;
-  padding: 25px;
 }
 
 .course-card {
+  width: 100%;
+  min-height: 230px;
+  padding: 25px;
   text-align: left;
-  min-height: 240px;
-  transition: transform .2s, box-shadow .2s;
+  overflow-wrap: anywhere;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    border-color 0.2s;
 }
 
 .course-card:hover,
-.week-card:hover {
+.week-card:hover:not(:disabled) {
   transform: translateY(-3px);
-  box-shadow: 0 12px 25px #17243b12;
+  box-shadow: 0 12px 25px rgba(23, 35, 56, 0.08);
+  border-color: #c5dce3;
 }
 
 .course-card h2 {
+  color: var(--app-primary);
   font-size: 20px;
 }
 
@@ -154,7 +352,7 @@ button {
 }
 
 .course-tag {
-  color: #3266b1;
+  color: var(--app-accent);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 1px;
@@ -163,49 +361,93 @@ button {
 .course-card strong {
   display: block;
   margin-top: 25px;
-  color: #285da9;
+  color: var(--app-accent);
 }
+
+/* 10. TARJETAS DE SEMANAS */
 
 .weeks-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 15px;
+  gap: 16px;
 }
 
 .week-card {
-  text-align: left;
+  width: 100%;
   padding: 22px;
+  text-align: left;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    border-color 0.2s;
 }
 
 .week-card span {
   display: block;
+  color: var(--app-primary);
   font-weight: 700;
 }
 
 .week-card small {
   display: block;
-  color: #72829a;
   margin-top: 12px;
+  color: #72829a;
 }
+
+.week-card:disabled {
+  opacity: 0.55;
+}
+
+.week-card:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* 11. NAVEGACIÓN GENERAL */
 
 .back-button {
   margin-top: 25px;
+  padding: 8px 0;
   border: 0;
   background: transparent;
-  color: #285da9;
+  color: var(--app-accent);
   font-weight: 700;
 }
 
+.back-button:hover {
+  color: var(--app-accent-hover);
+}
+
+.primary-button {
+  display: inline-block;
+  padding: 13px 20px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--app-primary);
+  color: var(--app-white);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.primary-button:hover {
+  background: var(--app-primary-hover);
+}
+
+/* 12. CONTENIDO ACADÉMICO GENERAL */
+
 .lesson {
-  max-width: 900px;
+  max-width: 960px;
+  margin: 0 auto 60px;
 }
 
 .lesson h1 {
   font-size: clamp(26px, 3vw, 36px);
 }
 
-.lesson h2 {
-  margin-top: 35px;
+.lesson > h2 {
+  margin: 38px 0 18px;
+  color: var(--app-primary);
+  font-size: clamp(21px, 2.3vw, 27px);
 }
 
 .lesson-objective {
@@ -215,168 +457,158 @@ button {
 
 .topic-card {
   margin-bottom: 15px;
+  padding: 25px;
 }
 
-.primary-button {
-  display: inline-block;
-  background: #285da9;
-  color: white;
-  padding: 13px 20px;
-  border-radius: 9px;
-  text-decoration: none;
+.lesson .topic-card {
+  margin-bottom: 16px;
+  padding: 26px;
 }
 
-@media (max-width: 1000px) {
-  .course-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .weeks-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.lesson .topic-card h2,
+.lesson .topic-card h3 {
+  margin-top: 0;
+  color: var(--app-primary);
 }
 
-@media (max-width: 700px) {
-  .app-shell {
-    flex-direction: column;
-  }
-
-  .sidebar {
-    width: 100%;
-  }
-
-  .main-content {
-    padding: 20px;
-  }
-
-  .topbar {
-    align-items: stretch;
-    flex-direction: column;
-  }
-
-  .student-input {
-    width: 100%;
-  }
-
-  .course-grid,
-  .weeks-grid {
-    grid-template-columns: 1fr;
-  }
+.lesson .topic-card p,
+.lesson .topic-card li {
+  color: #56667d;
+  line-height: 1.8;
 }
 
-/* ==========================================
-   AULA DIGITAL — RESPONSIVE
-   Desktop / Tablet / Mobile
-   ========================================== */
-
-/* ESTRUCTURA GENERAL */
-
-html {
-  scroll-behavior: smooth;
+.lesson .topic-card li {
+  margin-bottom: 9px;
 }
 
-body {
-  min-width: 320px;
-  overflow-x: hidden;
+/* 13. CRONOGRAMA ACADÉMICO */
+
+.lesson-schedule {
+  display: grid;
+  gap: 10px;
 }
 
-.app-shell {
-  width: 100%;
-  min-height: 100vh;
-}
-
-.main-content {
-  min-width: 0;
-  width: 100%;
-  max-width: 100%;
-  padding: 32px clamp(20px, 3vw, 48px);
-}
-
-/* SIDEBAR */
-
-.sidebar {
-  width: 265px;
-  flex: 0 0 265px;
-  min-height: 100vh;
-  padding: 28px 18px;
-}
-
-.brand {
-  font-size: 21px;
-  margin-bottom: 32px;
-  overflow-wrap: anywhere;
-}
-
-.nav-button {
-  width: 100%;
-  padding: 13px 15px;
-  line-height: 1.5;
-  overflow-wrap: anywhere;
-}
-
-/* HEADER */
-
-.topbar {
-  display: flex;
+.schedule-item {
+  display: grid;
+  grid-template-columns: 110px 1fr 100px;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  gap: 15px;
+  padding: 17px 22px;
+  background: var(--app-white);
+  border: 1px solid var(--app-border);
+  border-radius: 12px;
 }
 
-.topbar > div {
-  min-width: 0;
+.schedule-item strong {
+  color: var(--app-accent);
 }
+
+.schedule-item small {
+  color: #74839a;
+  text-align: right;
+}
+
+/* 14. REGISTRO DEL ESTUDIANTE */
+
+.student-entry {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 24px;
+  background: linear-gradient(
+    135deg,
+    #101d33,
+    #24466c
+  );
+}
+
+.student-entry__card {
+  display: grid;
+  gap: 16px;
+  width: min(100%, 510px);
+  padding: clamp(28px, 5vw, 48px);
+  border-radius: 20px;
+  background: var(--app-white);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
+}
+
+.student-entry__card h1 {
+  margin: 0;
+  color: var(--app-primary);
+  font-size: clamp(27px, 4vw, 38px);
+}
+
+.student-entry__card p {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.student-entry__card label {
+  color: var(--app-primary);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.student-entry__card input {
+  width: 100%;
+  min-height: 48px;
+  padding: 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: var(--app-white);
+  color: var(--app-primary);
+}
+
+.student-entry__card button {
+  min-height: 48px;
+  padding: 15px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--app-primary);
+  color: var(--app-white);
+  font-weight: 700;
+}
+
+.student-entry__card button:hover {
+  background: var(--app-accent);
+}
+
+.student-entry__card small {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.student-entry__error,
+.student-entry__card p[role="alert"] {
+  color: #b42318;
+  font-size: 13px;
+}
+
+/* 15. CAMPOS AUXILIARES */
 
 .student-input {
-  width: min(100%, 280px);
   flex-shrink: 0;
+  width: min(100%, 280px);
+  padding: 12px;
+  border: 1px solid #d7dfeb;
+  border-radius: 9px;
+  background: var(--app-white);
+  color: var(--app-primary);
 }
 
-/* CONTENIDO */
-
-.page-heading {
-  margin: 35px 0 25px;
-}
-
-.page-heading h1 {
-  font-size: clamp(25px, 2.8vw, 38px);
-  line-height: 1.2;
-  overflow-wrap: anywhere;
-}
-
-.course-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.course-card {
-  width: 100%;
-  min-width: 0;
-  min-height: 230px;
-  overflow-wrap: anywhere;
-}
-
-.weeks-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.week-card {
-  min-width: 0;
-  width: 100%;
-}
-
-/* ==========================================
-   TABLET — HASTA 1100px
-   ========================================== */
+/* 16. TABLET — HASTA 1100 PX */
 
 @media (max-width: 1100px) {
-
-  .sidebar {
+  .sidebar,
+  .sidebar-expanded .sidebar {
     width: 230px;
     flex-basis: 230px;
+  }
+
+  .sidebar-collapsed .sidebar {
+    width: 72px;
+    flex-basis: 72px;
   }
 
   .main-content {
@@ -392,25 +624,36 @@ body {
   }
 }
 
-/* ==========================================
-   TABLET PEQUEÑA — HASTA 800px
-   ========================================== */
+/* 17. TABLET PEQUEÑA — HASTA 800 PX */
 
 @media (max-width: 800px) {
-
   .app-shell {
     flex-direction: column;
   }
 
-  .sidebar {
+  .sidebar,
+  .sidebar-expanded .sidebar,
+  .sidebar-collapsed .sidebar {
     width: 100%;
     flex: none;
     min-height: auto;
-    padding: 16px 20px;
   }
 
-  .brand {
-    margin-bottom: 14px;
+  .sidebar {
+    padding: 0 20px;
+  }
+
+  .sidebar-header,
+  .sidebar-collapsed .sidebar-header {
+    padding: 12px 0;
+  }
+
+  .sidebar-collapsed .sidebar-header {
+    justify-content: flex-end;
+  }
+
+  .sidebar-navigation {
+    padding-bottom: 12px;
   }
 
   .sidebar-label {
@@ -422,30 +665,28 @@ body {
   }
 
   .main-content {
+    width: 100%;
     padding: 24px;
-  }
-
-  .weeks-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .topbar {
     flex-wrap: wrap;
   }
+
+  .weeks-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
-/* ==========================================
-   CELULAR — HASTA 600px
-   ========================================== */
+/* 18. MÓVIL — HASTA 600 PX */
 
 @media (max-width: 600px) {
-
   .main-content {
     padding: 18px 15px 35px;
   }
 
   .sidebar {
-    padding: 15px;
+    padding: 0 15px;
   }
 
   .brand {
@@ -461,6 +702,23 @@ body {
 
   .topbar h2 {
     font-size: 21px;
+  }
+
+  .student-profile {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .student-profile__actions {
+    width: 100%;
+  }
+
+  .student-profile__actions button {
+    flex: 1 1 auto;
+  }
+
+  .student-profile__actions .class-pdf-button {
+    width: 100%;
   }
 
   .student-input {
@@ -492,7 +750,8 @@ body {
     padding: 18px;
   }
 
-  .topic-card {
+  .topic-card,
+  .lesson .topic-card {
     padding: 20px;
   }
 
@@ -500,102 +759,12 @@ body {
     font-size: 26px;
   }
 
-  .lesson h2 {
+  .lesson > h2 {
     font-size: 21px;
   }
 
   .back-button {
     margin-top: 20px;
-  }
-}
-
-/* ==========================================
-   ACCESIBILIDAD Y MOVIMIENTO
-   ========================================== */
-
-button:focus-visible,
-input:focus-visible,
-a:focus-visible {
-  outline: 3px solid #528af0;
-  outline-offset: 3px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  .course-card,
-  .week-card {
-    transition: none;
-  }
-}
-
-/* AULA DIGITAL — CLASES SEMANALES */
-
-.lesson {
-  max-width: 960px;
-  margin: 0 auto 60px;
-}
-
-.lesson > h2 {
-  margin: 38px 0 18px;
-  font-size: clamp(21px, 2.3vw, 27px);
-  color: #17243b;
-}
-
-.lesson .topic-card {
-  margin-bottom: 16px;
-  padding: 26px;
-  border-radius: 15px;
-  background: #fff;
-  border: 1px solid #e2e8f2;
-}
-
-.lesson .topic-card h2,
-.lesson .topic-card h3 {
-  margin-top: 0;
-  color: #17243b;
-}
-
-.lesson .topic-card p,
-.lesson .topic-card li {
-  line-height: 1.8;
-  color: #56667d;
-}
-
-.lesson .topic-card li {
-  margin-bottom: 9px;
-}
-
-.lesson-schedule {
-  display: grid;
-  gap: 10px;
-}
-
-.schedule-item {
-  display: grid;
-  grid-template-columns: 110px 1fr 100px;
-  align-items: center;
-  gap: 15px;
-  padding: 17px 22px;
-  background: #fff;
-  border: 1px solid #e2e8f2;
-  border-radius: 12px;
-}
-
-.schedule-item strong {
-  color: #285da9;
-}
-
-.schedule-item small {
-  color: #74839a;
-  text-align: right;
-}
-
-@media (max-width: 600px) {
-  .lesson .topic-card {
-    padding: 20px;
   }
 
   .schedule-item {
@@ -608,115 +777,19 @@ a:focus-visible {
   }
 }
 
-/* ==========================================
-   SIDEBAR CONTRAÍBLE — AULA DIGITAL
-   ========================================== */
+/* 19. ACCESIBILIDAD */
 
-.app-shell {
-  display: flex;
-  width: 100%;
-  min-height: 100vh;
-  align-items: stretch;
-}
-
-.sidebar {
-  width: 265px;
-  flex: 0 0 265px;
-  min-width: 0;
-  transition: width 0.25s ease, flex-basis 0.25s ease;
-  overflow: hidden;
-}
-
-.sidebar-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 22px 16px;
-}
-
-.sidebar-header .brand {
-  min-width: 0;
-  margin: 0;
-  white-space: nowrap;
-}
-
-.sidebar-toggle {
-  display: grid;
-  place-items: center;
-  flex: 0 0 38px;
-  width: 38px;
-  height: 38px;
-  padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.08);
-  color: white;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-.sidebar-toggle:hover {
-  background: rgba(255, 255, 255, 0.16);
-}
-
-.sidebar-collapsed .sidebar {
-  width: 72px;
-  flex-basis: 72px;
-}
-
-.sidebar-collapsed .sidebar-header {
-  justify-content: center;
-  padding: 22px 8px;
-}
-
-.sidebar-expanded .sidebar {
-  width: 265px;
-  flex-basis: 265px;
-}
-
-.main-content {
-  flex: 1 1 0;
-  min-width: 0;
-  width: auto;
-  max-width: none;
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 800px) {
-  .app-shell {
-    flex-direction: column;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 
   .sidebar,
-  .sidebar-expanded .sidebar,
-  .sidebar-collapsed .sidebar {
-    width: 100%;
-    flex: none;
-    min-height: auto;
-  }
-
-  .sidebar-header {
-    padding: 12px 16px;
-  }
-
-  .sidebar-collapsed .sidebar-header {
-    justify-content: flex-end;
-    padding: 12px 16px;
-  }
-
-  .sidebar-navigation {
-    padding-bottom: 12px;
-  }
-
-  .main-content {
-    width: 100%;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .sidebar {
+  .course-card,
+  .week-card,
+  .nav-button,
+  .sidebar-toggle,
+  .student-profile__actions button {
     transition: none;
   }
 }

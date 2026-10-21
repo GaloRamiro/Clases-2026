@@ -1,431 +1,525 @@
+import { useEffect, useState } from "react";
+import DownloadPDF from "./DownloadPDF";
+import PushPullLab from "./PushPullLab";
+import { getLessonWork, saveLessonWork } from "../../services/storage";
+import "../../styles/semana01.css";
 
-import { useState, useEffect } from "react";
-import LessonHero from "./LessonHero";
-import PlatformExplorer from "./PlatformExplorer";
-import PushPullGame from "./PushPullGame";
-import BrandWorkshop from "./BrandWorkshop";
-import LessonQuiz from "./LessonQuiz";
-import "../../styles/lesson.css";
-import SlideVisual from "./SlideVisual";
-export default function LessonContent({ lesson, studentName = "" }) {
-  const [mode, setMode] = useState("reading");
-  const [slide, setSlide] = useState(0);
+const WORK_FIELDS = [
+  ["team", "Nombre del equipo"],
+  ["brand", "Nombre de la marca"],
+  ["concept", "Concepto de la marca"],
+  ["differentiation", "Diferenciación"],
+  ["audience", "Público inicial"],
+  ["platform", "Plataforma digital"],
+  ["reason", "Justificación de la plataforma"],
+  ["push", "Contenido PUSH y objetivo comercial"],
+  ["pull", "Contenido PULL y valor para la audiencia"],
+  ["aiReview", "Revisión crítica y mejoras"],
+];
 
-  const sections = [
-    { id: "intro", title: "Introducción" },
-    { id: "challenge", title: "El desafío" },
-    { id: "theory", title: "Fundamentos" },
-    { id: "platforms", title: "Plataformas" },
-    { id: "strategies", title: "PUSH y PULL" },
-    { id: "demo", title: "Café Raíz" },
-    { id: "break", title: "Descanso" },
-    { id: "workshop", title: "Laboratorio" },
-    { id: "quiz", title: "Evaluación" },
-    { id: "closing", title: "Cierre" },
-  ];
+function ImageSpace({ src, hint, alt = "Referencia visual" }) {
+  const [failed, setFailed] = useState(false);
 
-const slideMedia = {
-  intro: {
-    title: "El nacimiento de una marca",
-    description: "Fotografía principal de café y branding",
-    src: null,
-  },
-  challenge: {
-    title: "Tres marcas, tres propuestas",
-    description: "Comparación visual de marcas de café",
-    src: null,
-  },
-  theory: {
-    title: "Estrategia de contenido",
-    description: "Audiencia, objetivo y diferenciación",
-    src: null,
-  },
-  platforms: {
-    title: "Ecosistema digital",
-    description: "Plataformas y formatos de contenido",
-    src: null,
-  },
-  strategies: {
-    title: "PUSH y PULL",
-    description: "Comparación visual de estrategias",
-    src: null,
-  },
-  demo: {
-    title: "Café Raíz",
-    description: "Identidad y aplicaciones de marca",
-    src: null,
-  },
-  break: {
-    title: "Pausa de la sesión",
-    description: "Imagen ambiental de café",
-    src: null,
-  },
-  workshop: {
-    title: "Laboratorio creativo",
-    description: "Equipos desarrollando su marca",
-    src: null,
-  },
-  quiz: {
-    title: "Evaluación",
-    description: "Revisión de los aprendizajes",
-    src: null,
-  },
-  closing: {
-    title: "Próximo desafío",
-    description: "Investigación de audiencias",
-    src: null,
-  },
-};
-
-  useEffect(() => {
-    setSlide(0);
-    setMode("reading");
-  }, [lesson?.id]);
-
-  if (!lesson) {
-    return (
-      <section className="topic-card">
-        <h2>Clase en preparación</h2>
-        <p>Esta semana todavía no tiene contenido publicado.</p>
-      </section>
-    );
-  }
-
-  function changeSlide(next) {
-    setSlide(Math.max(0, Math.min(next, sections.length - 1)));
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-
-  function renderSection(id) {
-    switch (id) {
-      case "intro":
-        return (
-          <div className="lesson-section">
-            <LessonHero lesson={lesson} />
-            <div className="lesson-highlight">
-              <span className="lesson-kicker">OBJETIVO DE APRENDIZAJE</span>
-              <p>{lesson.objective}</p>
-            </div>
-            <h2>Ruta de aprendizaje</h2>
-            <div className="lesson-timeline">
-              {lesson.schedule.map((item) => (
-                <div className="lesson-timeline__item" key={item.time}>
-                  <strong>{item.time}</strong>
-                  <span>{item.title}</span>
-                  <small>{item.minutes} min</small>
-                </div>
-              ))}
-            </div>
-          </div>
-        );
-
-      case "challenge":
-        return (
-          <div className="lesson-section">
-            <SectionHeading
-              number="01"
-              title="El desafío de las marcas"
-              description={lesson.challenge}
-            />
-            <div className="coffee-brands">
-              {[
-                {
-                  name: "Origen",
-                  type: "ARTESANAL",
-                  message: "Tradición, origen y proceso",
-                  color: "artisan",
-                },
-                {
-                  name: "Élite",
-                  type: "PRÉMIUM",
-                  message: "Exclusividad y experiencia",
-                  color: "premium",
-                },
-                {
-                  name: "Ruta",
-                  type: "JUVENIL",
-                  message: "Accesibilidad y energía",
-                  color: "youth",
-                },
-              ].map((brand) => (
-                <div
-                  className={`coffee-brand coffee-brand--${brand.color}`}
-                  key={brand.name}
-                >
-                  <span>{brand.type}</span>
-                  <div className="coffee-brand__cup" aria-hidden="true">
-                    <div />
-                  </div>
-                  <h3>{brand.name}</h3>
-                  <p>{brand.message}</p>
-                </div>
-              ))}
-            </div>
-            <div className="lesson-question">
-              <strong>Debate de apertura</strong>
-              <p>
-                ¿Cuál comprarías? ¿Qué información necesitarías
-                antes de tomar la decisión?
-              </p>
-            </div>
-          </div>
-        );
-
-      case "theory":
-        return (
-          <div className="lesson-section">
-            <SectionHeading
-              number="02"
-              title="Fundamentos estratégicos"
-              description="Comprende por qué una publicación necesita audiencia, propósito y diferenciación."
-            />
-            <div className="lesson-topic-grid">
-              {lesson.topics.slice(0, 2).map((topic) => (
-                <article className="lesson-topic" key={topic.title}>
-                  <h3>{topic.title}</h3>
-                  <p>{topic.content}</p>
-                  <div className="lesson-example">
-                    <strong>Ejemplo</strong>
-                    <p>{topic.example}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        );
-
-      case "platforms":
-        return (
-          <div className="lesson-section">
-            <SectionHeading
-              number="03"
-              title="Explorador de plataformas"
-              description="Selecciona una plataforma para analizar cómo podría utilizarla una marca de café."
-            />
-            <PlatformExplorer platforms={lesson.platforms} />
-          </div>
-        );
-
-      case "strategies":
-        return (
-          <div className="lesson-section">
-            <SectionHeading
-              number="04"
-              title="PUSH vs. PULL"
-              description="Aprende a distinguir una acción comercial directa de un contenido que atrae por su valor."
-            />
-            <div className="strategy-grid">
-              {lesson.topics.slice(2, 4).map((topic) => (
-                <article className="strategy-card" key={topic.title}>
-                  <h3>{topic.title}</h3>
-                  <p>{topic.content}</p>
-                  <blockquote>{topic.example}</blockquote>
-                </article>
-              ))}
-            </div>
-            <h3>Ahora decide tú</h3>
-            <PushPullGame />
-          </div>
-        );
-
-      case "demo":
-        return (
-          <div className="lesson-section">
-            <SectionHeading
-              number="05"
-              title="Demostración: Café Raíz"
-              description="Observa cómo una idea se transforma en decisiones de comunicación."
-            />
-            <div className="demo-brand">
-              <span className="lesson-kicker">MARCA DE EJEMPLO</span>
-              <h3>{lesson.demonstration.brand}</h3>
-              <p>{lesson.demonstration.concept}</p>
-              <p><strong>Audiencia:</strong> {lesson.demonstration.audience}</p>
-            </div>
-            <div className="strategy-grid">
-              <div className="lesson-topic">
-                <h3>Contenido PULL</h3>
-                <p>{lesson.demonstration.pull}</p>
-              </div>
-              <div className="lesson-topic">
-                <h3>Contenido PUSH</h3>
-                <p>{lesson.demonstration.push}</p>
-              </div>
-            </div>
-            <ol className="lesson-steps">
-              {lesson.demonstration.steps.map((step, index) => (
-                <li key={index}>{step}</li>
-              ))}
-            </ol>
-          </div>
-        );
-
-      case "break":
-        return (
-          <div className="lesson-section lesson-break">
-            <span className="lesson-break__symbol" aria-hidden="true">☕</span>
-            <span className="lesson-kicker">PAUSA PROGRAMADA</span>
-            <h2>20 minutos de descanso</h2>
-            <p>
-              Al regresar, cada equipo comenzará a desarrollar
-              su propia marca de café.
-            </p>
-          </div>
-        );
-
-      case "workshop":
-        return (
-          <div className="lesson-section">
-            <SectionHeading
-              number="06"
-              title="Laboratorio de marcas"
-              description="60 minutos para crear el concepto de tu marca y preparar sus primeras propuestas de contenido."
-            />
-            <BrandWorkshop
-              lesson={lesson}
-              studentName={studentName}
-            />
-            <div className="lesson-highlight">
-              <h3>Uso crítico de inteligencia artificial</h3>
-              <p>{lesson.aiPrompt}</p>
-              <button
-                className="lesson-action lesson-action--outline"
-                type="button"
-                onClick={() =>
-                  navigator.clipboard.writeText(lesson.aiPrompt)
-                }
-              >
-                Copiar prompt
-              </button>
-            </div>
-          </div>
-        );
-
-      case "quiz":
-        return (
-          <div className="lesson-section">
-            <SectionHeading
-              number="07"
-              title="Evaluación de aprendizaje"
-              description="Responde las preguntas y revisa las explicaciones."
-            />
-            <LessonQuiz />
-            <h3>Rúbrica del taller</h3>
-            <div className="lesson-rubric">
-              {lesson.rubric.map((item) => (
-                <div key={item.criterion}>
-                  <span>{item.criterion}</span>
-                  <strong>{item.points} pts</strong>
-                </div>
-              ))}
-            </div>
-          </div>
-        );
-
-      case "closing":
-        return (
-          <div className="lesson-section">
-            <SectionHeading
-              number="08"
-              title="Cierre y siguiente desafío"
-              description="La marca que diseñaste hoy será el punto de partida del proyecto integrador."
-            />
-            <div className="lesson-highlight">
-              <h3>Trabajo autónomo</h3>
-              <p>{lesson.homework}</p>
-            </div>
-            <div className="lesson-highlight">
-              <h3>Próxima semana</h3>
-              <p>{lesson.nextWeek}</p>
-            </div>
-          </div>
-        );
-
-      default:
-        return null;
-    }
-  }
+  useEffect(() => setFailed(false), [src]);
 
   return (
-    <div className={`classroom classroom--${mode}`}>
-      <div className="classroom-toolbar">
-        <div>
-          <span className="lesson-kicker">
-            DISEÑO PARA GENERACIÓN DE CONTENIDO
-          </span>
-          <strong>Semana {lesson.number}</strong>
-        </div>
-
-        <div className="classroom-mode-switch" role="group" aria-label="Modo de clase">
-          <button
-            type="button"
-            className={mode === "reading" ? "is-active" : ""}
-            onClick={() => setMode("reading")}
-          >
-            Lectura
-          </button>
-          <button
-            type="button"
-            className={mode === "presentation" ? "is-active" : ""}
-            onClick={() => {
-              setMode("presentation");
-              setSlide(0);
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-          >
-            Presentación
-          </button>
-        </div>
-      </div>
-
-      {mode === "reading" ? (
-        <div className="classroom-reading">
-          {sections.map((section) => (
-            <section key={section.id} id={`section-${section.id}`}>
-              {renderSection(section.id)}
-            </section>
-          ))}
-        </div>
+    <div className="ad-image-space">
+      {src && !failed ? (
+        <img src={src} alt={alt} onError={() => setFailed(true)} />
       ) : (
-        <div className="classroom-presentation">
-          <div className="classroom-slide" key={sections[slide].id}>
-            {renderSection(sections[slide].id)}
-          </div>
-
-          <nav className="slide-navigation" aria-label="Navegación de presentación">
-            <button
-              type="button"
-              onClick={() => changeSlide(slide - 1)}
-              disabled={slide === 0}
-            >
-              ← Anterior
-            </button>
-
-            <span>
-              {slide + 1} / {sections.length}
-              <small>{sections[slide].title}</small>
-            </span>
-
-            <button
-              type="button"
-              onClick={() => changeSlide(slide + 1)}
-              disabled={slide === sections.length - 1}
-            >
-              Siguiente →
-            </button>
-          </nav>
+        <div className="ad-image-placeholder">
+          <span>ESPACIO PARA FOTOGRAFÍA</span>
+          <p>{hint || "Incorpora una imagen relacionada con el tema."}</p>
+          <small>{src}</small>
         </div>
       )}
     </div>
   );
 }
 
-function SectionHeading({ number, title, description }) {
+function Workshop({ lesson }) {
+  const [work, setWork] = useState(() => ({
+    ...getLessonWork(lesson.courseId, lesson.number).work,
+  }));
+
+  const [saved, setSaved] = useState(true);
+
+  function update(key, value) {
+    const next = { ...work, [key]: value };
+    setWork(next);
+
+    setSaved(
+      saveLessonWork(lesson.courseId, lesson.number, {
+        work: next,
+      }),
+    );
+  }
+
   return (
-    <header className="lesson-section-heading">
-      <span className="lesson-kicker">BLOQUE {number}</span>
-      <h2>{title}</h2>
-      <p>{description}</p>
-    </header>
+    <div className="ad-workshop">
+      <div className="ad-workshop__intro">
+        <span>ACTIVIDAD EN EQUIPO · 60 MINUTOS</span>
+        <h3>Construye una marca de café</h3>
+        <p>
+          Cada equipo desarrollará su propia propuesta. Las respuestas formarán
+          parte del PDF final.
+        </p>
+      </div>
+
+      <div className="ad-workshop__grid">
+        {WORK_FIELDS.map(([key, label]) => (
+          <label key={key}>
+            <strong>{label}</strong>
+
+            {key === "platform" ? (
+              <select
+                value={work[key] || ""}
+                onChange={(event) => update(key, event.target.value)}
+              >
+                <option value="">Selecciona una plataforma</option>
+                {(lesson.platforms || []).map((platform) => (
+                  <option key={platform.name} value={platform.name}>
+                    {platform.name}
+                  </option>
+                ))}
+              </select>
+            ) : (
+              <textarea
+                rows={key === "team" || key === "brand" ? 2 : 3}
+                value={work[key] || ""}
+                onChange={(event) => update(key, event.target.value)}
+                placeholder={`Escribe aquí: ${label.toLowerCase()}`}
+              />
+            )}
+          </label>
+        ))}
+      </div>
+
+      <p className="ad-save-status" role="status">
+        {saved
+          ? "Tus respuestas se guardan automáticamente en este dispositivo."
+          : "No se pudo guardar. Revisa el almacenamiento del navegador."}
+      </p>
+    </div>
+  );
+}
+
+function Rows({ columns, rows }) {
+  return (
+    <div className="ad-table-wrap">
+      <table className="ad-table">
+        <thead>
+          <tr>
+            {(columns || []).map((column) => (
+              <th key={column}>{column}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {(rows || []).map((row, index) => (
+            <tr key={index}>
+              {row.map((value, cellIndex) => (
+                <td key={cellIndex}>{value}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function SlideBody({ slide, lesson, studentName }) {
+  switch (slide.kind) {
+    case "cover":
+      return (
+        <div className="ad-cover-layout">
+          <div className="ad-cover-copy">
+            <span className="ad-overline">UNIDAD 01 · SEMANA 01</span>
+            <h2>{slide.title}</h2>
+            <h3>{slide.subtitle}</h3>
+            <p>{slide.body}</p>
+            <div className="ad-cover-meta">
+              <span>180 MINUTOS</span>
+              <span>ESTRATEGIA DIGITAL</span>
+            </div>
+          </div>
+          <ImageSpace
+            src={slide.image}
+            hint={slide.imageHint}
+            alt="Fotografía de portada de café"
+          />
+        </div>
+      );
+
+    case "brands":
+      return (
+        <>
+          <p className="ad-lead">{slide.subtitle}</p>
+          <div className="ad-brands">
+            {(slide.brands || []).map((brand) => (
+              <article className="ad-brand" key={brand.name}>
+                <ImageSpace
+                  src={brand.image}
+                  hint={brand.hint}
+                  alt={`Identidad de café ${brand.name}`}
+                />
+                <div className="ad-brand__copy">
+                  <h3>{brand.name}</h3>
+                  <p>{brand.detail}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </>
+      );
+
+    case "pillars":
+      return (
+        <div className="ad-split">
+          <div>
+            <p className="ad-lead">{slide.body}</p>
+            <div className="ad-pillars">
+              {(slide.pillars || []).map((item, index) => (
+                <div key={item}>
+                  <small>0{index + 1}</small>
+                  <strong>{item}</strong>
+                </div>
+              ))}
+            </div>
+          </div>
+          <ImageSpace src={slide.image} hint={slide.imageHint} />
+        </div>
+      );
+
+    case "table":
+      return (
+        <div className="ad-split">
+          <div>
+            <p className="ad-lead">{slide.subtitle}</p>
+            <Rows columns={slide.columns} rows={slide.rows} />
+          </div>
+          <ImageSpace src={slide.image} hint={slide.imageHint} />
+        </div>
+      );
+
+    case "platforms":
+      return (
+        <div className="ad-split">
+          <div>
+            <p className="ad-lead">{slide.body}</p>
+            <div className="ad-platform-list">
+              {(slide.platforms || []).map((platform, index) => (
+                <div key={platform}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <strong>{platform}</strong>
+                </div>
+              ))}
+            </div>
+          </div>
+          <ImageSpace src={slide.image} hint={slide.imageHint} />
+        </div>
+      );
+
+    case "statement":
+      return (
+        <div className="ad-split ad-statement">
+          <div>
+            <span className="ad-strategy-label">{slide.accent}</span>
+            <p className="ad-lead">{slide.body}</p>
+            <blockquote>{slide.quote}</blockquote>
+            <p className="ad-note">{slide.note}</p>
+          </div>
+          <ImageSpace src={slide.image} hint={slide.imageHint} />
+        </div>
+      );
+
+    case "compare":
+      return (
+        <div className="ad-split">
+          <Rows columns={slide.columns} rows={slide.rows} />
+          <ImageSpace src={slide.image} hint={slide.imageHint} />
+        </div>
+      );
+
+    case "case":
+      return (
+        <div className="ad-split">
+          <div>
+            <span className="ad-overline">CASO DE ESTUDIO</span>
+            <h3 className="ad-big-brand">{slide.brand}</h3>
+            <p className="ad-lead">{slide.body}</p>
+            <div className="ad-detail-list">
+              {(slide.details || []).map(([label, value]) => (
+                <div key={label}>
+                  <strong>{label}</strong>
+                  <p>{value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <ImageSpace src={slide.image} hint={slide.imageHint} />
+        </div>
+      );
+
+    case "twoideas":
+      return (
+        <div className="ad-ideas">
+          {(slide.ideas || []).map((idea) => (
+            <article key={idea.label}>
+              <ImageSpace src={idea.image} hint={idea.hint} />
+              <div className="ad-idea-copy">
+                <span>{idea.label}</span>
+                <small>OBJETIVO: {idea.goal}</small>
+                <blockquote>{idea.text}</blockquote>
+              </div>
+            </article>
+          ))}
+        </div>
+      );
+
+    case "pushpull-lab":
+      return <PushPullLab lessonId={lesson.id} studentName={studentName} />;
+
+    case "workshop":
+      return (
+        <>
+          <p className="ad-lead">{slide.subtitle}</p>
+
+          <div className="ad-split">
+            <div className="ad-timeline">
+              {(slide.tasks || []).map(([time, task]) => (
+                <div key={task}>
+                  <strong>{time}</strong>
+                  <span>{task}</span>
+                </div>
+              ))}
+            </div>
+
+            <ImageSpace src={slide.image} hint={slide.imageHint} />
+          </div>
+
+          <p className="ad-note">{slide.note}</p>
+
+          <Workshop lesson={lesson} />
+        </>
+      );
+    case "present":
+      return (
+        <div className="ad-split">
+          <div>
+            <p className="ad-lead">{slide.body}</p>
+            <blockquote className="ad-feature-quote">{slide.quote}</blockquote>
+          </div>
+          <ImageSpace src={slide.image} hint={slide.imageHint} />
+        </div>
+      );
+
+    case "questions":
+      return (
+        <div className="ad-split">
+          <div>
+            <div className="ad-questions">
+              {(slide.questions || []).map((question, index) => (
+                <div key={question}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <p>{question}</p>
+                </div>
+              ))}
+            </div>
+            <p className="ad-note">{slide.note}</p>
+          </div>
+          <ImageSpace src={slide.image} hint={slide.imageHint} />
+        </div>
+      );
+
+    case "homework":
+      return (
+        <div className="ad-split">
+          <div>
+            <p className="ad-lead">{slide.body}</p>
+            <p className="ad-note">{slide.note}</p>
+            <div className="ad-next-week">{slide.next}</div>
+          </div>
+          <ImageSpace src={slide.image} hint={slide.imageHint} />
+        </div>
+      );
+
+    default:
+      return (
+        <div>
+          <p>{slide.body || "Contenido en preparación."}</p>
+          {slide.image && (
+            <ImageSpace src={slide.image} hint={slide.imageHint} />
+          )}
+        </div>
+      );
+  }
+}
+
+export default function LessonContent({ lesson, studentName = "" }) {
+  const [mode, setMode] = useState("presentation");
+  const [index, setIndex] = useState(0);
+  const [showDelivery, setShowDelivery] = useState(false);
+
+  const slides = lesson?.slides || [];
+  const slide = slides[index];
+
+  useEffect(() => {
+    setIndex(0);
+    setShowDelivery(false);
+  }, [lesson?.id]);
+
+  useEffect(() => {
+    if (mode !== "presentation") return;
+
+    function handleKey(event) {
+      const target = event.target;
+      const editing =
+        target instanceof HTMLElement &&
+        (target.matches("input, textarea, select") || target.isContentEditable);
+
+      if (editing) return;
+
+      if (event.key === "ArrowRight") {
+        setIndex((current) => Math.min(current + 1, slides.length - 1));
+      }
+
+      if (event.key === "ArrowLeft") {
+        setIndex((current) => Math.max(current - 1, 0));
+      }
+    }
+
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [mode, slides.length]);
+
+  if (!lesson) {
+    return <p>La clase todavía no está disponible.</p>;
+  }
+
+  if (!slides.length) {
+    return <p>Esta clase no tiene diapositivas registradas.</p>;
+  }
+
+  return (
+    <section className={`ad-classroom ad-mode-${mode}`}>
+      <div className="ad-classroom-toolbar">
+        <div>
+          <span>DISEÑO PARA GENERACIÓN DE CONTENIDO</span>
+          <strong>
+            Semana {lesson.number} · {lesson.title}
+          </strong>
+        </div>
+
+        <div className="ad-mode-switch">
+          <button
+            type="button"
+            className={mode === "reading" ? "selected" : ""}
+            onClick={() => setMode("reading")}
+          >
+            Lectura
+          </button>
+          <button
+            type="button"
+            className={mode === "presentation" ? "selected" : ""}
+            onClick={() => setMode("presentation")}
+          >
+            Presentación
+          </button>
+        </div>
+      </div>
+
+      {mode === "presentation" ? (
+        <>
+          <article className="ad-slide" key={slide.id}>
+            <div className="ad-slide-heading">
+              <div>
+                <span className="ad-overline">{slide.block}</span>
+                {slide.kind !== "cover" && <h2>{slide.title}</h2>}
+              </div>
+              <span className="ad-slide-number">
+                {slide.id} / {slides.length}
+              </span>
+            </div>
+
+            <SlideBody
+              slide={slide}
+              lesson={lesson}
+              studentName={studentName}
+            />
+
+            {slide.question && (
+              <div className="ad-question">
+                <span>PARA DISCUTIR</span>
+                <p>{slide.question}</p>
+              </div>
+            )}
+          </article>
+
+          <nav className="ad-slide-navigation">
+            <button
+              disabled={index === 0}
+              onClick={() => setIndex((value) => value - 1)}
+            >
+              ← Anterior
+            </button>
+
+            <span>
+              {index + 1} de {slides.length}
+            </span>
+
+            <button
+              disabled={index === slides.length - 1}
+              onClick={() => setIndex((value) => value + 1)}
+            >
+              Siguiente →
+            </button>
+          </nav>
+        </>
+      ) : (
+        <div className="ad-reading">
+          {slides.map((item) => (
+            <article className="ad-slide" key={item.id}>
+              <div className="ad-slide-heading">
+                <div>
+                  <span className="ad-overline">{item.block}</span>
+                  {item.kind !== "cover" && <h2>{item.title}</h2>}
+                </div>
+                <span className="ad-slide-number">{item.id}</span>
+              </div>
+
+              <SlideBody
+                slide={item}
+                lesson={lesson}
+                studentName={studentName}
+              />
+
+              {item.question && (
+                <div className="ad-question">
+                  <span>PARA DISCUTIR</span>
+                  <p>{item.question}</p>
+                </div>
+              )}
+            </article>
+          ))}
+        </div>
+      )}
+
+      <div className="ad-delivery-area">
+        <button
+          type="button"
+          className="ad-delivery-toggle"
+          onClick={() => setShowDelivery((value) => !value)}
+          aria-expanded={showDelivery}
+        >
+          {showDelivery
+            ? "Ocultar entrega académica"
+            : "Abrir entrega académica y PDF"}
+        </button>
+
+        {showDelivery && <DownloadPDF studentName={studentName} />}
+      </div>
+    </section>
   );
 }

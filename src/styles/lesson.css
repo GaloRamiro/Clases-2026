@@ -1006,3 +1006,90 @@
     padding: 12px;
   }
 }
+
+/* ENTREGA ACADÉMICA */
+
+.workshop-save-status {
+  margin: 20px 0 0;
+  color: #52705f;
+  font-size: 13px;
+}
+
+.final-delivery {
+  margin-top: 25px;
+}
+
+.final-delivery > h3 {
+  margin: 10px 0;
+  font-size: clamp(24px, 3vw, 34px);
+}
+
+.final-delivery > p {
+  color: #64748b;
+  line-height: 1.7;
+}
+
+.delivery-identity {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+  padding: 20px;
+  margin: 24px 0;
+  border: 1px solid #dce5ef;
+  border-radius: 14px;
+  background: #f3f7fc;
+}
+
+.delivery-identity > div {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+
+.delivery-identity small {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #64748b;
+}
+
+.delivery-identity strong {
+  overflow-wrap: anywhere;
+  font-size: 14px;
+  color: #17243b;
+}
+
+.delivery-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 24px;
+  margin-top: 24px;
+  border-top: 1px solid #dce5ef;
+}
+
+.delivery-actions p {
+  max-width: 400px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.delivery-message {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  background: #eef4fb;
+  color: #214d83;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 650px) {
+  .delivery-identity {
+    grid-template-columns: 1fr;
+  }
+
+  .delivery-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

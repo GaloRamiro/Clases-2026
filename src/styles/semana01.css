@@ -1,0 +1,974 @@
+/* ==========================================================
+   AULA DIGITAL — SEMANA 01
+   Diseño académico de diapositivas y actividades
+
+   Paleta:
+   Azul noche     #172338
+   Azul petróleo  #287c91
+   Azul suave     #eaf3f6
+   Fondo          #f7f8fa
+
+   Este archivo contiene los estilos de LessonContent.
+   PushPullLab mantiene sus estilos en PushPullLab.css.
+   ========================================================== */
+
+/* ==========================================================
+   01. VARIABLES Y BASE
+   ========================================================== */
+
+.ad-classroom {
+  --ad-primary: #172338;
+  --ad-primary-hover: #293d5a;
+  --ad-accent: #287c91;
+  --ad-accent-hover: #21687a;
+  --ad-accent-soft: #eaf3f6;
+  --ad-text: #172338;
+  --ad-muted: #65748a;
+  --ad-border: #dfe6ef;
+  --ad-surface: #f7f8fa;
+  --ad-white: #ffffff;
+
+  width: 100%;
+  min-width: 0;
+  color: var(--ad-text);
+  font-family: inherit;
+}
+
+.ad-classroom *,
+.ad-classroom *::before,
+.ad-classroom *::after {
+  box-sizing: border-box;
+}
+
+/* ==========================================================
+   02. BARRA SUPERIOR Y MODOS
+   ========================================================== */
+
+.ad-classroom-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 18px 24px;
+  margin-bottom: 24px;
+  background: var(--ad-white);
+  border: 1px solid var(--ad-border);
+  border-radius: 14px;
+}
+
+.ad-classroom-toolbar > div:first-child {
+  display: grid;
+  gap: 6px;
+}
+
+.ad-classroom-toolbar span,
+.ad-overline {
+  color: var(--ad-accent);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+.ad-classroom-toolbar strong {
+  font-size: 15px;
+}
+
+.ad-mode-switch {
+  display: flex;
+  gap: 5px;
+  padding: 5px;
+  background: #edf1f6;
+  border-radius: 10px;
+}
+
+.ad-mode-switch button {
+  padding: 11px 16px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: #34465f;
+  font: inherit;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.ad-mode-switch button.selected {
+  background: var(--ad-primary);
+  color: var(--ad-white);
+}
+
+/* ==========================================================
+   03. ESTRUCTURA GENERAL DE DIAPOSITIVAS
+   ========================================================== */
+
+.ad-slide {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+  min-height: min(720px, 80vh);
+  padding: clamp(24px, 4vw, 58px);
+  overflow: hidden;
+  background: var(--ad-white);
+  border: 1px solid var(--ad-border);
+  border-radius: 18px;
+}
+
+.ad-slide-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.ad-slide-heading h2 {
+  max-width: 1000px;
+  margin: 14px 0 0;
+  color: var(--ad-primary);
+  font-size: clamp(28px, 3.1vw, 52px);
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+
+.ad-slide-number {
+  white-space: nowrap;
+  color: #73849a;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.ad-lead {
+  margin: 0 0 20px;
+  color: #43546b;
+  font-size: clamp(17px, 1.5vw, 23px);
+  line-height: 1.5;
+}
+
+.ad-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: stretch;
+  gap: 28px;
+  flex: 1;
+}
+
+/* ==========================================================
+   04. IMÁGENES
+   ========================================================== */
+
+.ad-image-space {
+  position: relative;
+  width: 100%;
+  min-height: 270px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #edf1f6;
+}
+
+.ad-image-space img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 270px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.ad-image-placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  min-height: 270px;
+  height: 100%;
+  padding: 28px;
+  border: 0;
+  border-radius: 14px;
+  text-align: center;
+  background: linear-gradient(135deg, #edf1f6 0%, #dfe7f1 100%);
+}
+
+.ad-image-placeholder span {
+  color: #566780;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.ad-image-placeholder p {
+  max-width: 380px;
+  margin: 0;
+  color: #60718a;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.ad-image-placeholder small {
+  display: none;
+}
+
+/* ==========================================================
+   05. PORTADA
+   ========================================================== */
+
+.ad-cover-layout {
+  display: grid;
+  grid-template-columns: 1fr 0.95fr;
+  align-items: stretch;
+  gap: 36px;
+  min-height: 480px;
+}
+
+.ad-cover-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.ad-cover-copy h2 {
+  margin: 22px 0;
+  color: var(--ad-primary);
+  font-size: clamp(38px, 4.2vw, 72px);
+  line-height: 0.99;
+  font-weight: 850;
+  letter-spacing: -2px;
+}
+
+.ad-cover-copy h3 {
+  margin: 0 0 18px;
+  color: var(--ad-accent);
+  font-size: clamp(19px, 1.7vw, 26px);
+  line-height: 1.3;
+}
+
+.ad-cover-copy p {
+  max-width: 570px;
+  color: #5c6c82;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.ad-cover-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.ad-cover-meta span {
+  padding: 10px 13px;
+  border: 1px solid var(--ad-border);
+  border-radius: 6px;
+  color: var(--ad-primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* ==========================================================
+   06. COMPARACIÓN DE MARCAS
+   ========================================================== */
+
+.ad-brands {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.ad-brand {
+  overflow: hidden;
+  background: var(--ad-white);
+  border: 1px solid var(--ad-border);
+  border-radius: 14px;
+}
+
+.ad-brand .ad-image-space,
+.ad-brand .ad-image-placeholder {
+  min-height: 310px;
+  border-radius: 0;
+}
+
+.ad-brand__copy {
+  padding: 20px;
+}
+
+.ad-brand__copy h3 {
+  margin: 0 0 8px;
+  color: var(--ad-primary);
+  font-size: 22px;
+}
+
+.ad-brand__copy p {
+  margin: 0;
+  color: var(--ad-muted);
+}
+
+/* ==========================================================
+   07. PILARES DE ESTRATEGIA
+   ========================================================== */
+
+.ad-pillars {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.ad-pillars > div {
+  display: grid;
+  gap: 16px;
+  padding: 22px;
+  background: #f0f4f8;
+  border-left: 3px solid var(--ad-accent);
+  border-radius: 8px;
+}
+
+.ad-pillars small {
+  color: var(--ad-accent);
+  font-weight: 800;
+}
+
+.ad-pillars strong {
+  font-size: 18px;
+}
+
+/* ==========================================================
+   08. TABLAS ACADÉMICAS
+   ========================================================== */
+
+.ad-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.ad-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.ad-table th {
+  padding: 17px;
+  background: var(--ad-primary);
+  color: var(--ad-white);
+  text-align: left;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.ad-table td {
+  padding: 19px 17px;
+  border-bottom: 1px solid var(--ad-border);
+  line-height: 1.5;
+}
+
+.ad-table tbody tr:nth-child(even) {
+  background: #f5f7fa;
+}
+
+/* ==========================================================
+   09. PLATAFORMAS DIGITALES
+   ========================================================== */
+
+.ad-platform-list {
+  display: grid;
+  gap: 10px;
+}
+
+.ad-platform-list > div {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 17px;
+  border: 1px solid var(--ad-border);
+  border-radius: 8px;
+}
+
+.ad-platform-list span {
+  color: var(--ad-accent);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.ad-platform-list strong {
+  font-size: 18px;
+}
+
+/* ==========================================================
+   10. ESTRATEGIAS PUSH Y PULL
+   ========================================================== */
+
+.ad-strategy-label {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 10px 15px;
+  background: var(--ad-primary);
+  color: var(--ad-white);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.ad-statement blockquote,
+.ad-feature-quote {
+  margin: 25px 0;
+  padding: 25px 0 25px 22px;
+  border-left: 4px solid var(--ad-accent);
+  color: var(--ad-primary);
+  font-size: clamp(21px, 2.4vw, 34px);
+  font-weight: 750;
+  line-height: 1.3;
+}
+
+.ad-note {
+  margin: 16px 0;
+  color: #6a7890;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ==========================================================
+   11. CASO DE ESTUDIO
+   ========================================================== */
+
+.ad-big-brand {
+  margin: 16px 0;
+  font-size: clamp(36px, 4vw, 62px);
+  letter-spacing: -1px;
+}
+
+.ad-detail-list {
+  display: grid;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.ad-detail-list > div {
+  padding: 18px;
+  background: #f3f6fa;
+  border-radius: 8px;
+}
+
+.ad-detail-list strong {
+  color: var(--ad-accent);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.ad-detail-list p {
+  margin: 8px 0 0;
+  color: #42546b;
+}
+
+/* ==========================================================
+   12. DOS PROPUESTAS DE CONTENIDO
+   ========================================================== */
+
+.ad-ideas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.ad-ideas article {
+  overflow: hidden;
+  border: 1px solid var(--ad-border);
+  border-radius: 12px;
+}
+
+.ad-ideas .ad-image-space {
+  min-height: 250px;
+  border-radius: 0;
+}
+
+.ad-idea-copy {
+  display: grid;
+  gap: 12px;
+  padding: 22px;
+}
+
+.ad-idea-copy > span {
+  color: var(--ad-accent);
+  font-size: 18px;
+  font-weight: 850;
+}
+
+.ad-idea-copy small {
+  color: #5a6a80;
+  font-weight: 750;
+}
+
+.ad-idea-copy blockquote {
+  margin: 0;
+  font-size: 21px;
+  line-height: 1.4;
+  border-left: 3px solid var(--ad-accent);
+  padding-left: 14px;
+}
+
+/* ==========================================================
+   13. CRONOGRAMA DEL TALLER
+   ========================================================== */
+
+.ad-timeline {
+  display: grid;
+  gap: 10px;
+}
+
+.ad-timeline > div {
+  display: grid;
+  grid-template-columns: 75px 1fr;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: #f2f5f9;
+  border-radius: 8px;
+}
+
+.ad-timeline strong {
+  color: var(--ad-accent);
+}
+
+/* ==========================================================
+   14. TALLER CREA TU MARCA
+   ========================================================== */
+
+.ad-workshop {
+  margin-top: 25px;
+  padding: clamp(18px, 3vw, 32px);
+  background: var(--ad-surface);
+  border: 1px solid var(--ad-border);
+  border-radius: 14px;
+}
+
+.ad-workshop__intro span {
+  color: var(--ad-accent);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.ad-workshop__intro h3 {
+  margin: 12px 0;
+  color: var(--ad-primary);
+  font-size: 26px;
+}
+
+.ad-workshop__intro p {
+  color: #617189;
+  line-height: 1.6;
+}
+
+.ad-workshop__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 25px;
+}
+
+.ad-workshop__grid label {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  color: var(--ad-primary);
+  font-size: 14px;
+}
+
+.ad-workshop__grid strong {
+  font-size: 14px;
+}
+
+.ad-workshop__grid textarea,
+.ad-workshop__grid select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 50px;
+  padding: 14px;
+  border: 1px solid #cbd6e4;
+  border-radius: 9px;
+  background: var(--ad-white);
+  color: var(--ad-primary);
+  font: inherit;
+  line-height: 1.6;
+}
+
+.ad-workshop__grid textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.ad-workshop__grid textarea:focus,
+.ad-workshop__grid select:focus {
+  outline: 2px solid #a8d1da;
+  outline-offset: 1px;
+  border-color: var(--ad-accent);
+}
+
+.ad-save-status {
+  margin-top: 18px;
+  color: #52705f;
+  font-size: 13px;
+}
+
+/* ==========================================================
+   15. REFLEXIÓN
+   ========================================================== */
+
+.ad-questions {
+  display: grid;
+  gap: 14px;
+}
+
+.ad-questions > div {
+  display: flex;
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--ad-border);
+}
+
+.ad-questions span {
+  color: var(--ad-accent);
+  font-weight: 800;
+}
+
+.ad-questions p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.ad-next-week {
+  margin-top: 35px;
+  padding: 24px;
+  background: var(--ad-primary);
+  border-radius: 8px;
+  color: var(--ad-white);
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* ==========================================================
+   16. PREGUNTAS EN DIAPOSITIVAS
+   ========================================================== */
+
+.ad-question {
+  margin-top: auto;
+  padding: 20px 25px;
+  background: #f0f4f9;
+  border-left: 4px solid var(--ad-accent);
+  border-radius: 8px;
+}
+
+.ad-question span {
+  color: var(--ad-accent);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 1.5px;
+}
+
+.ad-question p {
+  margin: 10px 0 0;
+  color: #263a54;
+  font-size: 19px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+/* ==========================================================
+   17. NAVEGACIÓN ENTRE DIAPOSITIVAS
+   ========================================================== */
+
+.ad-slide-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 18px;
+  padding: 14px;
+  background: var(--ad-primary);
+  border-radius: 12px;
+  color: var(--ad-white);
+}
+
+.ad-slide-navigation button {
+  padding: 12px 20px;
+  border: 1px solid #718098;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ad-white);
+  font: inherit;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.ad-slide-navigation button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.ad-slide-navigation button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.ad-slide-navigation span {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* ==========================================================
+   18. MODO LECTURA
+   ========================================================== */
+
+.ad-reading {
+  display: grid;
+  gap: 30px;
+}
+
+.ad-reading .ad-slide {
+  min-height: 500px;
+}
+
+/* ==========================================================
+   19. ENTREGA ACADÉMICA
+   ========================================================== */
+
+.ad-delivery-area {
+  width: 100%;
+  min-width: 0;
+  margin-top: 32px;
+}
+
+.ad-delivery-toggle {
+  width: 100%;
+  padding: 20px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--ad-primary);
+  color: var(--ad-white);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.ad-delivery-toggle:hover {
+  background: var(--ad-accent);
+}
+
+.ad-delivery-area > :not(.ad-delivery-toggle) {
+  margin-top: 20px;
+}
+
+/*
+   El componente DownloadPDF puede utilizar clases
+   propias. Estas reglas cubren los elementos
+   habituales dentro de la entrega académica.
+*/
+
+.ad-delivery-area form,
+.ad-delivery-area .final-delivery {
+  display: grid;
+  gap: 22px;
+  width: 100%;
+  min-width: 0;
+  padding: clamp(22px, 3vw, 36px);
+  background: var(--ad-white);
+  border: 1px solid var(--ad-border);
+  border-radius: 16px;
+}
+
+.ad-delivery-area label {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  min-width: 0;
+  margin: 0;
+  color: var(--ad-primary);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.ad-delivery-area textarea,
+.ad-delivery-area input,
+.ad-delivery-area select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: 14px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  background: var(--ad-white);
+  color: var(--ad-primary);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.ad-delivery-area textarea {
+  min-height: 125px;
+  resize: vertical;
+}
+
+.ad-delivery-area textarea:focus,
+.ad-delivery-area input:focus,
+.ad-delivery-area select:focus {
+  outline: 2px solid #a8d1da;
+  outline-offset: 2px;
+  border-color: var(--ad-accent);
+}
+
+.ad-delivery-area button:not(.ad-delivery-toggle) {
+  width: fit-content;
+  max-width: 100%;
+  min-height: 48px;
+  padding: 13px 22px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--ad-primary);
+  color: var(--ad-white);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 750;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.ad-delivery-area button:not(.ad-delivery-toggle):hover:not(:disabled) {
+  background: var(--ad-primary-hover);
+}
+
+.ad-delivery-area button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ad-delivery-area p {
+  line-height: 1.7;
+}
+
+/* ==========================================================
+   20. RESPONSIVE — TABLET
+   ========================================================== */
+
+@media (max-width: 900px) {
+  .ad-cover-layout,
+  .ad-split {
+    grid-template-columns: 1fr;
+  }
+
+  .ad-slide {
+    min-height: auto;
+  }
+
+  .ad-cover-layout {
+    min-height: 0;
+  }
+
+  .ad-image-space {
+    min-height: 300px;
+  }
+
+  .ad-brands {
+    gap: 10px;
+  }
+
+  .ad-brand .ad-image-space {
+    min-height: 220px;
+  }
+}
+
+/* ==========================================================
+   21. RESPONSIVE — MÓVIL
+   ========================================================== */
+
+@media (max-width: 650px) {
+  .ad-classroom-toolbar {
+    padding: 15px;
+  }
+
+  .ad-mode-switch {
+    width: 100%;
+  }
+
+  .ad-mode-switch button {
+    flex: 1;
+  }
+
+  .ad-slide {
+    padding: 22px;
+    gap: 22px;
+  }
+
+  .ad-slide-heading h2 {
+    font-size: 30px;
+    letter-spacing: -0.7px;
+  }
+
+  .ad-cover-copy h2 {
+    font-size: 40px;
+  }
+
+  .ad-brands,
+  .ad-ideas,
+  .ad-workshop__grid,
+  .ad-pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .ad-brand .ad-image-space {
+    min-height: 280px;
+  }
+
+  .ad-slide-navigation button {
+    padding: 11px 13px;
+    font-size: 13px;
+  }
+
+  .ad-table {
+    font-size: 13px;
+  }
+
+  .ad-table th,
+  .ad-table td {
+    padding: 12px;
+  }
+
+  .ad-delivery-area form,
+  .ad-delivery-area .final-delivery {
+    padding: 20px;
+  }
+
+  .ad-delivery-area button:not(.ad-delivery-toggle) {
+    width: 100%;
+  }
+
+  .ad-slide-heading {
+    flex-wrap: wrap;
+  }
+}
+
+/* ==========================================================
+   22. ACCESIBILIDAD
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .ad-classroom *,
+  .ad-classroom *::before,
+  .ad-classroom *::after {
+    scroll-behavior: auto;
+    transition: none;
+    animation: none;
+  }
+}

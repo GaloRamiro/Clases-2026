@@ -129,3 +129,20 @@ img {
     scroll-behavior: auto;
   }
 }
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+#root {
+  max-width: none;
+  text-align: left;
+  border: 0;
+}
+
+body {
+  min-width: 320px;
+}
