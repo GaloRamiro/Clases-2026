@@ -1,11 +1,20 @@
 
-import semana01 from "./contenido/semana01";
+/* ==========================================
+   AULA DIGITAL — REGISTRO DE CLASES
+   ========================================== */
+
+import contenidoSemana01 from "./contenido/semana01";
+import seoSemana01 from "./seo/semana01";
 
 const lessons = {
   contenido: {
-    1: semana01,
+    1: contenidoSemana01,
   },
-  seo: {},
+
+  seo: {
+    1: seoSemana01,
+  },
+
   crm: {},
 };
 

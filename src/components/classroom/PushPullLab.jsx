@@ -8,7 +8,7 @@ const CASES = [
     title: "Lanzamiento de un nuevo café",
     message:
       "¡Llegó nuestro nuevo café de origen! Conoce las presentaciones y realiza tu pedido hoy.",
-    image: "/public/images/push.jpg",
+    image: "/public/images/contenido/push.jpg",
     answer: "PUSH",
     explanation:
       "Promociona un producto y solicita una acción comercial directa.",
@@ -18,7 +18,7 @@ const CASES = [
     title: "Aprende a preparar café",
     message:
       "Tres errores que debes evitar para conseguir un café con mejor sabor.",
-    image: "/public/images/pull1.jpg",
+    image: "/public/images/contenido/pull1.jpg",
     answer: "PULL",
     explanation:
       "Atrae al consumidor con información útil sin solicitar una compra inmediata.",
@@ -28,7 +28,7 @@ const CASES = [
     title: "Promoción especial",
     message:
       "Esta semana tenemos un 20 % de descuento en nuestra selección de café.",
-    image: "/public/images/push2.jpg",
+    image: "/public/images/contenido/push2.jpg",
     answer: "PUSH",
     explanation:
       "Presenta una oferta comercial para incentivar la compra.",
@@ -38,7 +38,7 @@ const CASES = [
     title: "El origen del sabor",
     message:
       "¿Cómo influye la altura del cultivo en el sabor de una taza de café?",
-    image: "/public/images/pull2.webp",
+    image: "/public/images/contenido/pull2.webp",
     answer: "PULL",
     explanation:
       "Genera interés mediante contenido educativo relacionado con el producto.",

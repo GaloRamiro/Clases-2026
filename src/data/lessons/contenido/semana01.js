@@ -123,7 +123,7 @@ const semana01 = {
         "Hoy aprenderemos por qué una marca necesita diferenciarse " +
         "y cómo empezar a comunicar su propuesta en plataformas digitales.",
 
-      image: "/images/portada-cafe.png",
+      image: "/public/images/contenido/portada-cafe.png",
 
       imageHint:
         "Fotografía publicitaria horizontal de una taza de café, " +
@@ -148,7 +148,7 @@ const semana01 = {
         {
           name: "ARTESANAL",
           detail: "Tradición, origen y proceso.",
-          image: "/public/images/Café Artesanal en Luz Dorada.png",
+          image: "/public/images/contenido/Café Artesanal en Luz Dorada.png",
           hint:
             "Empaque artesanal de café, materiales naturales, " +
             "colores tierra y fotografía editorial.",
@@ -156,7 +156,7 @@ const semana01 = {
         {
           name: "PRÉMIUM",
           detail: "Exclusividad, calidad y experiencia.",
-          image: "/public/images/Café premium en ambiente oscuro.png",
+          image: "/public/images/contenido/Café premium en ambiente oscuro.png",
           hint:
             "Empaque de café de lujo, composición minimalista, " +
             "colores oscuros y acabado elegante.",
@@ -164,7 +164,7 @@ const semana01 = {
         {
           name: "JUVENIL",
           detail: "Accesibilidad, energía y personalidad.",
-          image: "/public/images/Latte helado en cafetería acogedora.png",
+          image: "/public/images/contenido/Latte helado en cafetería acogedora.png",
           hint:
             "Marca juvenil de café con empaque creativo, " +
             "colores expresivos y estilo contemporáneo.",
@@ -192,7 +192,7 @@ const semana01 = {
 
       pillars: ["OBJETIVO", "AUDIENCIA", "MENSAJE", "PLATAFORMA"],
 
-      image: "/public/images/Mesa de diseño para marca de café.png",
+      image: "/public/images/contenido/Mesa de diseño para marca de café.png",
 
       imageHint:
         "Equipo creativo trabajando con bocetos, fotografías, " +
@@ -227,7 +227,7 @@ const semana01 = {
         ],
       ],
 
-      image: "/public/images/Creatividad entre café y trabajo.png",
+      image: "/public/images/contenido/Creatividad entre café y trabajo.png",
 
       imageHint:
         "Fotografía comercial de café junto a un celular " +
@@ -254,7 +254,7 @@ const semana01 = {
 
       platforms: ["Instagram", "TikTok", "Facebook", "YouTube", "Sitio web"],
 
-      image: "/public/images/Café artesanal en ambiente cinematográfico.png",
+      image: "/public/images/contenido/Café artesanal en ambiente cinematográfico.png",
 
       imageHint:
         "Creador de contenido grabando la preparación de café " +
@@ -288,7 +288,7 @@ const semana01 = {
         "Úsala para comunicar lanzamientos, promociones " +
         "o acciones comerciales concretas.",
 
-      image: "/public/images/Barista preparando café de especialidad.png",
+      image: "/public/images/contenido/Barista preparando café de especialidad.png",
 
       imageHint:
         "Anuncio comercial de lanzamiento de una marca de café, " +
@@ -321,7 +321,7 @@ const semana01 = {
         "Úsala para generar descubrimiento, interés y confianza " +
         "antes de solicitar una acción comercial.",
 
-      image: "/public/images/Café artesanal_ producto y barista a contraluz.png",
+      image: "/public/images/contenido/Café artesanal_ producto y barista a contraluz.png",
 
       imageHint:
         "Barista demostrando la preparación artesanal de café, " +
@@ -354,7 +354,7 @@ const semana01 = {
         ["Invita a consultar o comprar.", "Invita a descubrir o aprender."],
       ],
 
-      image: "/public/images/Intercambio cálido en la cafetería.png",
+      image: "/public/images/contenido/Intercambio cálido en la cafetería.png",
 
       imageHint:
         "Composición dividida: a un lado un anuncio comercial " +
@@ -397,7 +397,7 @@ const semana01 = {
         ],
       ],
 
-      image: "/public/images/Arte del café filtrado artesanal.png",
+      image: "/public/images/contenido/Arte del café filtrado artesanal.png",
 
       imageHint:
         "Fotografía de identidad de Café Raíz: empaque artesanal, " +
@@ -423,7 +423,7 @@ const semana01 = {
           label: "PUSH",
           goal: "GENERAR CONSULTAS",
           text: "Descubre Café Raíz y conoce nuestras presentaciones.",
-          image: "/public/images/Café de medianoche con latte helado.png",
+          image: "/public/images/contenido/Café de medianoche con latte helado.png",
           hint:
             "Mockup de publicación promocional de Café Raíz " +
             "con fotografía del producto.",
@@ -432,7 +432,7 @@ const semana01 = {
           label: "PULL",
           goal: "ATRAER PERSONAS INTERESADAS",
           text: "¿Por qué la molienda influye en el sabor de tu café?",
-          image: "/public/images/Intercambio cálido en la cafetería.png",
+          image: "/public/images/contenido/Intercambio cálido en la cafetería.png",
           hint:
             "Mockup de contenido educativo que muestra " +
             "distintos tipos de molienda de café.",
@@ -486,7 +486,7 @@ const semana01 = {
         "ENTREGABLE: ficha inicial de marca, público, plataforma, " +
         "dos propuestas de contenido y justificaciones.",
 
-      image: "/public/images/Colaboración creativa para una marca de café.png",
+      image: "/public/images/contenido/Colaboración creativa para una marca de café.png",
 
       imageHint:
         "Equipo de estudiantes universitarios trabajando " +
@@ -514,7 +514,7 @@ const semana01 = {
         "No basta con mostrar lo que hicieron. " +
         "Deben explicar por qué lo hicieron.",
 
-      image: "/public/images/Presentación de marca de café.png",
+      image: "/public/images/contenido/Presentación de marca de café.png",
 
       imageHint:
         "Estudiantes universitarios exponiendo una propuesta " +
@@ -546,7 +546,7 @@ const semana01 = {
         "Cada estudiante debe escribir una conclusión individual " +
         "y explicar qué aprendió del ejercicio.",
 
-      image: "/public/images/Reunión creativa de diseño cafetero.png",
+      image: "/public/images/contenido/Reunión creativa de diseño cafetero.png",
 
       imageHint:
         "Cuaderno de trabajo abierto, café y materiales " +
@@ -575,7 +575,7 @@ const semana01 = {
 
       next: "PRÓXIMA CLASE: SEGMENTACIÓN Y BUYER PERSONA",
 
-      image: "/public/images/Mesa creativa de branding cafetero.png",
+      image: "/public/images/contenido/Mesa creativa de branding cafetero.png",
 
       imageHint:
         "Personas de diferentes perfiles consumiendo café " +

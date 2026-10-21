@@ -3,7 +3,8 @@ import DownloadPDF from "./DownloadPDF";
 import PushPullLab from "./PushPullLab";
 import { getLessonWork, saveLessonWork } from "../../services/storage";
 import "../../styles/semana01.css";
-
+import SeoWorkshop from "./SeoWorkshop";
+import SeoDownloadPDF from "./SeoDownloadPDF";
 const WORK_FIELDS = [
   ["team", "Nombre del equipo"],
   ["brand", "Nombre de la marca"],
@@ -140,14 +141,18 @@ function SlideBody({ slide, lesson, studentName }) {
             <h3>{slide.subtitle}</h3>
             <p>{slide.body}</p>
             <div className="ad-cover-meta">
-              <span>180 MINUTOS</span>
-              <span>ESTRATEGIA DIGITAL</span>
+              <span>{lesson.duration || 180} MINUTOS</span>
+              <span>
+                {lesson.courseId === "seo"
+                  ? "SEO · SEM · AEO · GEO"
+                  : "ESTRATEGIA DIGITAL"}
+              </span>
             </div>
           </div>
           <ImageSpace
             src={slide.image}
             hint={slide.imageHint}
-            alt="Fotografía de portada de café"
+            alt={slide.title || "Imagen de portada"}
           />
         </div>
       );
@@ -277,7 +282,16 @@ function SlideBody({ slide, lesson, studentName }) {
           ))}
         </div>
       );
-
+    case "seo-search-lab":
+    case "seo-company-workshop":
+    case "seo-competitor-workshop":
+      return (
+        <SeoWorkshop
+          kind={slide.kind}
+          lessonId={lesson.id}
+          studentName={studentName}
+        />
+      );
     case "pushpull-lab":
       return <PushPullLab lessonId={lesson.id} studentName={studentName} />;
 
@@ -406,7 +420,11 @@ export default function LessonContent({ lesson, studentName = "" }) {
     <section className={`ad-classroom ad-mode-${mode}`}>
       <div className="ad-classroom-toolbar">
         <div>
-          <span>DISEÑO PARA GENERACIÓN DE CONTENIDO</span>
+          <span>
+            {lesson.courseId === "seo"
+              ? "ANÁLISIS SEO"
+              : "DISEÑO PARA GENERACIÓN DE CONTENIDO"}
+          </span>
           <strong>
             Semana {lesson.number} · {lesson.title}
           </strong>
@@ -518,7 +536,12 @@ export default function LessonContent({ lesson, studentName = "" }) {
             : "Abrir entrega académica y PDF"}
         </button>
 
-        {showDelivery && <DownloadPDF studentName={studentName} />}
+        {showDelivery &&
+          (lesson.courseId === "seo" ? (
+            <SeoDownloadPDF lesson={lesson} studentName={studentName} />
+          ) : (
+            <DownloadPDF studentName={studentName} />
+          ))}
       </div>
     </section>
   );
