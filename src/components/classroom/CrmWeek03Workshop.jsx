@@ -1,4 +1,5 @@
 import { useState } from "react";
+import WorkshopDownloadButton from "./WorkshopDownloadButton";
 import "../../styles/crmSemana03.css";
 
 const PREFIX = "aula:crm:semana03";
@@ -604,6 +605,120 @@ export default function CrmWeek03Workshop({
             );
           })}
         </section>
+      )}
+
+      {kind === "crm-automation-rules" && (
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "crm",
+            number: 3,
+            title: "Automatización de tareas y seguimiento en CRM",
+          }}
+          title="Actividad 1: Constructor de reglas comerciales"
+          answers={{
+            "Nombre del equipo": data.team,
+
+            ...Object.fromEntries(
+              data.rules.flatMap((rule, index) => {
+                const prefix = `REGLA ${index + 1}`;
+
+                return [
+                  [`${prefix} - Situación`, CASES[index][1]],
+                  [
+                    `${prefix} - Incluida como regla`,
+                    rule.enabled ? "Sí" : "No",
+                  ],
+                  [`${prefix} - Disparador`, rule.trigger],
+                  [`${prefix} - Condición`, rule.condition],
+                  [`${prefix} - Acción comercial`, rule.action],
+                  [`${prefix} - Tiempo de ejecución`, rule.timing],
+                  [`${prefix} - Responsable`, rule.responsible],
+                  [`${prefix} - Tipo de ejecución`, rule.mode],
+                  [`${prefix} - Justificación`, rule.reason],
+                ];
+              }),
+            ),
+
+            "Reglas completas": `${designedRules} de 4 mínimas`,
+          }}
+        />
+      )}
+
+      {kind === "crm-automation-lab" && (
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "crm",
+            number: 3,
+            title: "Automatización de tareas y seguimiento en CRM",
+          }}
+          title="Actividad 2: Laboratorio de automatización en Bitrix24"
+          answers={{
+            "Nombre del equipo": data.team,
+
+            ...Object.fromEntries(
+              data.lab.flatMap((step, index) => {
+                const prefix = `ETAPA ${index + 1}: ${LAB[index].title}`;
+
+                return [
+                  [`${prefix} - Tiempo`, LAB[index].time],
+                  [`${prefix} - Instrucción`, LAB[index].instruction],
+                  [`${prefix} - Evidencia`, step.evidence],
+                  [`${prefix} - Observación`, step.observation],
+                  [
+                    `${prefix} - Estado`,
+                    step.completed ? "Completada" : "Pendiente",
+                  ],
+                ];
+              }),
+            ),
+
+            "AUTOMATIZACIÓN - Disparador": data.automation.trigger,
+            "AUTOMATIZACIÓN - Condición": data.automation.condition,
+            "AUTOMATIZACIÓN - Acción": data.automation.action,
+            "AUTOMATIZACIÓN - Modalidad": data.automation.mode,
+            "AUTOMATIZACIÓN - Resultado de la prueba":
+              data.automation.testResult,
+
+            "Reflexión del laboratorio": data.reflection,
+            "Etapas completadas": `${completedSteps} de ${LAB.length}`,
+          }}
+        />
+      )}
+
+      {kind === "crm-opportunity-recovery" && (
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "crm",
+            number: 3,
+            title: "Automatización de tareas y seguimiento en CRM",
+          }}
+          title="Actividad 3: Recuperación de oportunidades comerciales"
+          answers={{
+            "Nombre del equipo": data.team,
+
+            ...Object.fromEntries(
+              data.recovery.flatMap((answer, index) => {
+                const prefix = `OPORTUNIDAD ${index + 1}`;
+
+                return [
+                  [`${prefix} - Caso`, RECOVERY[index].title],
+                  [`${prefix} - Situación`, RECOVERY[index].situation],
+                  [`${prefix} - Prioridad`, answer.priority],
+                  [`${prefix} - Acción de recuperación`, answer.action],
+                  [`${prefix} - Responsable`, answer.responsible],
+                  [`${prefix} - Fecha de seguimiento`, answer.followupDate],
+                  [`${prefix} - Prevención`, answer.prevention],
+                  [`${prefix} - Justificación`, answer.justification],
+                ];
+              }),
+            ),
+
+            "Total de oportunidades analizadas": data.recovery.length,
+          }}
+        />
       )}
     </div>
   );

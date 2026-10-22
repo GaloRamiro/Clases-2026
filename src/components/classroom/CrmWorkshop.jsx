@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "../../styles/crmSemana01.css";
-import "../../styles/crmSemana01.css";
+import WorkshopDownloadButton from "./WorkshopDownloadButton";
 /* ==========================================================
    AULA DIGITAL — CRM | SEMANA 01
 
@@ -677,6 +677,131 @@ export default function CrmWorkshop({
 
       {kind === "crm-followup" && (
         <FollowupChallenge data={data} updateFollowup={updateFollowup} />
+      )}
+
+      {kind === "crm-glossary" && (
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "crm",
+            number: 1,
+            title: "Introducción al CRM y al lenguaje comercial",
+          }}
+          title="Actividad 1: Diccionario comercial"
+          answers={{
+            "Nombre del equipo": data.team,
+
+            ...Object.fromEntries(
+              data.glossary.flatMap((item, index) => {
+                const prefix = `CONCEPTO ${index + 1}: ${item.term}`;
+
+                return [
+                  [`${prefix} - Definición`, item.definition],
+                  [`${prefix} - Ejemplo comercial`, item.example],
+                  [`${prefix} - Aplicación en un CRM`, item.crmApplication],
+                ];
+              }),
+            ),
+
+            "Conceptos completos": `${
+              data.glossary.filter(
+                (item) =>
+                  item.definition.trim() &&
+                  item.example.trim() &&
+                  item.crmApplication.trim(),
+              ).length
+            } de 10`,
+          }}
+        />
+      )}
+
+      {kind === "crm-bitrix-lab" && (
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "crm",
+            number: 1,
+            title: "Introducción al CRM y al lenguaje comercial",
+          }}
+          title="Actividad 2: Mi primer cliente en Bitrix24"
+          answers={{
+            "Nombre del equipo": data.team,
+
+            ...Object.fromEntries(
+              Object.entries(data.firstLead).map(([field, value]) => [
+                `CLIENTE 1 - ${field}`,
+                value,
+              ]),
+            ),
+
+            ...Object.fromEntries(
+              Object.entries(data.secondLead).map(([field, value]) => [
+                `CLIENTE 2 - ${field}`,
+                value,
+              ]),
+            ),
+
+            ...Object.fromEntries(
+              data.lab.flatMap((item, index) => {
+                const prefix = `ETAPA ${index + 1}: ${LAB_STEPS[index].title}`;
+
+                return [
+                  [`${prefix} - Tiempo previsto`, LAB_STEPS[index].time],
+                  [`${prefix} - Actividad`, LAB_STEPS[index].instruction],
+                  [
+                    `${prefix} - Evidencia solicitada`,
+                    LAB_STEPS[index].evidence,
+                  ],
+                  [`${prefix} - Enlace de evidencia`, item.evidenceUrl],
+                  [`${prefix} - Observaciones`, item.observation],
+                  [
+                    `${prefix} - Estado`,
+                    item.completed ? "Completada" : "Pendiente",
+                  ],
+                ];
+              }),
+            ),
+
+            "Reflexión final del laboratorio": data.reflection,
+
+            "Etapas completadas": `${
+              data.lab.filter((item) => item.completed).length
+            } de 6`,
+          }}
+        />
+      )}
+
+      {kind === "crm-followup" && (
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "crm",
+            number: 1,
+            title: "Introducción al CRM y al lenguaje comercial",
+          }}
+          title="Actividad 3: Reto de seguimiento comercial"
+          answers={{
+            "Nombre del equipo": data.team,
+            "Caso comercial":
+              "Cliente interesado en un teléfono de $350. " +
+              "Recibió la cotización, respondió que lo pensaría " +
+              "y dejó de escribir durante tres días.",
+
+            "Clasificación del contacto": data.followup.classification,
+
+            "Información faltante": data.followup.missingInformation,
+
+            "Mensaje comercial de seguimiento": data.followup.message,
+
+            "Primera acción": data.followup.actionOne,
+
+            "Segunda acción": data.followup.actionTwo,
+
+            "Acción si el cliente no responde": data.followup.noResponse,
+
+            "Información que se registraría en el CRM": data.followup.crmRecord,
+          }}
+        />
       )}
     </div>
   );

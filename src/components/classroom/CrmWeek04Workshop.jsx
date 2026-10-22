@@ -1,4 +1,5 @@
 import { useState } from "react";
+import WorkshopDownloadButton from "./WorkshopDownloadButton";
 import "../../styles/crmSemana04.css";
 
 const PREFIX = "aula:crm:semana04";
@@ -585,6 +586,113 @@ export default function CrmWeek04Workshop({
             );
           })}
         </section>
+      )}
+
+      {kind === "crm-loyalty-builder" && (
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "crm",
+            number: 4,
+            title: "Fidelización y retención de clientes en CRM",
+          }}
+          title="Actividad 1: Programa de fidelización"
+          answers={{
+            "Nombre del equipo": data.team,
+            "Nombre del programa": data.brand,
+            "Público objetivo": data.audience,
+            "Problema comercial": data.problem,
+            "Propuesta de valor": data.valueProposition,
+
+            ...Object.fromEntries(
+              data.levels.flatMap((level, index) => {
+                const prefix = `NIVEL ${index + 1}: ${LEVELS[index]}`;
+
+                return [
+                  [`${prefix} - Requisito de ingreso`, level.requirement],
+                  [`${prefix} - Beneficio`, level.benefit],
+                  [`${prefix} - Identificación en CRM`, level.crmField],
+                ];
+              }),
+            ),
+
+            "Indicador de éxito": data.successIndicator,
+            "Justificación comercial": data.businessJustification,
+            "Niveles completos": `${completedLevels} de 3`,
+          }}
+        />
+      )}
+
+      {kind === "crm-loyalty-lab" && (
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "crm",
+            number: 4,
+            title: "Fidelización y retención de clientes en CRM",
+          }}
+          title="Actividad 2: Laboratorio de fidelización en Bitrix24"
+          answers={{
+            "Nombre del equipo": data.team,
+            "Nombre del programa": data.brand,
+
+            ...Object.fromEntries(
+              data.lab.flatMap((step, index) => {
+                const prefix = `ETAPA ${index + 1}: ${LAB_STEPS[index].title}`;
+
+                return [
+                  [`${prefix} - Tiempo`, LAB_STEPS[index].time],
+                  [`${prefix} - Actividad`, LAB_STEPS[index].description],
+                  [`${prefix} - Evidencia`, step.evidence],
+                  [`${prefix} - Observaciones`, step.observation],
+                  [
+                    `${prefix} - Estado`,
+                    step.completed ? "Completada" : "Pendiente",
+                  ],
+                ];
+              }),
+            ),
+
+            "Criterio de segmentación": data.segmentation,
+            "Reflexión del laboratorio": data.labReflection,
+            "Etapas completadas": `${completedLab} de ${LAB_STEPS.length}`,
+          }}
+        />
+      )}
+
+      {kind === "crm-loyalty-recovery" && (
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "crm",
+            number: 4,
+            title: "Fidelización y retención de clientes en CRM",
+          }}
+          title="Actividad 3: Recuperación de clientes inactivos"
+          answers={{
+            "Nombre del equipo": data.team,
+
+            ...Object.fromEntries(
+              data.recovery.flatMap((answer, index) => {
+                const prefix = `CLIENTE ${index + 1}: ${CUSTOMERS[index].name}`;
+
+                return [
+                  [`${prefix} - Situación`, CUSTOMERS[index].situation],
+                  [`${prefix} - Seleccionado`, answer.selected ? "Sí" : "No"],
+                  [`${prefix} - Posible causa de abandono`, answer.cause],
+                  [`${prefix} - Beneficio propuesto`, answer.benefit],
+                  [`${prefix} - Canal de comunicación`, answer.channel],
+                  [`${prefix} - Acción comercial`, answer.action],
+                  [`${prefix} - Indicador de éxito`, answer.indicator],
+                  [`${prefix} - Fecha de seguimiento`, answer.nextDate],
+                  [`${prefix} - Justificación`, answer.reason],
+                ];
+              }),
+            ),
+
+            "Clientes seleccionados": `${selectedCustomers} de 2 requeridos`,
+          }}
+        />
       )}
     </div>
   );

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import WorkshopDownloadButton from "./WorkshopDownloadButton";
 import "../../styles/crmSemana01.css";
 
 /* ==========================================================
@@ -552,6 +553,124 @@ export default function CrmWeek02Workshop({
             />
           </div>
         </section>
+      )}
+
+      {kind === "crm-client-segmentation" && (
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "crm",
+            number: 2,
+            title: "Creación y gestión de contactos en CRM",
+          }}
+          title="Actividad 1: Clasificación y segmentación de clientes"
+          answers={{
+            "Nombre del equipo": data.team,
+
+            ...Object.fromEntries(
+              data.clients.flatMap((client, index) => {
+                const prefix = `CLIENTE ${index + 1}: ${client.name}`;
+
+                return [
+                  [`${prefix} - Situación`, client.situation],
+                  [`${prefix} - Clasificación`, client.classification],
+                  [`${prefix} - Etiquetas`, client.tags],
+                  [`${prefix} - Segmento comercial`, client.segment],
+                  [`${prefix} - Prioridad`, client.priority],
+                  [`${prefix} - Acción recomendada`, client.action],
+                  [`${prefix} - Justificación`, client.justification],
+                  [
+                    `${prefix} - Seleccionado como prioritario`,
+                    client.selected ? "Sí" : "No",
+                  ],
+                ];
+              }),
+            ),
+
+            "Total de clientes analizados": data.clients.length,
+            "Clientes prioritarios seleccionados": `${selectedPriorities} de 3`,
+
+            "Nombres de clientes prioritarios":
+              data.clients
+                .filter((client) => client.selected)
+                .map((client) => client.name)
+                .join(", ") || "Ninguno",
+          }}
+        />
+      )}
+
+      {kind === "crm-contact-lab" && (
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "crm",
+            number: 2,
+            title: "Creación y gestión de contactos en CRM",
+          }}
+          title="Actividad 2: Construcción de base comercial en Bitrix24"
+          answers={{
+            "Nombre del equipo": data.team,
+
+            ...Object.fromEntries(
+              data.lab.flatMap((item, index) => {
+                const prefix = `ETAPA ${index + 1}: ${LAB_STEPS[index].title}`;
+
+                return [
+                  [`${prefix} - Tiempo`, LAB_STEPS[index].time],
+                  [`${prefix} - Instrucción`, LAB_STEPS[index].instruction],
+                  [
+                    `${prefix} - Evidencia requerida`,
+                    LAB_STEPS[index].evidence,
+                  ],
+                  [`${prefix} - Enlace de evidencia`, item.evidenceUrl],
+                  [`${prefix} - Observaciones`, item.observation],
+                  [
+                    `${prefix} - Estado`,
+                    item.completed ? "Completada" : "Pendiente",
+                  ],
+                ];
+              }),
+            ),
+
+            "Reflexión del laboratorio": data.reflection,
+
+            "Etapas completadas": `${data.lab.filter((item) => item.completed).length} de 5`,
+          }}
+        />
+      )}
+
+      {kind === "crm-segmented-campaign" && (
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "crm",
+            number: 2,
+            title: "Creación y gestión de contactos en CRM",
+          }}
+          title="Actividad 3: Campaña comercial segmentada"
+          answers={{
+            "Nombre del equipo": data.team,
+
+            "Situación comercial":
+              "La empresa dispone de presupuesto para contactar " +
+              "únicamente a cinco clientes.",
+
+            "Segmento elegido": data.campaign.segment,
+
+            "Contactos seleccionados":
+              data.clients
+                .filter((client) => selectedCampaign.includes(client.id))
+                .map((client) => `${client.name}: ${client.situation}`)
+                .join(" | ") || "Ninguno",
+
+            "Número de contactos seleccionados": `${selectedCampaign.length} de 5`,
+
+            "Producto o beneficio ofrecido": data.campaign.offer,
+            "Canal de comunicación": data.campaign.channel,
+            "Indicador de resultados": data.campaign.indicator,
+            "Propuesta comercial": data.campaign.proposal,
+          }}
+        />
       )}
     </div>
   );
