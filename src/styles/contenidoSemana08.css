@@ -1,0 +1,705 @@
+
+/* =============================================
+   AULA DIGITAL — SEMANA 08
+   IDENTIDAD VISUAL Y DIRECCIÓN DE ARTE
+   ============================================= */
+
+.identity8 {
+  --i8-navy: #111b35;
+  --i8-orange: #ee7544;
+  --i8-muted: #66748a;
+  --i8-border: #dfe5ee;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  color: var(--i8-navy);
+  font-family: inherit;
+}
+
+.identity8 *,
+.identity8 *::before,
+.identity8 *::after {
+  box-sizing: border-box;
+}
+
+/* ENCABEZADO */
+
+.identity8-hero {
+  padding: clamp(24px, 5vw, 48px);
+  margin-bottom: 24px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #111b35, #304569);
+  color: #fff;
+}
+
+.identity8-eyebrow {
+  display: block;
+  margin-bottom: 15px;
+  color: #ffbb98;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.identity8-hero h2 {
+  margin: 0 0 14px;
+  color: #fff;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.15;
+}
+
+.identity8-hero > p {
+  max-width: 700px;
+  margin: 0;
+  color: #d3deef;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.identity8-progress-label {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 28px 0 12px;
+  font-size: 13px;
+}
+
+.identity8-progress-label strong {
+  color: #fff;
+}
+
+.identity8-progress-label span {
+  color: #d3deef;
+}
+
+.identity8-progress {
+  height: 10px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, .16);
+}
+
+.identity8-progress > div {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--i8-orange);
+  transition: width 200ms ease;
+}
+
+/* PANELES */
+
+.identity8-panel {
+  min-width: 0;
+  padding: clamp(20px, 4vw, 34px);
+  margin-bottom: 24px;
+  border: 1px solid var(--i8-border);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 6px 24px rgba(17, 27, 53, .045);
+}
+
+.identity8-panel > h3 {
+  margin: 0 0 12px;
+  color: var(--i8-navy);
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.identity8-description {
+  margin: 0 0 24px;
+  color: var(--i8-muted);
+  line-height: 1.7;
+}
+
+/* ENCABEZADOS DE ETAPAS */
+
+.identity8-step-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 17px;
+  padding-bottom: 24px;
+  margin-bottom: 26px;
+  border-bottom: 1px solid var(--i8-border);
+}
+
+.identity8-step-number {
+  display: grid;
+  flex: 0 0 52px;
+  height: 52px;
+  place-items: center;
+  border-radius: 13px;
+  background: var(--i8-orange);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.identity8-step-header small {
+  display: block;
+  margin-bottom: 8px;
+  color: #b75029;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.identity8-step-header h3 {
+  margin: 0 0 8px;
+  color: var(--i8-navy);
+  font-size: clamp(21px, 3vw, 28px);
+  font-weight: 800;
+}
+
+.identity8-step-header p {
+  margin: 0;
+  color: var(--i8-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* FORMULARIOS */
+
+.identity8-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 20px;
+}
+
+.identity8-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+  margin-bottom: 22px;
+}
+
+.identity8-field > span {
+  color: #293950;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.identity8-field input,
+.identity8-field textarea,
+.identity8-field select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 13px 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  outline: none;
+  background: #fbfcfe;
+  color: #17233b;
+  font: inherit;
+  font-size: 14px;
+  transition: border-color 150ms ease,
+              box-shadow 150ms ease;
+}
+
+.identity8-field textarea {
+  min-height: 100px;
+  resize: vertical;
+  line-height: 1.65;
+}
+
+.identity8-field input::placeholder,
+.identity8-field textarea::placeholder {
+  color: #94a3b8;
+}
+
+.identity8-field input:focus,
+.identity8-field textarea:focus,
+.identity8-field select:focus {
+  border-color: var(--i8-orange);
+  box-shadow: 0 0 0 3px rgba(238, 117, 68, .14);
+  background: #fff;
+}
+
+/* NOTAS */
+
+.identity8-hint {
+  padding: 17px 20px;
+  margin: 14px 0 23px;
+  border: 1px solid #ffdfcc;
+  border-radius: 11px;
+  background: #fff4ec;
+  color: #85472d;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* PALETA CROMÁTICA */
+
+.identity8-palette {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 13px;
+  margin-bottom: 30px;
+}
+
+.identity8-color-card {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #e0e6ef;
+  border-radius: 13px;
+  background: #f8fafc;
+}
+
+.identity8-color-swatch {
+  width: 100%;
+  height: 90px;
+  margin-bottom: 13px;
+  border: 1px solid rgba(0, 0, 0, .08);
+  border-radius: 9px;
+}
+
+.identity8-color-card > strong {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.identity8-color-inputs {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 15px;
+}
+
+.identity8-color-inputs input[type="color"] {
+  flex: 0 0 37px;
+  width: 37px;
+  height: 38px;
+  padding: 3px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.identity8-color-inputs input[type="text"] {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 6px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  background: #fff;
+  color: #293950;
+  font: inherit;
+  font-size: 12px;
+  text-align: center;
+}
+
+.identity8-color-card .identity8-field {
+  margin-bottom: 0;
+}
+
+.identity8-color-card .identity8-field textarea {
+  min-height: 90px;
+  padding: 10px;
+  font-size: 12px;
+}
+
+.identity8-error {
+  display: block;
+  margin: -6px 0 12px;
+  color: #b42318;
+  font-size: 11px;
+}
+
+/* VISTA PREVIA DE IDENTIDAD */
+
+.identity8-preview-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.identity8-preview-heading h4 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.identity8-preview-heading span {
+  color: var(--i8-muted);
+  font-size: 12px;
+}
+
+.identity8-brand-preview {
+  overflow: hidden;
+  min-height: 310px;
+  margin-bottom: 20px;
+  border: 1px solid #dfe5ee;
+  border-radius: 15px;
+  transition: background-color 150ms ease,
+              color 150ms ease;
+}
+
+.identity8-preview-top {
+  padding: 17px 25px;
+}
+
+.identity8-preview-top span {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.4px;
+}
+
+.identity8-preview-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 17px;
+  min-height: 250px;
+  padding: 30px;
+}
+
+.identity8-preview-kicker {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+}
+
+.identity8-preview-body h3 {
+  max-width: 650px;
+  margin: 0;
+  color: inherit;
+  font-size: clamp(25px, 4vw, 42px);
+  font-weight: 900;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.identity8-preview-body p {
+  max-width: 550px;
+  margin: 0;
+  color: inherit;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.identity8-preview-button {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* CONTRASTE */
+
+.identity8-contrast {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 19px 22px;
+  margin-bottom: 24px;
+  border: 1px solid #dce4ef;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.identity8-contrast > div:last-child {
+  text-align: right;
+}
+
+.identity8-contrast strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--i8-navy);
+  font-size: 16px;
+}
+
+.identity8-contrast p,
+.identity8-contrast span {
+  margin: 0;
+  color: var(--i8-muted);
+  font-size: 12px;
+}
+
+/* PROMPT */
+
+.identity8-prompt {
+  overflow: hidden;
+  margin-bottom: 24px;
+  border: 1px solid #d5ddeb;
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.identity8-prompt-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid #d5ddeb;
+  background: #edf2f8;
+}
+
+.identity8-prompt-top strong {
+  color: var(--i8-navy);
+  font-size: 12px;
+  letter-spacing: .5px;
+}
+
+.identity8-prompt pre {
+  max-height: 360px;
+  overflow: auto;
+  padding: 20px;
+  margin: 0;
+  color: #293950;
+  font-family: Consolas, Monaco, monospace;
+  font-size: 12px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.identity8-button {
+  padding: 11px 17px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--i8-orange);
+  color: #fff;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.identity8-button:hover {
+  background: #d85f33;
+}
+
+/* PIEZAS REDISEÑADAS */
+
+.identity8-pieces {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.identity8-piece {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid #e0e6ef;
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.identity8-piece-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e0e6ef;
+}
+
+.identity8-piece-heading strong {
+  color: #b75029;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .7px;
+}
+
+.identity8-piece-heading span {
+  padding: 6px 10px;
+  border-radius: 99px;
+  background: #e8edf5;
+  color: #44536a;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+/* VERIFICACIÓN */
+
+.identity8-checklist {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.identity8-checklist label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 15px 17px;
+  border: 1px solid #e0e6ef;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #293950;
+  font-size: 13px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.identity8-checklist input,
+.identity8-done input {
+  flex-shrink: 0;
+  width: 19px;
+  height: 19px;
+  margin: 0;
+  accent-color: #26845b;
+}
+
+.identity8-done {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 17px 19px;
+  margin-top: 18px;
+  border: 1px solid #cdebd9;
+  border-radius: 11px;
+  background: #f1fbf5;
+  color: #236545;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* RÚBRICA */
+
+.identity8-rubric {
+  overflow: hidden;
+  margin: 12px 0 24px;
+  border: 1px solid var(--i8-border);
+  border-radius: 13px;
+}
+
+.identity8-rubric h4 {
+  margin: 0;
+  padding: 18px 20px;
+  background: var(--i8-navy);
+  color: #fff;
+  font-size: 16px;
+}
+
+.identity8-rubric > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 20px;
+  border-top: 1px solid var(--i8-border);
+  color: #293950;
+  font-size: 13px;
+}
+
+.identity8-rubric > div:nth-child(odd) {
+  background: #f8fafc;
+}
+
+.identity8-rubric strong {
+  color: var(--i8-navy);
+  font-weight: 900;
+}
+
+/* PIE */
+
+.identity8-footer {
+  padding: 30px;
+  border-radius: 17px;
+  background: var(--i8-navy);
+  color: #fff;
+  text-align: center;
+}
+
+.identity8-footer h3 {
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: 22px;
+}
+
+.identity8-footer p {
+  max-width: 680px;
+  margin: 0 auto;
+  color: #d3deef;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+  .identity8-palette {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .identity8-pieces {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .identity8-grid,
+  .identity8-palette {
+    grid-template-columns: 1fr;
+  }
+
+  .identity8-hero {
+    padding: 26px 20px;
+    border-radius: 15px;
+  }
+
+  .identity8-panel {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .identity8-step-header {
+    gap: 12px;
+  }
+
+  .identity8-step-number {
+    flex-basis: 42px;
+    height: 42px;
+    font-size: 16px;
+  }
+
+  .identity8-field input,
+  .identity8-field textarea,
+  .identity8-field select {
+    font-size: 16px;
+  }
+
+  .identity8-color-swatch {
+    height: 70px;
+  }
+
+  .identity8-preview-body {
+    padding: 24px 18px;
+  }
+
+  .identity8-contrast > div:last-child {
+    text-align: left;
+  }
+
+  .identity8-footer {
+    padding: 24px 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .identity8-progress > div,
+  .identity8-field input,
+  .identity8-field textarea,
+  .identity8-field select,
+  .identity8-brand-preview {
+    transition: none;
+  }
+}

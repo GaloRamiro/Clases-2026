@@ -1,0 +1,443 @@
+/* ==========================================
+   AULA DIGITAL — CONTENIDO SEMANA 04
+   LABORATORIO DE COPYWRITING
+   ========================================== */
+
+/* CONTENEDOR GENERAL */
+
+.copy4 {
+  --c4-navy: #111b35;
+  --c4-orange: #ee7544;
+  --c4-muted: #66748a;
+  --c4-border: #dfe5ee;
+
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  color: var(--c4-navy);
+  font-family: inherit;
+}
+
+.copy4 *,
+.copy4 *::before,
+.copy4 *::after {
+  box-sizing: border-box;
+}
+
+/* ENCABEZADO */
+
+.copy4-hero {
+  padding: clamp(24px, 5vw, 48px);
+  margin-bottom: 24px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #111b35, #304569);
+  color: #ffffff;
+}
+
+.copy4-eyebrow {
+  display: block;
+  margin-bottom: 15px;
+  color: #ffbb98;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.copy4-hero h2 {
+  margin: 0 0 14px;
+  color: #ffffff;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.15;
+}
+
+.copy4-hero > p {
+  max-width: 700px;
+  margin: 0;
+  color: #d3deef;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* BARRA DE PROGRESO */
+
+.copy4-progress-label {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.copy4-progress-label strong {
+  color: #ffffff;
+}
+
+.copy4-progress-label span {
+  color: #d3deef;
+}
+
+.copy4-progress {
+  height: 10px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.copy4-progress > div {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--c4-orange);
+  transition: width 200ms ease;
+}
+
+/* TARJETAS PRINCIPALES */
+
+.copy4-panel {
+  min-width: 0;
+  padding: clamp(20px, 4vw, 34px);
+  margin-bottom: 24px;
+  border: 1px solid var(--c4-border);
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 6px 24px rgba(17, 27, 53, 0.045);
+}
+
+.copy4-panel > h3 {
+  margin: 0 0 12px;
+  color: var(--c4-navy);
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.copy4-panel h4 {
+  margin: 10px 0 18px;
+  color: var(--c4-navy);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.copy4-description {
+  margin: 0 0 24px;
+  color: var(--c4-muted);
+  line-height: 1.7;
+}
+
+/* TÍTULOS DE LAS ETAPAS */
+
+.copy4-step-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 17px;
+  padding-bottom: 24px;
+  margin-bottom: 26px;
+  border-bottom: 1px solid var(--c4-border);
+}
+
+.copy4-step-number {
+  display: grid;
+  flex: 0 0 52px;
+  height: 52px;
+  place-items: center;
+  border-radius: 13px;
+  background: var(--c4-orange);
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.copy4-time {
+  display: block;
+  margin-bottom: 8px;
+  color: #b75029;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.copy4-step-title h3 {
+  margin: 0 0 8px;
+  color: var(--c4-navy);
+  font-size: clamp(21px, 3vw, 28px);
+  font-weight: 800;
+}
+
+.copy4-step-title p {
+  margin: 0;
+  color: var(--c4-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* DISTRIBUCIÓN DE COLUMNAS */
+
+.copy4-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 20px;
+}
+
+.copy4-grid--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* CAMPOS DEL FORMULARIO */
+
+.copy4-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+  margin-bottom: 22px;
+}
+
+.copy4-field > span {
+  color: #293950;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.copy4-field input,
+.copy4-field textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 13px 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  outline: none;
+  background: #fbfcfe;
+  color: #17233b;
+  font: inherit;
+  font-size: 14px;
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.copy4-field textarea {
+  min-height: 100px;
+  resize: vertical;
+  line-height: 1.65;
+}
+
+.copy4-field input::placeholder,
+.copy4-field textarea::placeholder {
+  color: #94a3b8;
+}
+
+.copy4-field input:focus,
+.copy4-field textarea:focus {
+  border-color: var(--c4-orange);
+  box-shadow: 0 0 0 3px rgba(238, 117, 68, 0.14);
+  background: #ffffff;
+}
+
+.copy4-field small {
+  color: var(--c4-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* NOTAS INFORMATIVAS */
+
+.copy4-hint {
+  padding: 17px 20px;
+  margin-bottom: 23px;
+  border: 1px solid #ffdfcc;
+  border-radius: 11px;
+  background: #fff4ec;
+  color: #85472d;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* SUBTARJETAS DE PUBLICACIONES */
+
+.copy4-subpanel {
+  padding: 22px;
+  margin-bottom: 20px;
+  border: 1px solid #e0e6ef;
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.copy4-subpanel h4 {
+  margin-top: 0;
+}
+
+/* LISTA DE REVISIÓN */
+
+.copy4-checklist {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.copy4-checklist label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 15px 17px;
+  border: 1px solid #e0e6ef;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #293950;
+  font-size: 13px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.copy4-checklist label:hover {
+  border-color: #b9c7d8;
+  background: #f1f5f9;
+}
+
+/* CASILLAS DE VERIFICACIÓN */
+
+.copy4-checklist input,
+.copy4-done input {
+  flex-shrink: 0;
+  width: 19px;
+  height: 19px;
+  margin: 0;
+  accent-color: #26845b;
+}
+
+.copy4-done {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 17px 19px;
+  margin-top: 14px;
+  border: 1px solid #cdebd9;
+  border-radius: 11px;
+  background: #f1fbf5;
+  color: #236545;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* RÚBRICA DE EVALUACIÓN */
+
+.copy4-rubric {
+  overflow: hidden;
+  margin: 12px 0 24px;
+  border: 1px solid var(--c4-border);
+  border-radius: 13px;
+}
+
+.copy4-rubric h4 {
+  margin: 0;
+  padding: 18px 20px;
+  background: var(--c4-navy);
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.copy4-rubric > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 20px;
+  border-top: 1px solid var(--c4-border);
+  color: #293950;
+  font-size: 13px;
+}
+
+.copy4-rubric > div:nth-child(odd) {
+  background: #f8fafc;
+}
+
+.copy4-rubric > div strong {
+  color: var(--c4-navy);
+  font-weight: 900;
+}
+
+/* PIE DEL LABORATORIO */
+
+.copy4-footer {
+  padding: 30px;
+  border-radius: 17px;
+  background: var(--c4-navy);
+  color: #ffffff;
+  text-align: center;
+}
+
+.copy4-footer h3 {
+  margin: 0 0 12px;
+  color: #ffffff;
+  font-size: 22px;
+}
+
+.copy4-footer p {
+  max-width: 680px;
+  margin: 0 auto;
+  color: #d3deef;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* RESPONSIVE — TABLET */
+
+@media (max-width: 900px) {
+  .copy4-grid--three {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* RESPONSIVE — MÓVIL */
+
+@media (max-width: 720px) {
+  .copy4-grid,
+  .copy4-grid--three {
+    grid-template-columns: 1fr;
+  }
+
+  .copy4-hero {
+    padding: 26px 20px;
+    border-radius: 15px;
+  }
+
+  .copy4-panel {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .copy4-step-title {
+    gap: 12px;
+  }
+
+  .copy4-step-number {
+    flex-basis: 42px;
+    height: 42px;
+    font-size: 16px;
+  }
+
+  .copy4-field input,
+  .copy4-field textarea {
+    font-size: 16px;
+  }
+
+  .copy4-subpanel {
+    padding: 16px;
+  }
+
+  .copy4-footer {
+    padding: 24px 18px;
+  }
+}
+
+/* ACCESIBILIDAD */
+
+@media (prefers-reduced-motion: reduce) {
+  .copy4-progress > div,
+  .copy4-field input,
+  .copy4-field textarea {
+    transition: none;
+  }
+}

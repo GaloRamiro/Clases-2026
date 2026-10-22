@@ -10,6 +10,26 @@ import CrmWeek02Workshop from "./CrmWeek02Workshop";
 import CrmWeek03Workshop from "./CrmWeek03Workshop";
 import CrmWeek04Workshop from "./CrmWeek04Workshop";
 import SeoKeywordWorkshop from "./SeoKeywordWorkshop.jsx";
+import ContentWeek02Workshop from "./ContentWeek02Workshop";
+import ContentWeek03Workshop from "./ContentWeek03Workshop";
+import ContentWeek04Workshop from "./ContentWeek04Workshop";
+import ContentWeek05Workshop from "./ContentWeek05Workshop";
+import ContentWeek06Workshop from "./ContentWeek06Workshop";
+import ContentWeek07Workshop from "./ContentWeek07Workshop";
+import ContentWeek08Workshop from "./ContentWeek08Workshop";
+import ContentWeek09Workshop from "./ContentWeek09Workshop";
+import ContentWeek10Workshop from "./ContentWeek10Workshop";
+import ContentWeek11Workshop from "./ContentWeek11Workshop";
+import ContentWeek12Workshop from "./ContentWeek12Workshop";
+import ContentWeek13Workshop from "./ContentWeek13Workshop";
+import ContentWeek14Workshop from "./ContentWeek14Workshop";
+import ContentWeek15Workshop from "./ContentWeek15Workshop";
+import ContentWeek16Workshop from "./ContentWeek16Workshop";
+
+import ContentWeek17Workshop from "./ContentWeek17Workshop";
+
+import ContentWeek18Workshop from "./ContentWeek18Workshop";
+
 const WORK_FIELDS = [
   ["team", "Nombre del equipo"],
   ["brand", "Nombre de la marca"],
@@ -408,6 +428,85 @@ function SlideBody({ slide, lesson, studentName }) {
     case "seo-keyword-lab":
     case "seo-keyword-matrix":
       return <SeoKeywordWorkshop slide={slide} />;
+    case "content-buyer-lab":
+      return (
+        <ContentWeek02Workshop lessonId={lesson.id} studentName={studentName} />
+      );
+    case "content-empathy-lab":
+      return (
+        <ContentWeek03Workshop lessonId={lesson.id} studentName={studentName} />
+      );
+    case "content-copywriting-lab":
+      return (
+        <ContentWeek04Workshop lessonId={lesson.id} studentName={studentName} />
+      );
+    case "content-formats-lab":
+      return (
+        <ContentWeek05Workshop lessonId={lesson.id} studentName={studentName} />
+      );
+    case "content-creative-brief-lab":
+      return (
+        <ContentWeek06Workshop lessonId={lesson.id} studentName={studentName} />
+      );
+    case "content-storytelling-lab":
+      return (
+        <ContentWeek07Workshop lessonId={lesson.id} studentName={studentName} />
+      );
+    case "content-visual-identity-lab":
+      return (
+        <ContentWeek08Workshop lessonId={lesson.id} studentName={studentName} />
+      );
+
+    case "content-cronopost-lab":
+      return (
+        <ContentWeek09Workshop lessonId={lesson.id} studentName={studentName} />
+      );
+
+    case "content-campaign-lab":
+      return (
+        <ContentWeek10Workshop lessonId={lesson.id} studentName={studentName} />
+      );
+
+    case "content-funnel-lab":
+      return (
+        <ContentWeek11Workshop lessonId={lesson.id} studentName={studentName} />
+      );
+
+    case "content-kpi-lab":
+      return (
+        <ContentWeek12Workshop lessonId={lesson.id} studentName={studentName} />
+      );
+
+    case "content-microcontent-lab":
+      return (
+        <ContentWeek13Workshop lessonId={lesson.id} studentName={studentName} />
+      );
+
+    case "content-art-direction-lab":
+      return (
+        <ContentWeek14Workshop lessonId={lesson.id} studentName={studentName} />
+      );
+
+    case "content-photo-production-lab":
+      return (
+        <ContentWeek15Workshop lessonId={lesson.id} studentName={studentName} />
+      );
+
+    case "content-video-editing-lab":
+      return (
+        <ContentWeek16Workshop lessonId={lesson.id} studentName={studentName} />
+      );
+
+    case "content-multiplatform-lab":
+      return (
+        <ContentWeek17Workshop lessonId={lesson.id} studentName={studentName} />
+      );
+
+    case "content-final-defense-lab":
+      return (
+        <ContentWeek18Workshop lessonId={lesson.id} studentName={studentName} />
+      );
+
     default:
       return (
         <div>

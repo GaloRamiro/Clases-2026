@@ -1,0 +1,609 @@
+/* ==========================================
+   AULA DIGITAL — CONTENIDO SEMANA 06
+   LABORATORIO DE DIRECCIÓN CREATIVA
+   ========================================== */
+
+.brief6 {
+  --b6-navy: #111b35;
+  --b6-orange: #ee7544;
+  --b6-muted: #66748a;
+  --b6-border: #dfe5ee;
+
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  color: var(--b6-navy);
+  font-family: inherit;
+}
+
+.brief6 *,
+.brief6 *::before,
+.brief6 *::after {
+  box-sizing: border-box;
+}
+
+/* ENCABEZADO */
+
+.brief6-hero {
+  padding: clamp(24px, 5vw, 48px);
+  margin-bottom: 24px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #111b35, #304569);
+  color: #ffffff;
+}
+
+.brief6-eyebrow {
+  display: block;
+  margin-bottom: 15px;
+  color: #ffbb98;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.brief6-hero h2 {
+  margin: 0 0 14px;
+  color: #ffffff;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.15;
+}
+
+.brief6-hero > p {
+  max-width: 700px;
+  margin: 0;
+  color: #d3deef;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* PROGRESO */
+
+.brief6-progress-label {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.brief6-progress-label strong {
+  color: #ffffff;
+}
+
+.brief6-progress-label span {
+  color: #d3deef;
+}
+
+.brief6-progress {
+  height: 10px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.brief6-progress > div {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--b6-orange);
+  transition: width 200ms ease;
+}
+
+/* PANELES */
+
+.brief6-panel {
+  min-width: 0;
+  padding: clamp(20px, 4vw, 34px);
+  margin-bottom: 24px;
+  border: 1px solid var(--b6-border);
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 6px 24px rgba(17, 27, 53, 0.045);
+}
+
+.brief6-panel > h3 {
+  margin: 0 0 12px;
+  color: var(--b6-navy);
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.brief6-description {
+  margin: 0 0 24px;
+  color: var(--b6-muted);
+  line-height: 1.7;
+}
+
+/* ENCABEZADOS DE ETAPAS */
+
+.brief6-stage-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 17px;
+  padding-bottom: 24px;
+  margin-bottom: 26px;
+  border-bottom: 1px solid var(--b6-border);
+}
+
+.brief6-stage-number {
+  display: grid;
+  flex: 0 0 52px;
+  height: 52px;
+  place-items: center;
+  border-radius: 13px;
+  background: var(--b6-orange);
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.brief6-stage-time {
+  display: block;
+  margin-bottom: 8px;
+  color: #b75029;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.brief6-stage-heading h3 {
+  margin: 0 0 8px;
+  color: var(--b6-navy);
+  font-size: clamp(21px, 3vw, 28px);
+  font-weight: 800;
+}
+
+.brief6-stage-heading p {
+  margin: 0;
+  color: var(--b6-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* COLUMNAS */
+
+.brief6-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 20px;
+}
+
+/* CAMPOS */
+
+.brief6-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+  margin-bottom: 22px;
+}
+
+.brief6-field > span {
+  color: #293950;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.brief6-field input,
+.brief6-field textarea,
+.brief6-field select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 13px 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  outline: none;
+  background: #fbfcfe;
+  color: #17233b;
+  font: inherit;
+  font-size: 14px;
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.brief6-field textarea {
+  min-height: 100px;
+  resize: vertical;
+  line-height: 1.65;
+}
+
+.brief6-field input::placeholder,
+.brief6-field textarea::placeholder {
+  color: #94a3b8;
+}
+
+.brief6-field input:focus,
+.brief6-field textarea:focus,
+.brief6-field select:focus {
+  border-color: var(--b6-orange);
+  box-shadow: 0 0 0 3px rgba(238, 117, 68, 0.14);
+  background: #ffffff;
+}
+
+/* NOTAS */
+
+.brief6-hint {
+  padding: 17px 20px;
+  margin: 14px 0 23px;
+  border: 1px solid #ffdfcc;
+  border-radius: 11px;
+  background: #fff4ec;
+  color: #85472d;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* PROMPT */
+
+.brief6-prompt-box {
+  overflow: hidden;
+  margin-bottom: 24px;
+  border: 1px solid #d5ddeb;
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.brief6-prompt-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid #d5ddeb;
+  background: #edf2f8;
+}
+
+.brief6-prompt-top strong {
+  color: var(--b6-navy);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.brief6-button {
+  padding: 11px 17px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--b6-orange);
+  color: #ffffff;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.brief6-button:hover {
+  background: #d85f33;
+}
+
+.brief6-prompt-box pre {
+  max-height: 380px;
+  overflow: auto;
+  padding: 22px;
+  margin: 0;
+  color: #293950;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* CONCEPTOS CREATIVOS */
+
+.brief6-concepts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 22px 0 28px;
+}
+
+.brief6-concept-card {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid #e0e6ef;
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.brief6-concept-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e0e6ef;
+}
+
+.brief6-concept-top > span {
+  color: #b75029;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+}
+
+.brief6-concept-top strong {
+  padding: 6px 10px;
+  border-radius: 99px;
+  background: #e8edf5;
+  color: #44536a;
+  font-size: 11px;
+}
+
+/* EVALUACIÓN DE CONCEPTOS */
+
+.brief6-scores {
+  padding-top: 12px;
+  border-top: 1px solid #dfe5ee;
+}
+
+.brief6-scores h4 {
+  margin: 0 0 16px;
+  color: var(--b6-navy);
+  font-size: 14px;
+}
+
+.brief6-scores label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  color: #44536a;
+  font-size: 12px;
+}
+
+.brief6-scores select {
+  min-width: 90px;
+  padding: 8px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #17233b;
+  font: inherit;
+}
+
+.brief6-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  margin-top: 18px;
+  border-radius: 10px;
+  background: var(--b6-navy);
+  color: #ffffff;
+}
+
+.brief6-total strong {
+  color: #ffffff;
+  font-size: 18px;
+}
+
+/* PROTOTIPO */
+
+.brief6-prototype-preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 310px;
+  gap: 18px;
+  padding: 30px;
+  margin-bottom: 24px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #111b35, #315a76, #d87745);
+  color: #ffffff;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.brief6-prototype-preview > span {
+  color: #ffcfb8;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.3px;
+}
+
+.brief6-prototype-preview h3 {
+  max-width: 600px;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(24px, 4vw, 36px);
+  line-height: 1.2;
+}
+
+.brief6-prototype-preview p {
+  max-width: 550px;
+  margin: 0;
+  color: #eef3f8;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.brief6-prototype-preview > strong {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 9px;
+  background: var(--b6-orange);
+  color: #ffffff;
+  font-size: 12px;
+}
+
+/* LISTA DE REVISIÓN */
+
+.brief6-checklist {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.brief6-checklist label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 15px 17px;
+  border: 1px solid #e0e6ef;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #293950;
+  font-size: 13px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.brief6-checklist input,
+.brief6-done input {
+  flex-shrink: 0;
+  width: 19px;
+  height: 19px;
+  margin: 0;
+  accent-color: #26845b;
+}
+
+/* ETAPA COMPLETADA */
+
+.brief6-done {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 17px 19px;
+  margin-top: 14px;
+  border: 1px solid #cdebd9;
+  border-radius: 11px;
+  background: #f1fbf5;
+  color: #236545;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* RÚBRICA */
+
+.brief6-rubric {
+  overflow: hidden;
+  margin: 12px 0 24px;
+  border: 1px solid var(--b6-border);
+  border-radius: 13px;
+}
+
+.brief6-rubric h4 {
+  margin: 0;
+  padding: 18px 20px;
+  background: var(--b6-navy);
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.brief6-rubric > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 20px;
+  border-top: 1px solid var(--b6-border);
+  color: #293950;
+  font-size: 13px;
+}
+
+.brief6-rubric > div:nth-child(odd) {
+  background: #f8fafc;
+}
+
+.brief6-rubric strong {
+  color: var(--b6-navy);
+  font-weight: 900;
+}
+
+/* PIE */
+
+.brief6-footer {
+  padding: 30px;
+  border-radius: 17px;
+  background: var(--b6-navy);
+  color: #ffffff;
+  text-align: center;
+}
+
+.brief6-footer h3 {
+  margin: 0 0 12px;
+  color: #ffffff;
+  font-size: 22px;
+}
+
+.brief6-footer p {
+  max-width: 680px;
+  margin: 0 auto;
+  color: #d3deef;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+  .brief6-concepts {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .brief6-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .brief6-hero {
+    padding: 26px 20px;
+    border-radius: 15px;
+  }
+
+  .brief6-panel {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .brief6-stage-heading {
+    gap: 12px;
+  }
+
+  .brief6-stage-number {
+    flex-basis: 42px;
+    height: 42px;
+    font-size: 16px;
+  }
+
+  .brief6-field input,
+  .brief6-field textarea,
+  .brief6-field select {
+    font-size: 16px;
+  }
+
+  .brief6-concept-card {
+    padding: 16px;
+  }
+
+  .brief6-prototype-preview {
+    padding: 24px 18px;
+  }
+
+  .brief6-footer {
+    padding: 24px 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brief6-progress > div,
+  .brief6-field input,
+  .brief6-field textarea,
+  .brief6-field select,
+  .brief6-button {
+    transition: none;
+  }
+}

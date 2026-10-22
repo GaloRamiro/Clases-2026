@@ -1,0 +1,494 @@
+
+.multi17 {
+  --multi-navy: #111b35;
+  --multi-orange: #fe7e03;
+  --multi-border: #e2e7ef;
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+  color: var(--multi-navy);
+  font-family: inherit;
+}
+
+.multi17 *,
+.multi17 *::before,
+.multi17 *::after {
+  box-sizing: border-box;
+}
+
+.multi17-hero {
+  padding: 30px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #111b35, #243b60);
+  color: #fff;
+}
+
+.multi17-hero > span {
+  color: #ffbd80;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.multi17-hero h2 {
+  margin: 12px 0;
+  font-size: clamp(25px, 3vw, 38px);
+  line-height: 1.2;
+}
+
+.multi17-hero p {
+  color: #d9e2f1;
+  line-height: 1.65;
+}
+
+.multi17-progress {
+  margin-top: 20px;
+}
+
+.multi17-progress > div {
+  height: 10px;
+  margin-top: 10px;
+  background: #465675;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.multi17-progress > div > span {
+  display: block;
+  height: 100%;
+  background: var(--multi-orange);
+  transition: width 0.25s ease;
+}
+
+.multi17-panel {
+  padding: 24px;
+  margin: 16px 0;
+  border: 1px solid var(--multi-border);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 5px 24px rgba(17, 27, 53, 0.04);
+}
+
+.multi17-panel h3 {
+  margin: 0 0 14px;
+  font-size: 20px;
+}
+
+.multi17-panel h4 {
+  margin: 15px 0 10px;
+}
+
+.multi17-panel p {
+  color: #58647a;
+  line-height: 1.65;
+}
+
+.multi17-stephead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.multi17-stephead h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+.multi17-stephead h3 > span {
+  color: var(--multi-orange);
+  font-weight: 900;
+}
+
+.multi17-stephead small {
+  padding: 7px 12px;
+  border-radius: 30px;
+  background: #fff0e1;
+  color: #ad5300;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.multi17-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.multi17-three {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.multi17-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 10px 0;
+  min-width: 0;
+}
+
+.multi17-field > span {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.multi17-field input,
+.multi17-field textarea,
+.multi17-field select {
+  width: 100%;
+  min-width: 0;
+  padding: 11px 12px;
+  border: 1px solid #cbd4e2;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--multi-navy);
+  font: inherit;
+}
+
+.multi17-field textarea {
+  resize: vertical;
+}
+
+.multi17-field input:focus,
+.multi17-field textarea:focus,
+.multi17-field select:focus {
+  outline: 2px solid var(--multi-orange);
+  outline-offset: 1px;
+}
+
+.multi17-complete {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 14px;
+  border-radius: 10px;
+  background: #f2f5f9;
+  font-weight: 700;
+}
+
+.multi17-complete input,
+.multi17-checks input {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  accent-color: var(--multi-orange);
+}
+
+/* MAQUETAS DE PUBLICACIÓN */
+
+.multi17-previewcolumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  border-radius: 14px;
+  background: #f3f6fa;
+}
+
+.multi17-preview {
+  width: min(100%, 310px);
+  overflow: hidden;
+  border: 1px solid #d7dfea;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(17, 27, 53, 0.08);
+}
+
+.multi17-previewhead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px;
+}
+
+.multi17-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 37px;
+  height: 37px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--multi-navy);
+  color: #fff;
+  font-weight: 900;
+}
+
+.multi17-previewhead > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.multi17-previewhead strong {
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.multi17-previewhead small {
+  color: #7c879b;
+  font-size: 11px;
+}
+
+.multi17-media {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
+  min-height: 245px;
+  aspect-ratio: 4 / 5;
+  padding: 18px;
+  background: linear-gradient(155deg, #152541, #78502f 65%, #d09a62);
+  color: #fff;
+}
+
+.multi17-media--video {
+  aspect-ratio: 9 / 16;
+  min-height: 280px;
+}
+
+.multi17-media small {
+  align-self: flex-start;
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.16);
+  font-size: 10px;
+}
+
+.multi17-media > span {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #ffe0bc;
+}
+
+.multi17-media > strong {
+  font-size: clamp(18px, 2vw, 25px);
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.multi17-media > em {
+  font-size: 12px;
+  font-style: normal;
+  color: #f6dfc8;
+  overflow-wrap: anywhere;
+}
+
+.multi17-previewbody {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 14px;
+}
+
+.multi17-previewbody p {
+  margin: 0;
+  color: #25344c;
+  font-size: 12px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.multi17-previewbody > strong {
+  color: #b85b00;
+  font-size: 12px;
+}
+
+.multi17-previewbody > small {
+  color: #77849a;
+  font-size: 11px;
+}
+
+.multi17-hint {
+  font-size: 12px;
+  color: #6c7890 !important;
+  text-align: center;
+}
+
+/* COPIES */
+
+.multi17-copycard {
+  min-width: 0;
+  padding: 15px;
+  border: 1px solid var(--multi-border);
+  border-radius: 13px;
+  background: #f8fafc;
+}
+
+.multi17-copycard h4 {
+  margin: 0 0 15px;
+  padding: 12px;
+  border-radius: 9px;
+  background: var(--multi-navy);
+  color: #fff;
+  text-align: center;
+}
+
+.multi17-copycard .multi17-preview {
+  margin: 18px auto 0;
+}
+
+/* CHECKLIST */
+
+.multi17-quality {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--multi-border);
+  border-radius: 13px;
+  background: #f8fafc;
+}
+
+.multi17-quality h4 {
+  margin-top: 0;
+}
+
+.multi17-checks {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin: 18px 0;
+}
+
+.multi17-checks label {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* RÚBRICA */
+
+.multi17-deliverables,
+.multi17-rubric {
+  margin: 18px 0;
+  overflow: hidden;
+  border: 1px solid var(--multi-border);
+  border-radius: 12px;
+}
+
+.multi17-deliverables > div,
+.multi17-rubric > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 14px;
+  border-bottom: 1px solid var(--multi-border);
+}
+
+.multi17-deliverables > div:last-child,
+.multi17-rubric > div:last-child {
+  border-bottom: 0;
+}
+
+.multi17-rubric h4 {
+  margin: 0;
+  padding: 14px;
+  background: #eef2f7;
+}
+
+.multi17-deliverables strong,
+.multi17-rubric strong {
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* PIE DEL LABORATORIO */
+
+.multi17-footer {
+  margin: 18px 0;
+  padding: 24px;
+  border-radius: 18px;
+  background: #f4f6fa;
+}
+
+.multi17-summary,
+.multi17-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.multi17-summary strong {
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 13px;
+}
+
+.multi17-actions button {
+  padding: 13px 18px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--multi-orange);
+  color: #fff;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.multi17-actions button:hover {
+  background: #d96800;
+}
+
+.multi17-actions .multi17-secondary {
+  background: var(--multi-navy);
+}
+
+.multi17-actions .multi17-secondary:hover {
+  background: #293d60;
+}
+
+.multi17-footer p {
+  color: #59657b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .multi17-three {
+    grid-template-columns: 1fr;
+  }
+
+  .multi17-copycard,
+  .multi17-quality {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 650px) {
+  .multi17-hero,
+  .multi17-panel,
+  .multi17-footer {
+    padding: 18px;
+  }
+
+  .multi17-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .multi17-stephead {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .multi17-previewcolumn {
+    padding: 10px;
+  }
+
+  .multi17-deliverables > div,
+  .multi17-rubric > div {
+    font-size: 12px;
+  }
+}

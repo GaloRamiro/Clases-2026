@@ -1,0 +1,203 @@
+const semana12 = {
+  id: "contenido-semana-12",
+  courseId: "contenido",
+  number: 12,
+  title: "KPIs, métricas y dashboards visuales",
+  subtitle: "Tu contenido se ve bien. ¿Pero está funcionando?",
+  duration: 180,
+  objective:
+    "Interpretar indicadores básicos de rendimiento digital y diseñar representaciones visuales de resultados que permitan evaluar contenidos y proponer mejoras creativas fundamentadas en datos.",
+  challenge:
+    "¿Qué datos deberíamos observar antes de modificar una publicación?",
+
+  schedule: [
+    { time: "00–15", title: "Desafío inicial", minutes: 15 },
+    { time: "15–50", title: "Fundamentos", minutes: 35 },
+    { time: "50–80", title: "Demostración", minutes: 30 },
+    { time: "80–100", title: "Descanso", minutes: 20 },
+    { time: "100–160", title: "Laboratorio grupal", minutes: 60 },
+    { time: "160–180", title: "Presentación", minutes: 20 },
+  ],
+
+  slides: [
+    {
+      id: 1,
+      block: "ACTIVACIÓN · 15 MIN",
+      kind: "cover",
+      title: "Los datos no diseñan por nosotros",
+      subtitle: "Nos ayudan a diseñar mejor",
+      body: "Un contenido atractivo no necesariamente consigue el resultado esperado. Necesitamos analizar cómo responde la audiencia.",
+      imageHint:
+        "Estudiantes analizando métricas y diseños de una campaña digital de café",
+    },
+    {
+      id: 2,
+      block: "ACTIVACIÓN",
+      kind: "table",
+      title: "¿Cuál publicación funcionó mejor?",
+      subtitle: "Datos ficticios para discusión grupal.",
+      columns: ["Indicador", "Publicación A", "Publicación B"],
+      rows: [
+        ["Alcance", "5.000", "2.000"],
+        ["Me gusta", "200", "150"],
+        ["Guardados", "10", "90"],
+        ["Clics", "15", "80"],
+      ],
+      note: "Depende del objetivo: A consiguió más alcance; B obtuvo más guardados y clics. Justifica tu respuesta.",
+    },
+    {
+      id: 3,
+      block: "FUNDAMENTOS · 35 MIN",
+      kind: "statement",
+      title: "Métrica no es lo mismo que KPI",
+      body: "Una métrica describe una actividad o resultado. Un KPI es un indicador clave seleccionado para evaluar el avance hacia un objetivo concreto.",
+      quote:
+        "Las visualizaciones pueden ser un KPI si el objetivo es alcanzar una cantidad definida de vistas.",
+    },
+    {
+      id: 4,
+      block: "FUNDAMENTOS",
+      kind: "table",
+      title: "No confundas ver, interactuar y comprar",
+      columns: ["Métrica", "Qué representa"],
+      rows: [
+        ["Alcance", "Usuarios o cuentas únicas alcanzadas"],
+        ["Impresiones", "Veces que se mostró el contenido"],
+        ["Visualizaciones", "Reproducciones o vistas"],
+        ["Interacciones", "Reacciones, comentarios y compartidos"],
+        ["Guardados", "Veces que se guardó el contenido"],
+        ["Clics", "Selecciones de enlaces o elementos"],
+        ["Conversiones", "Acciones objetivo completadas"],
+      ],
+      note: "Las definiciones exactas pueden variar según la plataforma. Diez mil vistas no significan diez mil clientes.",
+    },
+    {
+      id: 5,
+      block: "FUNDAMENTOS",
+      kind: "statement",
+      title: "Engagement: interacción por alcance",
+      body: "Fórmula didáctica: Engagement (%) = (Interacciones / Alcance) × 100. Ejemplo: 200 interacciones / 4.000 cuentas alcanzadas × 100 = 5 %.",
+      quote:
+        "Especifica siempre la fórmula que utilizas para comparar resultados.",
+    },
+    {
+      id: 6,
+      block: "FUNDAMENTOS",
+      kind: "statement",
+      title: "CTR: tasa de clics",
+      body: "CTR (%) = (Clics / Impresiones) × 100. Ejemplo: 100 clics / 5.000 impresiones × 100 = 2 %.",
+      quote:
+        "Si el anuncio se muestra muchas veces y recibe pocos clics, ¿qué podríamos probar?",
+    },
+    {
+      id: 7,
+      block: "FUNDAMENTOS",
+      kind: "table",
+      title: "Un KPI para cada etapa del embudo",
+      columns: ["Etapa", "Objetivo", "Indicadores"],
+      rows: [
+        ["TOFU", "Dar a conocer", "Alcance y visualizaciones"],
+        ["MOFU", "Generar interés", "Guardados y clics"],
+        ["BOFU", "Facilitar acción", "Consultas y conversiones"],
+      ],
+      note: "Recupera las piezas TOFU, MOFU y BOFU de la Semana 11.",
+    },
+    {
+      id: 8,
+      block: "FUNDAMENTOS",
+      kind: "statement",
+      title: "Un dashboard debe permitir entender",
+      body: "Un dashboard reúne indicadores relevantes en tarjetas, tablas y gráficos. Debe tener jerarquía visual, unidades, etiquetas claras y gráficos que respondan preguntas concretas.",
+      quote: "No llenes el panel de gráficos que no ayudan a tomar decisiones.",
+    },
+    {
+      id: 9,
+      block: "FUNDAMENTOS",
+      kind: "questions",
+      title: "Un dato no demuestra una causa",
+      questions: [
+        "¿Qué resultado observamos?",
+        "¿Cuál era el objetivo?",
+        "¿Qué hipótesis podría explicarlo?",
+        "¿Qué mejora proponemos?",
+        "¿Cómo comprobaríamos el cambio?",
+      ],
+      note: "Ejemplo: «Probaremos un CTA más visible para evaluar si aumenta el CTR». Es una hipótesis, no una causa demostrada.",
+    },
+    {
+      id: 10,
+      block: "DEMOSTRACIÓN · 30 MIN",
+      kind: "table",
+      title: "Café Raíz: resultados simulados",
+      subtitle: "Datos ficticios creados exclusivamente para la clase.",
+      columns: ["Indicador", "Resultado"],
+      rows: [
+        ["Impresiones", "12.500"],
+        ["Alcance", "8.200"],
+        ["Interacciones", "430"],
+        ["Clics", "185"],
+        ["Engagement por alcance", "5,24 %"],
+        ["CTR por impresiones", "1,48 %"],
+      ],
+      note: "Selecciona los indicadores y conviértelos en tarjetas KPI.",
+    },
+    {
+      id: 11,
+      block: "DEMOSTRACIÓN",
+      kind: "statement",
+      title: "Convierte datos en un panel visual",
+      body: "Construye tarjetas KPI, un gráfico de interacciones por publicación y otro de CTR por publicación. Incluye título, período, unidades y fuente simulada.",
+      quote:
+        "Un formato con más interacciones absolutas no necesariamente es el más eficaz.",
+      note: "Demostración en Google Sheets, Excel o en el laboratorio interactivo.",
+    },
+    {
+      id: 12,
+      block: "DEMOSTRACIÓN",
+      kind: "statement",
+      title: "Rediseña a partir de una hipótesis",
+      body: "Versión inicial: mensaje poco visible y CTA débil. Propuesta: producto protagonista, jerarquía clara y espacio para CTA. Define el indicador que permitiría evaluar la nueva versión.",
+      quote:
+        "No confundas una propuesta de mejora con un resultado comprobado.",
+    },
+    {
+      id: 13,
+      block: "LABORATORIO · 60 MIN",
+      kind: "content-kpi-lab",
+      title: "Laboratorio 12: analiza, visualiza y mejora",
+      subtitle:
+        "Calcula indicadores, construye un dashboard, compara tres publicaciones y documenta un rediseño.",
+    },
+    {
+      id: 14,
+      block: "PRESENTACIÓN · 20 MIN",
+      kind: "present",
+      title: "No me digas solo qué pasó",
+      body: "Presenta el dashboard, identifica una publicación que necesita mejoras y explica el rediseño.",
+      quote: "Dime qué harías después y cómo comprobarías si funciona.",
+    },
+    {
+      id: 15,
+      block: "CIERRE",
+      kind: "questions",
+      title: "¿Qué aprendimos hoy?",
+      questions: [
+        "¿Cuál es la diferencia entre métrica y KPI?",
+        "¿Por qué más vistas no siempre significan mejores resultados?",
+        "¿Cómo ayuda un dashboard a tomar decisiones?",
+        "¿Por qué debemos comprobar nuestras hipótesis?",
+      ],
+    },
+    {
+      id: 16,
+      block: "TRABAJO AUTÓNOMO",
+      kind: "homework",
+      title: "Crea el primer informe visual de tu campaña",
+      body: "Mejora el dashboard, compara cinco contenidos con datos simulados, calcula los indicadores pertinentes y rediseña dos piezas adicionales. Presenta los tres antes/después, propone tres acciones de optimización y prepara cinco diapositivas.",
+      note: "Entrega en Moodle: dashboard PDF, datos editables, tres comparativas antes/después y presentación grupal.",
+      next: "Semana 13: una idea, tres formatos. Producción de microcontenidos.",
+    },
+  ],
+};
+
+export default semana12;

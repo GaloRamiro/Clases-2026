@@ -1,0 +1,557 @@
+/* ==========================================
+   AULA DIGITAL — CONTENIDO SEMANA 05
+   LABORATORIO: UNA IDEA, TRES FORMATOS
+   ========================================== */
+
+/* CONTENEDOR GENERAL */
+
+.formats5 {
+  --f5-navy: #111b35;
+  --f5-orange: #ee7544;
+  --f5-muted: #66748a;
+  --f5-border: #dfe5ee;
+
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  color: var(--f5-navy);
+  font-family: inherit;
+}
+
+.formats5 *,
+.formats5 *::before,
+.formats5 *::after {
+  box-sizing: border-box;
+}
+
+/* ENCABEZADO */
+
+.formats5-hero {
+  padding: clamp(24px, 5vw, 48px);
+  margin-bottom: 24px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #111b35, #304569);
+  color: #ffffff;
+}
+
+.formats5-eyebrow {
+  display: block;
+  margin-bottom: 15px;
+  color: #ffbb98;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.formats5-hero h2 {
+  margin: 0 0 14px;
+  color: #ffffff;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.15;
+}
+
+.formats5-hero > p {
+  max-width: 700px;
+  margin: 0;
+  color: #d3deef;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* PROGRESO */
+
+.formats5-progress-label {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.formats5-progress-label strong {
+  color: #ffffff;
+}
+
+.formats5-progress-label span {
+  color: #d3deef;
+}
+
+.formats5-progress {
+  height: 10px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.formats5-progress > div {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--f5-orange);
+  transition: width 200ms ease;
+}
+
+/* TARJETAS */
+
+.formats5-panel {
+  min-width: 0;
+  padding: clamp(20px, 4vw, 34px);
+  margin-bottom: 24px;
+  border: 1px solid var(--f5-border);
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 6px 24px rgba(17, 27, 53, 0.045);
+}
+
+.formats5-panel > h3 {
+  margin: 0 0 12px;
+  color: var(--f5-navy);
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.formats5-panel h4 {
+  margin: 10px 0 18px;
+  color: var(--f5-navy);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.formats5-description {
+  margin: 0 0 24px;
+  color: var(--f5-muted);
+  line-height: 1.7;
+}
+
+/* ENCABEZADO DE ETAPAS */
+
+.formats5-step-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 17px;
+  padding-bottom: 24px;
+  margin-bottom: 26px;
+  border-bottom: 1px solid var(--f5-border);
+}
+
+.formats5-step-number {
+  display: grid;
+  flex: 0 0 52px;
+  height: 52px;
+  place-items: center;
+  border-radius: 13px;
+  background: var(--f5-orange);
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.formats5-step-time {
+  display: block;
+  margin-bottom: 8px;
+  color: #b75029;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.formats5-step-heading h3 {
+  margin: 0 0 8px;
+  color: var(--f5-navy);
+  font-size: clamp(21px, 3vw, 28px);
+  font-weight: 800;
+}
+
+.formats5-step-heading p {
+  margin: 0;
+  color: var(--f5-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* COLUMNAS */
+
+.formats5-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 20px;
+}
+
+/* CAMPOS */
+
+.formats5-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+  margin-bottom: 22px;
+}
+
+.formats5-field > span {
+  color: #293950;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.formats5-field input,
+.formats5-field textarea,
+.formats5-field select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 13px 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  outline: none;
+  background: #fbfcfe;
+  color: #17233b;
+  font: inherit;
+  font-size: 14px;
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.formats5-field textarea {
+  min-height: 100px;
+  resize: vertical;
+  line-height: 1.65;
+}
+
+.formats5-field input::placeholder,
+.formats5-field textarea::placeholder {
+  color: #94a3b8;
+}
+
+.formats5-field input:focus,
+.formats5-field textarea:focus,
+.formats5-field select:focus {
+  border-color: var(--f5-orange);
+  box-shadow: 0 0 0 3px rgba(238, 117, 68, 0.14);
+  background: #ffffff;
+}
+
+/* NOTAS */
+
+.formats5-hint {
+  padding: 17px 20px;
+  margin: 14px 0 23px;
+  border: 1px solid #ffdfcc;
+  border-radius: 11px;
+  background: #fff4ec;
+  color: #85472d;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* EDITOR DE CARRUSEL */
+
+.formats5-carousel-editor {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 20px 0 26px;
+}
+
+.formats5-slide-card {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid #e0e6ef;
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.formats5-slide-card:last-child {
+  grid-column: 1 / -1;
+}
+
+.formats5-slide-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-bottom: 14px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e0e6ef;
+}
+
+.formats5-slide-top > span {
+  color: #b75029;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.formats5-slide-top small {
+  padding: 6px 10px;
+  border-radius: 99px;
+  background: #e8edf5;
+  color: #44536a;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+/* HISTORIA DIGITAL */
+
+.formats5-story-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.8fr);
+  align-items: start;
+  gap: 26px;
+}
+
+.formats5-story-preview {
+  display: flex;
+  flex-direction: column;
+  min-height: 480px;
+  padding: 20px;
+  border-radius: 20px;
+  background: linear-gradient(155deg, #111b35, #315a76, #d87745);
+  color: #ffffff;
+  aspect-ratio: 9 / 16;
+}
+
+.formats5-preview-label {
+  color: #ffe0ce;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.formats5-story-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  gap: 22px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+.formats5-story-content h4 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(20px, 2.5vw, 30px);
+  line-height: 1.2;
+}
+
+.formats5-story-content p {
+  margin: 0;
+  color: #f0f4f8;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.formats5-story-sticker {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 15px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #17233b;
+}
+
+.formats5-story-sticker strong {
+  font-size: 13px;
+}
+
+.formats5-story-sticker span {
+  padding: 9px;
+  border: 1px solid #d9e2ee;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.formats5-story-content > small {
+  color: #ffe0ce;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* GUION DEL REEL */
+
+.formats5-reel-scenes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.formats5-scene {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid #e0e6ef;
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.formats5-scene h4 {
+  padding-bottom: 14px;
+  margin: 0 0 20px;
+  border-bottom: 1px solid #e0e6ef;
+  color: #b75029;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+/* COMPLETAR ETAPAS */
+
+.formats5-done {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 17px 19px;
+  margin-top: 14px;
+  border: 1px solid #cdebd9;
+  border-radius: 11px;
+  background: #f1fbf5;
+  color: #236545;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.formats5-done input {
+  flex-shrink: 0;
+  width: 19px;
+  height: 19px;
+  margin: 0;
+  accent-color: #26845b;
+}
+
+/* RÚBRICA */
+
+.formats5-rubric {
+  overflow: hidden;
+  margin: 12px 0 24px;
+  border: 1px solid var(--f5-border);
+  border-radius: 13px;
+}
+
+.formats5-rubric h4 {
+  margin: 0;
+  padding: 18px 20px;
+  background: var(--f5-navy);
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.formats5-rubric > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 20px;
+  border-top: 1px solid var(--f5-border);
+  color: #293950;
+  font-size: 13px;
+}
+
+.formats5-rubric > div:nth-child(odd) {
+  background: #f8fafc;
+}
+
+.formats5-rubric strong {
+  color: var(--f5-navy);
+  font-weight: 900;
+}
+
+/* PIE DEL LABORATORIO */
+
+.formats5-footer {
+  padding: 30px;
+  border-radius: 17px;
+  background: var(--f5-navy);
+  color: #ffffff;
+  text-align: center;
+}
+
+.formats5-footer h3 {
+  margin: 0 0 12px;
+  color: #ffffff;
+  font-size: 22px;
+}
+
+.formats5-footer p {
+  max-width: 680px;
+  margin: 0 auto;
+  color: #d3deef;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .formats5-story-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .formats5-story-preview {
+    width: min(100%, 320px);
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 720px) {
+  .formats5-grid,
+  .formats5-carousel-editor,
+  .formats5-reel-scenes {
+    grid-template-columns: 1fr;
+  }
+
+  .formats5-slide-card:last-child {
+    grid-column: auto;
+  }
+
+  .formats5-hero {
+    padding: 26px 20px;
+    border-radius: 15px;
+  }
+
+  .formats5-panel {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .formats5-step-heading {
+    gap: 12px;
+  }
+
+  .formats5-step-number {
+    flex-basis: 42px;
+    height: 42px;
+    font-size: 16px;
+  }
+
+  .formats5-field input,
+  .formats5-field textarea,
+  .formats5-field select {
+    font-size: 16px;
+  }
+
+  .formats5-slide-card,
+  .formats5-scene {
+    padding: 16px;
+  }
+
+  .formats5-footer {
+    padding: 24px 18px;
+  }
+}
+
+/* ACCESIBILIDAD */
+
+@media (prefers-reduced-motion: reduce) {
+  .formats5-progress > div,
+  .formats5-field input,
+  .formats5-field textarea,
+  .formats5-field select {
+    transition: none;
+  }
+}

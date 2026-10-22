@@ -1,0 +1,484 @@
+
+.micro13 {
+  --micro-navy: #111b35;
+  --micro-orange: #fe7e03;
+  --micro-border: #e2e7ef;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  color: var(--micro-navy);
+  font-family: inherit;
+}
+
+.micro13 *,
+.micro13 *::before,
+.micro13 *::after {
+  box-sizing: border-box;
+}
+
+.micro13-hero {
+  padding: 30px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #111b35, #243b60);
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.micro13-hero > span {
+  color: #ffbd80;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.micro13-hero h2 {
+  font-size: clamp(25px, 3vw, 38px);
+  line-height: 1.2;
+  margin: 12px 0;
+}
+
+.micro13-hero p {
+  color: #d9e2f1;
+  line-height: 1.65;
+}
+
+.micro13-progress {
+  margin-top: 20px;
+}
+
+.micro13-progress > div {
+  height: 10px;
+  margin-top: 10px;
+  background: #465675;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.micro13-progress > div > span {
+  display: block;
+  height: 100%;
+  background: var(--micro-orange);
+  transition: width 0.25s ease;
+}
+
+.micro13-panel {
+  padding: 24px;
+  border: 1px solid var(--micro-border);
+  background: #fff;
+  border-radius: 18px;
+  margin: 16px 0;
+  box-shadow: 0 5px 24px rgba(17, 27, 53, 0.04);
+}
+
+.micro13-panel h3 {
+  margin: 0 0 14px;
+  font-size: 20px;
+}
+
+.micro13-panel h4 {
+  margin: 14px 0 10px;
+}
+
+.micro13-panel p {
+  color: #58647a;
+  line-height: 1.65;
+}
+
+.micro13-stephead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.micro13-stephead h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+.micro13-stephead h3 > span {
+  color: var(--micro-orange);
+  font-weight: 900;
+}
+
+.micro13-stephead small,
+.micro13-tag {
+  padding: 7px 12px;
+  border-radius: 30px;
+  background: #fff0e1;
+  color: #ad5300;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.micro13-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.micro13-format-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.micro13-format {
+  background: #f7f9fc;
+  border: 1px solid var(--micro-border);
+  border-radius: 13px;
+  padding: 16px;
+  min-width: 0;
+}
+
+.micro13-format > strong {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 13px;
+}
+
+.micro13-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 10px 0;
+  min-width: 0;
+}
+
+.micro13-field > span {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.micro13-field input,
+.micro13-field textarea,
+.micro13-field select {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #cbd4e2;
+  border-radius: 10px;
+  padding: 11px 12px;
+  font: inherit;
+  color: var(--micro-navy);
+  background: #fff;
+}
+
+.micro13-field textarea {
+  resize: vertical;
+}
+
+.micro13-field input:focus,
+.micro13-field textarea:focus,
+.micro13-field select:focus {
+  outline: 2px solid var(--micro-orange);
+  outline-offset: 1px;
+}
+
+.micro13-complete {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 10px;
+  background: #f2f5f9;
+  margin-top: 20px;
+  font-weight: 700;
+}
+
+.micro13-complete input {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--micro-orange);
+}
+
+.micro13-producthead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.micro13-producthead > div > span {
+  color: #a45200;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.micro13-producthead h4 {
+  font-size: 24px;
+  margin: 5px 0;
+}
+
+.micro13-producthead p {
+  margin: 0;
+  font-size: 13px;
+}
+
+/* STORYBOARD */
+
+.micro13-storyboard {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.micro13-storyboard > div {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--micro-border);
+  border-radius: 12px;
+  background: #f7f9fc;
+}
+
+.micro13-shot-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 95px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #172846, #344f75);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 10px;
+}
+
+/* VISTAS PREVIAS */
+
+.micro13-preview-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 15px;
+  background: #f2f5f9;
+  border-radius: 14px;
+  min-width: 0;
+}
+
+.micro13-story-preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: min(100%, 220px);
+  aspect-ratio: 9 / 16;
+  padding: 18px;
+  border-radius: 15px;
+  color: #fff;
+  background: linear-gradient(155deg, #101b33, #26405e 65%, #a7551b);
+  text-align: center;
+}
+
+.micro13-story-preview small {
+  font-size: 9px;
+  letter-spacing: 0.5px;
+  opacity: 0.8;
+}
+
+.micro13-story-preview > strong {
+  font-size: 21px;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.micro13-poll {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.micro13-poll > span {
+  display: block;
+  padding: 12px;
+  border-radius: 9px;
+  background: #fff;
+  color: #111b35;
+  font-size: 13px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.micro13-post-preview {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 260px);
+  aspect-ratio: 4 / 5;
+  padding: 18px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 25px rgba(17, 27, 53, 0.1);
+}
+
+.micro13-post-preview small {
+  color: #667389;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.micro13-post-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 80px;
+  margin: 12px 0;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #182c48, #bd7641);
+  color: #fff;
+  font-size: 12px;
+}
+
+.micro13-post-preview > strong {
+  font-size: 20px;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.micro13-post-preview > p {
+  margin-bottom: 0;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.micro13-hint {
+  font-size: 13px;
+  color: #69768a !important;
+}
+
+/* ENTREGABLES */
+
+.micro13-deliverables {
+  border: 1px solid var(--micro-border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 16px 0;
+}
+
+.micro13-deliverables > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px;
+  border-bottom: 1px solid var(--micro-border);
+}
+
+.micro13-deliverables > div:last-child {
+  border-bottom: 0;
+}
+
+.micro13-deliverables strong {
+  font-size: 12px;
+  text-align: right;
+}
+
+.micro13-rubric {
+  border: 1px solid var(--micro-border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.micro13-rubric h4 {
+  margin: 0;
+  padding: 14px;
+  background: #eef2f7;
+}
+
+.micro13-rubric > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-top: 1px solid var(--micro-border);
+}
+
+.micro13-rubric strong {
+  white-space: nowrap;
+}
+
+/* FINAL */
+
+.micro13-footer {
+  background: #f4f6fa;
+  padding: 24px;
+  border-radius: 18px;
+  margin: 18px 0;
+}
+
+.micro13-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.micro13-summary strong {
+  padding: 10px 14px;
+  background: #fff;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.micro13-footer button {
+  background: var(--micro-orange);
+  color: #fff;
+  border: 0;
+  border-radius: 10px;
+  padding: 13px 20px;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.micro13-footer button:hover {
+  background: #d96800;
+}
+
+.micro13-footer p {
+  color: #59657b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 850px) {
+  .micro13-format-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .micro13-storyboard {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .micro13-hero,
+  .micro13-panel,
+  .micro13-footer {
+    padding: 18px;
+  }
+
+  .micro13-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .micro13-stephead,
+  .micro13-producthead {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .micro13-storyboard {
+    grid-template-columns: 1fr;
+  }
+
+  .micro13-deliverables > div {
+    font-size: 13px;
+  }
+}

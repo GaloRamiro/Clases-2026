@@ -1,0 +1,226 @@
+const semana11 = {
+  id: "contenido-semana-11",
+  courseId: "contenido",
+  number: 11,
+  title: "Embudo de contenidos: TOFU, MOFU y BOFU",
+  subtitle: "Diseña contenido para cada momento del consumidor",
+  duration: 180,
+  objective:
+    "Diseñar contenidos digitales adaptados a las etapas del embudo de marketing, considerando el conocimiento, interés y disposición a actuar del consumidor, mediante piezas gráficas y audiovisuales.",
+  challenge:
+    "¿Mostrarías el mismo anuncio a alguien que no conoce tu marca y a alguien que ya quiere comprar?",
+
+  schedule: [
+    { time: "00–15", title: "Desafío inicial", minutes: 15 },
+    { time: "15–50", title: "Fundamentos", minutes: 35 },
+    { time: "50–80", title: "Demostración", minutes: 30 },
+    { time: "80–100", title: "Descanso", minutes: 20 },
+    { time: "100–160", title: "Laboratorio grupal", minutes: 60 },
+    { time: "160–180", title: "Presentaciones", minutes: 20 },
+  ],
+
+  slides: [
+    {
+      id: 1,
+      block: "ACTIVACIÓN · 15 MIN",
+      kind: "cover",
+      title: "Antes de vender, entiende a tu consumidor",
+      subtitle: "No todos están listos para comprar",
+      body: "Una persona que acaba de descubrir tu marca necesita información diferente de alguien que ya está considerando comprar.",
+      imageHint:
+        "Fotografía publicitaria de café artesanal y consumidores en cafetería contemporánea",
+    },
+    {
+      id: 2,
+      block: "ACTIVACIÓN",
+      kind: "table",
+      title: "Tres personas. El mismo café.",
+      subtitle:
+        "Propón un mensaje diferente para cada consumidor y explica por qué.",
+      columns: ["Consumidor", "Situación"],
+      rows: [
+        ["A", "Nunca ha escuchado hablar de la marca"],
+        ["B", "Conoce la marca, pero tiene dudas"],
+        ["C", "Está interesado y quiere saber cómo comprar"],
+      ],
+      note: "¿Sería apropiado mostrarles exactamente el mismo anuncio?",
+    },
+    {
+      id: 3,
+      block: "FUNDAMENTOS · 35 MIN",
+      kind: "table",
+      title: "¿Qué es un embudo de contenidos?",
+      subtitle:
+        "Modelo para organizar mensajes según conocimiento, interés y disposición a actuar.",
+      columns: ["Etapa", "Función"],
+      rows: [
+        ["TOFU · Descubrimiento", "Atraer y despertar interés"],
+        ["MOFU · Consideración", "Informar y generar confianza"],
+        ["BOFU · Decisión", "Facilitar una acción"],
+      ],
+      note: "El embudo es un modelo de planificación. Los consumidores no siempre avanzan linealmente ni todos terminan comprando.",
+    },
+    {
+      id: 4,
+      block: "FUNDAMENTOS",
+      kind: "statement",
+      title: "TOFU: primero atrae",
+      body: "Top of Funnel. Dirigido a personas que todavía no conocen la marca. Funciona con consejos, curiosidades, historias y tutoriales breves.",
+      quote: "Tres errores que pueden arruinar tu café de la mañana.",
+      note: "CTA: Descubre más consejos.",
+    },
+    {
+      id: 5,
+      block: "FUNDAMENTOS",
+      kind: "statement",
+      title: "MOFU: informa y genera confianza",
+      body: "Middle of Funnel. Ayuda a consumidores interesados a evaluar una propuesta mediante comparaciones, demostraciones, preguntas frecuentes y características del producto.",
+      quote: "¿Qué tipo de café combina mejor con tu forma de prepararlo?",
+      note: "CTA: Conoce nuestras variedades.",
+    },
+    {
+      id: 6,
+      block: "FUNDAMENTOS",
+      kind: "statement",
+      title: "BOFU: facilita la decisión",
+      body: "Bottom of Funnel. Presenta opciones, información de compra y condiciones claras para quienes ya muestran interés. No inventes precios, descuentos, testimonios ni disponibilidad real.",
+      quote: "Elige tu café ideal y conoce cómo pedirlo.",
+      note: "CTA: Consulta las opciones disponibles.",
+    },
+    {
+      id: 7,
+      block: "FUNDAMENTOS",
+      kind: "table",
+      title: "El mismo producto, tres mensajes",
+      columns: ["Etapa", "Mensaje", "Intención"],
+      rows: [
+        ["TOFU", "Aprende a preparar mejor tu café", "Atraer"],
+        ["MOFU", "Descubre qué hace diferente a Café Raíz", "Informar"],
+        [
+          "BOFU",
+          "Conoce las opciones para elegir tu café",
+          "Facilitar decisión",
+        ],
+      ],
+    },
+    {
+      id: 8,
+      block: "FUNDAMENTOS",
+      kind: "table",
+      title: "Elige formatos según el objetivo",
+      columns: ["Etapa", "Formatos posibles"],
+      rows: [
+        ["TOFU", "Reel, carrusel educativo, publicación inspiracional"],
+        [
+          "MOFU",
+          "Carrusel comparativo, video demostrativo, preguntas frecuentes",
+        ],
+        ["BOFU", "Anuncio de producto, historia con CTA, pieza informativa"],
+      ],
+      note: "No existe un formato exclusivo para cada etapa.",
+    },
+    {
+      id: 9,
+      block: "FUNDAMENTOS",
+      kind: "table",
+      title: "Copywriting y CTA por etapa",
+      columns: ["Etapa", "Verbos recomendados"],
+      rows: [
+        ["TOFU", "Descubre · Aprende · Explora"],
+        ["MOFU", "Compara · Conoce · Resuelve tus dudas"],
+        ["BOFU", "Consulta · Solicita información · Elige"],
+      ],
+      note: "Actividad: revisa un CTA de la Semana 10 e identifica a qué etapa corresponde.",
+    },
+    {
+      id: 10,
+      block: "DEMOSTRACIÓN · 30 MIN",
+      kind: "table",
+      title: "Construyamos el embudo de Café Raíz",
+      subtitle: "Campaña: Tu historia comienza con una taza.",
+      columns: ["Etapa", "Mensaje", "Pieza"],
+      rows: [
+        [
+          "TOFU",
+          "Tu café de la mañana puede saber mejor",
+          "Carrusel educativo",
+        ],
+        [
+          "MOFU",
+          "Descubre la experiencia detrás de Café Raíz",
+          "Video demostrativo",
+        ],
+        [
+          "BOFU",
+          "Encuentra la variedad que se adapta a ti",
+          "Anuncio informativo",
+        ],
+      ],
+    },
+    {
+      id: 11,
+      block: "DEMOSTRACIÓN",
+      kind: "statement",
+      title: "Tres piezas, una identidad visual",
+      body: "Adapta la composición, el mensaje, el formato y el CTA para cada etapa. Conserva los colores, las tipografías y el estilo visual de tu marca.",
+      quote: "No son tres diseños idénticos con el texto cambiado.",
+      note: "Demostración: crea o adapta una pieza TOFU, una MOFU y una BOFU.",
+    },
+    {
+      id: 12,
+      block: "DEMOSTRACIÓN",
+      kind: "table",
+      title: "Integra el embudo al cronopost",
+      subtitle:
+        "Añade una columna llamada «Etapa del embudo» al calendario de la Semana 9.",
+      columns: ["Día", "Pieza", "Etapa"],
+      rows: [
+        ["1", "Consejo de preparación", "TOFU"],
+        ["5", "Demostración de producto", "MOFU"],
+        ["9", "Presentación de variedades", "BOFU"],
+        ["12", "Historia de marca", "TOFU"],
+        ["15", "Preguntas frecuentes", "MOFU"],
+      ],
+      note: "No es obligatorio publicar en una secuencia rígida TOFU → MOFU → BOFU.",
+    },
+    {
+      id: 13,
+      block: "LABORATORIO · 60 MIN",
+      kind: "content-funnel-lab",
+      title: "Laboratorio 11: tres contenidos, tres momentos",
+      subtitle:
+        "Produce una pieza TOFU, una MOFU y una BOFU para tu campaña de café.",
+    },
+    {
+      id: 14,
+      block: "PRESENTACIÓN · 20 MIN",
+      kind: "present",
+      title: "¿Qué le dirías a alguien que todavía no confía?",
+      body: "Cada equipo muestra sus tres piezas sin revelar la etapa. Los compañeros identifican si corresponden a TOFU, MOFU o BOFU. Después, el equipo explica la necesidad, el mensaje y el CTA.",
+      quote: "¿Cuál de tus tres piezas necesita mayor claridad?",
+    },
+    {
+      id: 15,
+      block: "CIERRE",
+      kind: "questions",
+      title: "¿Qué aprendimos hoy?",
+      questions: [
+        "¿Por qué no debemos mostrar el mismo mensaje a todos?",
+        "¿Qué diferencia existe entre atraer y convertir?",
+        "¿Cómo se relaciona el embudo con el Buyer Persona?",
+        "¿Qué aportan las tres piezas a la campaña?",
+      ],
+    },
+    {
+      id: 16,
+      block: "TRABAJO AUTÓNOMO",
+      kind: "homework",
+      title: "Convierte tu campaña en una experiencia",
+      body: "Mejora las tres piezas del laboratorio y crea otras tres, una por etapa, con formatos diferentes. Integra las seis al cronopost y elabora una tabla de objetivo, audiencia, etapa, formato, mensaje y CTA. Propón un indicador para cada etapa y prepara una presentación de cinco diapositivas.",
+      note: "Entrega grupal en Moodle: PDF con embudo, seis piezas y justificaciones; cronopost actualizado y presentación.",
+      next: "Semana 12: KPIs, métricas y dashboard con datos simulados.",
+    },
+  ],
+};
+
+export default semana11;

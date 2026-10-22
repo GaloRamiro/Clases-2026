@@ -1,8 +1,8 @@
 
 import { useEffect, useState } from "react";
-import CrmWorkshop from "./CrmWorkshop";
-import "./PushPullLab.css";
 
+import "./PushPullLab.css";
+import CrmWorkshop from "./CrmWorkshop";
 const CASES = [
   {
     id: "case1",

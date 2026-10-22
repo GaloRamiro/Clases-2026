@@ -1,0 +1,276 @@
+.camp10 {
+  --camp-navy: #111b35;
+  --camp-orange: #fe7e03;
+  --camp-border: #e2e7ef;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  color: var(--camp-navy);
+  font-family: inherit;
+}
+
+.camp10 * {
+  box-sizing: border-box;
+}
+
+.camp10-hero {
+  padding: 30px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #111b35, #243b60);
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.camp10-hero > span {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #ffbd80;
+}
+
+.camp10-hero h2 {
+  margin: 12px 0;
+  font-size: clamp(25px, 3vw, 38px);
+}
+
+.camp10-hero p {
+  color: #d9e2f1;
+  line-height: 1.65;
+}
+
+.camp10-progress {
+  margin-top: 20px;
+}
+
+.camp10-progress > div {
+  height: 10px;
+  background: #465675;
+  border-radius: 30px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.camp10-progress > div > span {
+  display: block;
+  height: 100%;
+  background: var(--camp-orange);
+  transition: width 0.25s ease;
+}
+
+.camp10-panel {
+  padding: 24px;
+  border: 1px solid var(--camp-border);
+  background: #fff;
+  border-radius: 18px;
+  margin: 16px 0;
+  box-shadow: 0 5px 24px rgba(17, 27, 53, 0.04);
+}
+
+.camp10-panel h3 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.camp10-panel h4 {
+  margin: 18px 0 10px;
+}
+
+.camp10-panel p {
+  color: #58647a;
+  line-height: 1.65;
+}
+
+.camp10-stephead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.camp10-stephead > span {
+  white-space: nowrap;
+  color: #b75a00;
+  background: #fff0e1;
+  border-radius: 30px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.camp10-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.camp10-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 10px 0;
+  min-width: 0;
+}
+
+.camp10-field > span {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.camp10-field input,
+.camp10-field textarea,
+.camp10-field select {
+  width: 100%;
+  border: 1px solid #cbd4e2;
+  border-radius: 10px;
+  padding: 11px 12px;
+  font: inherit;
+  background: #fff;
+  color: var(--camp-navy);
+}
+
+.camp10-field textarea {
+  resize: vertical;
+}
+
+.camp10-field input:focus,
+.camp10-field textarea:focus,
+.camp10-field select:focus {
+  outline: 2px solid var(--camp-orange);
+  outline-offset: 1px;
+}
+
+.camp10-subcard {
+  padding: 16px;
+  background: #f7f9fc;
+  border: 1px solid var(--camp-border);
+  border-radius: 13px;
+  margin: 10px 0;
+}
+
+.camp10-subcard h4 {
+  margin-top: 0;
+}
+
+.camp10-total {
+  background: #fff1e4;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+}
+
+.camp10-total strong {
+  font-size: 26px;
+}
+
+.camp10-note {
+  font-size: 13px;
+}
+
+.camp10-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 10px;
+  background: #f2f5f9;
+  margin-top: 18px;
+  font-weight: 700;
+}
+
+.camp10-check input {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--camp-orange);
+}
+
+.camp10-rubric {
+  border: 1px solid var(--camp-border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.camp10-rubric h4 {
+  margin: 0;
+  padding: 14px;
+  background: #eef2f7;
+}
+
+.camp10-rubric > div {
+  padding: 12px 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid var(--camp-border);
+}
+
+.camp10-rubric strong {
+  white-space: nowrap;
+}
+
+.camp10-footer {
+  padding: 24px;
+  border-radius: 18px;
+  background: #f4f6fa;
+  margin: 18px 0;
+}
+
+.camp10-summary {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.camp10-summary strong {
+  background: #fff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.camp10-footer button {
+  background: var(--camp-orange);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 13px 20px;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.camp10-footer button:hover {
+  background: #d96800;
+}
+
+.camp10-footer p {
+  color: #59657b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 720px) {
+  .camp10-hero,
+  .camp10-panel,
+  .camp10-footer {
+    padding: 18px;
+  }
+
+  .camp10-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .camp10-stephead {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .camp10-rubric > div {
+    font-size: 13px;
+  }
+}
