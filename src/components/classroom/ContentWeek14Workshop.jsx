@@ -1,4 +1,5 @@
 import { useState } from "react";
+import WorkshopDownloadButton from "./WorkshopDownloadButton";
 import "../../styles/contenidoSemana14.css";
 
 const STEPS = [
@@ -715,9 +716,95 @@ export default function ContentWeek14Workshop({
           <strong>{adCount}/2 anuncios</strong>
         </div>
 
-        <button type="button" onClick={downloadReport}>
-          Descargar ficha de dirección de arte
-        </button>
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "contenido",
+            number: 14,
+            title: "La inteligencia artificial propone. El diseñador decide.",
+          }}
+          title="Laboratorio 14: Dirección de arte y fotografía publicitaria"
+          answers={{
+            "Nombre del equipo": data.team,
+            "Marca de café": data.brand,
+            "Nombre de campaña": data.campaign,
+            "Objetivo de los anuncios": data.objective,
+            "Mensaje central": data.message,
+            "Buyer Persona": data.audience,
+            "Emoción que se desea comunicar": data.emotion,
+
+            "DIRECCIÓN DE ARTE - Producto protagonista": data.product,
+            "DIRECCIÓN DE ARTE - Escenario": data.scene,
+            "DIRECCIÓN DE ARTE - Acción o situación": data.action,
+            "DIRECCIÓN DE ARTE - Composición y encuadre": data.composition,
+            "DIRECCIÓN DE ARTE - Iluminación": data.lighting,
+            "DIRECCIÓN DE ARTE - Paleta de marca": data.colors,
+            "DIRECCIÓN DE ARTE - Estilo fotográfico": data.style,
+            "DIRECCIÓN DE ARTE - Restricciones": data.restrictions,
+            "DIRECCIÓN DE ARTE - Referencias del moodboard": data.references,
+            "DIRECCIÓN DE ARTE - Enlace al moodboard": data.moodboard,
+
+            "Prompt base de dirección de arte": prompt,
+
+            ...Object.fromEntries(
+              data.photos.flatMap((photo, index) => {
+                const prefix = `PROPUESTA FOTOGRÁFICA ${index + 1}`;
+                return [
+                  [`${prefix} - Concepto`, photo.concept],
+                  [`${prefix} - Origen del recurso`, photo.origin],
+                  [`${prefix} - Prompt o descripción`, photo.prompt],
+                  [`${prefix} - Enlace a la fotografía`, photo.link],
+                  [`${prefix} - Evaluación crítica`, photo.evaluation],
+                ];
+              }),
+            ),
+
+            ...Object.fromEntries(
+              data.edits.flatMap((edit, index) => {
+                const prefix = `FOTOGRAFÍA MEJORADA ${index + 1}`;
+                return [
+                  [`${prefix} - Propuesta seleccionada`, edit.photoId],
+                  [`${prefix} - Cambios realizados`, edit.changes],
+                  [`${prefix} - Justificación`, edit.reason],
+                  [`${prefix} - Enlace a la imagen final`, edit.link],
+                ];
+              }),
+            ),
+
+            ...Object.fromEntries(
+              data.ads.flatMap((ad, index) => {
+                const prefix = `ANUNCIO ${index + 1}`;
+                return [
+                  [`${prefix} - Formato`, ad.format],
+                  [`${prefix} - Fotografía seleccionada`, ad.photoId],
+                  [`${prefix} - Titular`, ad.headline],
+                  [`${prefix} - Copy publicitario`, ad.copy],
+                  [`${prefix} - CTA`, ad.cta],
+                  [`${prefix} - Decisiones de composición`, ad.composition],
+                  [`${prefix} - Enlace al anuncio terminado`, ad.link],
+                ];
+              }),
+            ),
+
+            "Herramientas utilizadas": data.tool,
+            "Origen y permisos de uso de recursos": data.rights,
+            "Justificación de fotografías seleccionadas": data.justification,
+            "Registro ético y uso de inteligencia artificial": data.ethics,
+            "Enlace a la carpeta de entrega": data.folder,
+
+            ...Object.fromEntries(
+              data.done.map((checked, index) => [
+                `Etapa ${index + 1} completada`,
+                checked ? "Sí" : "No",
+              ]),
+            ),
+
+            "Progreso general": `${completed} de 6 etapas`,
+            "Propuestas fotográficas registradas": `${photoCount} de 3`,
+            "Fotografías mejoradas registradas": `${editCount} de 2`,
+            "Anuncios terminados registrados": `${adCount} de 2`,
+          }}
+        />
 
         <p>{notice}</p>
 

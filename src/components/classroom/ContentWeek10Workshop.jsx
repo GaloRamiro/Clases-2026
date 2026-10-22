@@ -1,4 +1,5 @@
 import { useState } from "react";
+import WorkshopDownloadButton from "./WorkshopDownloadButton";
 import "../../styles/contenidoSemana10.css";
 
 const initialData = () => ({
@@ -502,14 +503,83 @@ export default function ContentWeek10Workshop({
           <strong>${total.toFixed(2)} simulados</strong>
         </div>
 
-        <button type="button" onClick={download}>
-          Descargar ficha de campaña
-        </button>
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "contenido",
+            number: 10,
+            title: "Estrategia de campañas digitales",
+          }}
+          title="Laboratorio 10: Lanzamiento de campaña digital"
+          answers={{
+            Equipo: data.team,
+            "Marca de café": data.brand,
+            "Nombre de la campaña": data.campaign,
+
+            "Buyer Persona": data.audience,
+            "Objetivo SMART": data.smart,
+            "Mensaje principal": data.message,
+            "CTA principal": data.cta,
+            "Canales seleccionados": data.channels,
+
+            "Presupuesto - Difusión pagada (USD)": Number(
+              data.budget.ads,
+            ).toFixed(2),
+
+            "Presupuesto - Producción (USD)": Number(
+              data.budget.production,
+            ).toFixed(2),
+
+            "Presupuesto - Reserva (USD)": Number(data.budget.reserve).toFixed(
+              2,
+            ),
+
+            "Presupuesto total simulado (USD)": total.toFixed(2),
+
+            ...Object.fromEntries(
+              data.phases.flatMap((phase, index) => [
+                [`Fase ${index + 1} - Nombre`, phase.name],
+                [`Fase ${index + 1} - Días`, phase.days],
+                [`Fase ${index + 1} - Acción o contenido`, phase.action],
+              ]),
+            ),
+
+            ...Object.fromEntries(
+              data.pieces.flatMap((piece, index) => [
+                [`Anuncio ${index + 1} - Nombre`, piece.name],
+                [`Anuncio ${index + 1} - Formato`, piece.format],
+                [`Anuncio ${index + 1} - Titular`, piece.title],
+                [`Anuncio ${index + 1} - Copy publicitario`, piece.copy],
+                [`Anuncio ${index + 1} - CTA`, piece.cta],
+                [`Anuncio ${index + 1} - Estado`, piece.status],
+                [`Anuncio ${index + 1} - Enlace al diseño`, piece.link],
+              ]),
+            ),
+
+            "Anuncios completos con evidencias": `${ready} de 3`,
+
+            "Integración al cronopost de 15 días": data.calendar,
+            "Justificación de la estrategia creativa": data.justification,
+
+            "Indicador para evaluar la campaña": data.indicator,
+            "Enlace a carpeta de evidencias": data.evidence,
+
+            ...Object.fromEntries(
+              data.done.map((completed, index) => [
+                `Etapa ${index + 1} completada`,
+                completed ? "Sí" : "No",
+              ]),
+            ),
+
+            "Progreso general": `${progress} de 6 etapas`,
+          }}
+        />
 
         <p>{message}</p>
+
         <p>
-          La ficha se descarga en TXT. Los diseños y videos se crean en un
-          editor externo y se entregan en Moodle mediante archivos o enlaces.
+          Descarga el PDF con la estrategia completa. Los diseños y videos se
+          entregan en Moodle mediante archivos o enlaces.
         </p>
       </footer>
     </div>

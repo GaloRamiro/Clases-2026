@@ -1,4 +1,5 @@
 import { useState } from "react";
+import WorkshopDownloadButton from "./WorkshopDownloadButton";
 import "../../styles/contenidoSemana05.css";
 
 const STEPS = [
@@ -683,10 +684,86 @@ export default function ContentWeek05Workshop({
             ? "Laboratorio completado"
             : `${completedCount} de 6 etapas completadas`}
         </h3>
+
         <p>
-          Tus respuestas se guardan automáticamente en este navegador. Entrega
-          las piezas visuales y el guion en Moodle.
+          Tus respuestas se guardan automáticamente. Descarga el PDF de tu
+          laboratorio y entrega las piezas visuales según las instrucciones de
+          Moodle.
         </p>
+
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "contenido",
+            number: 5,
+            title: "Una idea. Diferentes formas de contarla.",
+          }}
+          title="Laboratorio 05: Una idea, tres formatos"
+          answers={{
+            "Nombre del equipo": data.team,
+            "Marca de café": data.brand,
+
+            "Buyer Persona": data.buyerPersona,
+            "Necesidad del consumidor": data.consumerNeed,
+            "Idea central": data.centralIdea,
+            "Tipo de contenido": data.contentType,
+            "Plataforma principal": data.platform,
+            "Objetivo de comunicación": data.objective,
+            "Voz y tono de marca": data.brandVoice,
+
+            "Carrusel - Título general": data.carouselTitle,
+
+            ...Object.fromEntries(
+              data.carouselSlides.flatMap((slide, index) => [
+                [`Carrusel - Lámina ${index + 1} - Título`, slide.headline],
+                [`Carrusel - Lámina ${index + 1} - Mensaje`, slide.message],
+                [
+                  `Carrusel - Lámina ${index + 1} - Descripción visual`,
+                  slide.visual,
+                ],
+              ]),
+            ),
+
+            "Carrusel - Texto de acompañamiento": data.carouselCaption,
+            "Carrusel - CTA": data.carouselCta,
+            "Carrusel - Enlace al diseño": data.carouselLink,
+
+            "Historia - Título": data.storyTitle,
+            "Historia - Mensaje": data.storyMessage,
+            "Historia - Descripción visual": data.storyVisual,
+            "Historia - Tipo de interacción": data.storyInteraction,
+            "Historia - Pregunta": data.storyQuestion,
+            "Historia - Opción A": data.storyOptionA,
+            "Historia - Opción B": data.storyOptionB,
+            "Historia - CTA": data.storyCta,
+            "Historia - Enlace al diseño": data.storyLink,
+
+            "Reel - Duración prevista": `${data.reelDuration} segundos`,
+
+            ...Object.fromEntries(
+              data.reelScenes.flatMap((scene, index) => [
+                [`Reel - Escena ${index + 1} - Tiempo`, scene.time],
+                [`Reel - Escena ${index + 1} - Imagen o acción`, scene.visual],
+                [`Reel - Escena ${index + 1} - Mensaje`, scene.message],
+                [`Reel - Escena ${index + 1} - Audio`, scene.audio],
+              ]),
+            ),
+
+            "Reel - CTA final": data.reelCta,
+
+            "Justificación del carrusel": data.carouselReason,
+            "Justificación de la historia": data.storyReason,
+            "Justificación del Reel": data.reelReason,
+            "Coherencia con la voz de marca": data.coherence,
+            "Respuesta esperada del consumidor": data.expectedResponse,
+
+            "Presentación del equipo": data.presentation,
+            "Reflexión final": data.reflection,
+            "Enlace a la entrega": data.deliveryLink,
+
+            "Etapas completadas": `${completedCount} de 6`,
+          }}
+        />
       </footer>
     </div>
   );

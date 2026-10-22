@@ -1,4 +1,5 @@
 import { useState } from "react";
+import WorkshopDownloadButton from "./WorkshopDownloadButton";
 import "../../styles/contenidoSemana09.css";
 
 const PILLARS = ["Educativo", "Inspiracional", "Comunidad", "Comercial"];
@@ -625,6 +626,72 @@ export default function ContentWeek09Workshop({
           Trabajo autónomo: completa tres contenidos adicionales para reunir
           ocho piezas terminadas y prepara la presentación para la Semana 10.
         </p>
+
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "contenido",
+            number: 9,
+            title: "Cronopost y calendario editorial",
+          }}
+          title="Laboratorio 09: Cronopost de 15 días"
+          answers={{
+            Equipo: data.team,
+            "Marca de café": data.brand,
+            "Buyer Persona": data.persona,
+            "Objetivo de comunicación": data.objective,
+
+            "Frecuencia de publicación": data.frequency,
+            "Justificación de la frecuencia": data.justification,
+
+            ...Object.fromEntries(
+              data.pillars.map((pillar) => [
+                `Pilar ${pillar.name} - Justificación`,
+                pillar.rationale,
+              ]),
+            ),
+
+            "Total de publicaciones planificadas": String(data.posts.length),
+            "Publicaciones listas con evidencias": String(ready),
+
+            ...Object.fromEntries(
+              data.posts
+                .slice()
+                .sort((a, b) => Number(a.day) - Number(b.day))
+                .flatMap((post, index) => {
+                  const prefix = `Publicación ${index + 1}`;
+
+                  return [
+                    [`${prefix} - Día`, String(post.day)],
+                    [`${prefix} - Plataforma`, post.platform],
+                    [`${prefix} - Pilar`, post.pillar],
+                    [`${prefix} - Formato`, post.format],
+                    [`${prefix} - Tema`, post.topic],
+                    [`${prefix} - Objetivo`, post.objective],
+                    [`${prefix} - Copy`, post.copy],
+                    [`${prefix} - CTA`, post.cta],
+                    [`${prefix} - Responsable`, post.owner],
+                    [`${prefix} - Estado`, post.status],
+                    [`${prefix} - Enlace al contenido`, post.link],
+                  ];
+                }),
+            ),
+
+            "Distribución de pilares": counts
+              .map((item) => `${item.name}: ${item.count}`)
+              .join(" | "),
+
+            "Análisis del equilibrio editorial": data.reflection,
+
+            "Publicaciones con responsable": `${
+              data.posts.filter((post) => post.owner.trim()).length
+            } de ${data.posts.length}`,
+
+            "Enlace a carpeta de evidencias": data.evidence,
+
+            "Etapas completadas": `${completedCount} de 6`,
+          }}
+        />
       </footer>
     </div>
   );

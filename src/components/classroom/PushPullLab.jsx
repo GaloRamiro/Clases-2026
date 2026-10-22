@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import "./PushPullLab.css";
 import CrmWorkshop from "./CrmWorkshop";
+import WorkshopDownloadButton from "./WorkshopDownloadButton";
 const CASES = [
   {
     id: "case1",
@@ -409,10 +410,54 @@ export default function PushPullLab({
           </select>
         </label>
 
+       
         <p className="ppl-save-note">
           Tus respuestas se guardan automáticamente en este navegador.
         </p>
       </div>
+
+      <div className="ppl-download">
+        <h3>Laboratorio completado</h3>
+        <p>
+          Tus respuestas se guardan automáticamente.
+          Descarga el PDF para entregar tu actividad.
+        </p>
+
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "contenido",
+            number: 1,
+            title: "Laboratorio PUSH y PULL",
+          }}
+          title="Laboratorio práctico: identificación y creación de contenidos PUSH y PULL"
+          answers={{
+            ...Object.fromEntries(
+              CASES.flatMap((item, index) => [
+                [
+                  `Caso ${index + 1}: ${item.title} - Clasificación`,
+                  data.cases[item.id]?.choice || "",
+                ],
+                [
+                  `Caso ${index + 1}: ${item.title} - Justificación`,
+                  data.cases[item.id]?.reason || "",
+                ],
+              ])
+            ),
+            "Publicación PUSH": data.creation.push,
+            "Justificación de PUSH": data.creation.pushReason,
+            "Publicación PULL": data.creation.pull,
+            "Justificación de PULL": data.creation.pullReason,
+            "Plataforma seleccionada": data.creation.platform,
+            "Clasificaciones correctas": data.checked
+              ? `${results.selectionPoints} de 4`
+              : "Evaluación pendiente",
+            "Revisión de justificaciones":
+              "Pendiente de revisión docente",
+          }}
+        />
+      </div>
     </section>
+
   );
 }

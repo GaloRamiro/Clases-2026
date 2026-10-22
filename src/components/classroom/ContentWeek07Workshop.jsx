@@ -1,4 +1,5 @@
 import { useState } from "react";
+import WorkshopDownloadButton from "./WorkshopDownloadButton";
 import "../../styles/contenidoSemana07.css";
 
 const STEPS = [
@@ -687,10 +688,87 @@ export default function ContentWeek07Workshop({
             ? "Laboratorio completado"
             : `${completedCount} de 6 etapas completadas`}
         </h3>
+
         <p>
-          Tus respuestas se guardan en este navegador. Entrega el video MP4 y
-          las evidencias en Moodle.
+          Tus respuestas se guardan automáticamente. Descarga el PDF del
+          laboratorio y entrega el video MP4 junto con las evidencias en Moodle.
         </p>
+
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "contenido",
+            number: 7,
+            title: "No cuentes qué vendes. Cuenta una historia que importe.",
+          }}
+          title="Laboratorio 07: Storytelling y microvideo de 7 segundos"
+          answers={{
+            "Nombre del equipo": data.team,
+            "Marca de café": data.brand,
+            "Buyer Persona": data.buyerPersona,
+            "Concepto de campaña de la Semana 6": data.campaignConcept,
+            "Voz y tono de marca": data.brandVoice,
+
+            ...Object.fromEntries(
+              data.benchmarks.flatMap((item, index) => [
+                [`Benchmarking ${index + 1} - Marca`, item.name],
+                [`Benchmarking ${index + 1} - Enlace`, item.link],
+                [`Benchmarking ${index + 1} - Público`, item.audience],
+                [`Benchmarking ${index + 1} - Historia`, item.story],
+                [`Benchmarking ${index + 1} - Emoción`, item.emotion],
+                [
+                  `Benchmarking ${index + 1} - Recursos visuales`,
+                  item.resources,
+                ],
+                [`Benchmarking ${index + 1} - Aprendizaje`, item.learning],
+              ]),
+            ),
+
+            "Emoción principal": data.emotion,
+            "Personaje protagonista": data.character,
+            "Historia - Situación inicial": data.initialSituation,
+            "Historia - Transformación": data.transformation,
+            "Historia - Resultado": data.ending,
+            "Historia completa": data.story,
+            "Mensaje central": data.centralMessage,
+
+            ...Object.fromEntries(
+              data.shots.flatMap((shot, index) => [
+                [`Storyboard - Plano ${index + 1} - Tiempo`, shot.time],
+                [`Storyboard - Plano ${index + 1} - Tipo`, shot.type],
+                [`Storyboard - Plano ${index + 1} - Acción`, shot.action],
+                [`Storyboard - Plano ${index + 1} - Mensaje`, shot.message],
+                [`Storyboard - Plano ${index + 1} - Audio`, shot.audio],
+              ]),
+            ),
+
+            "Formato del video": data.format,
+            "Editor utilizado": data.editingApp,
+            "Recursos de producción": data.recordingResources,
+            "Origen y permiso de uso del audio": data.musicLicense,
+            "Origen de los materiales identificado": data.ownMaterial
+              ? "Sí"
+              : "No",
+            "Duración comprobada del video": data.videoDuration,
+            "Nombre del archivo MP4": data.videoFile,
+            "Enlace al video terminado": data.videoLink,
+
+            "Revisión - Duración exacta": data.reviewDuration ? "Sí" : "No",
+            "Revisión - Formato vertical": data.reviewVertical ? "Sí" : "No",
+            "Revisión - Historia comprensible": data.reviewMessage
+              ? "Sí"
+              : "No",
+            "Revisión - Calidad audiovisual": data.reviewQuality ? "Sí" : "No",
+            "Revisión - Permisos de uso": data.reviewRights ? "Sí" : "No",
+
+            "Justificación de decisiones narrativas": data.narrativeReason,
+            "Mejoras propuestas": data.improvements,
+            "Presentación del equipo": data.presentation,
+            "Enlace a la carpeta de evidencias": data.deliveryLink,
+
+            "Etapas completadas": `${completedCount} de 6`,
+          }}
+        />
       </footer>
     </div>
   );

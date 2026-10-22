@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import DownloadPDF from "./DownloadPDF";
+
 import PushPullLab from "./PushPullLab";
 import { getLessonWork, saveLessonWork } from "../../services/storage";
 import "../../styles/semana01.css";
 import SeoWorkshop from "./SeoWorkshop";
 import CrmWorkshop from "./CrmWorkshop";
-import SeoDownloadPDF from "./SeoDownloadPDF";
+
 import CrmWeek02Workshop from "./CrmWeek02Workshop";
 import CrmWeek03Workshop from "./CrmWeek03Workshop";
 import CrmWeek04Workshop from "./CrmWeek04Workshop";
@@ -25,10 +25,9 @@ import ContentWeek13Workshop from "./ContentWeek13Workshop";
 import ContentWeek14Workshop from "./ContentWeek14Workshop";
 import ContentWeek15Workshop from "./ContentWeek15Workshop";
 import ContentWeek16Workshop from "./ContentWeek16Workshop";
-
 import ContentWeek17Workshop from "./ContentWeek17Workshop";
-
 import ContentWeek18Workshop from "./ContentWeek18Workshop";
+import WorkshopDownloadButton from "./WorkshopDownloadButton";
 
 const WORK_FIELDS = [
   ["team", "Nombre del equipo"],
@@ -63,7 +62,7 @@ function ImageSpace({ src, hint, alt = "Referencia visual" }) {
   );
 }
 
-function Workshop({ lesson }) {
+function Workshop({ lesson, studentName }) {
   const [work, setWork] = useState(() => ({
     ...getLessonWork(lesson.courseId, lesson.number).work,
   }));
@@ -87,8 +86,9 @@ function Workshop({ lesson }) {
         <span>ACTIVIDAD EN EQUIPO · 60 MINUTOS</span>
         <h3>Construye una marca de café</h3>
         <p>
-          Cada equipo desarrollará su propia propuesta. Las respuestas formarán
-          parte del PDF final.
+          Cada equipo desarrollará su propia propuesta de marca. Las respuestas
+          se guardarán automáticamente y podrán descargarse en PDF al finalizar
+          el taller.
         </p>
       </div>
 
@@ -126,6 +126,15 @@ function Workshop({ lesson }) {
           ? "Tus respuestas se guardan automáticamente en este dispositivo."
           : "No se pudo guardar. Revisa el almacenamiento del navegador."}
       </p>
+
+      <WorkshopDownloadButton
+        studentName={studentName}
+        lesson={lesson}
+        title="Un café, múltiples marcas"
+        answers={Object.fromEntries(
+          WORK_FIELDS.map(([key, label]) => [label, work[key] || ""]),
+        )}
+      />
     </div>
   );
 }
@@ -352,7 +361,7 @@ function SlideBody({ slide, lesson, studentName }) {
 
           <p className="ad-note">{slide.note}</p>
 
-          <Workshop lesson={lesson} />
+          <Workshop lesson={lesson} studentName={studentName} />
         </>
       );
     case "present":
@@ -522,14 +531,12 @@ function SlideBody({ slide, lesson, studentName }) {
 export default function LessonContent({ lesson, studentName = "" }) {
   const [mode, setMode] = useState("presentation");
   const [index, setIndex] = useState(0);
-  const [showDelivery, setShowDelivery] = useState(false);
 
   const slides = lesson?.slides || [];
   const slide = slides[index];
 
   useEffect(() => {
     setIndex(0);
-    setShowDelivery(false);
   }, [lesson?.id]);
 
   useEffect(() => {
@@ -673,26 +680,6 @@ export default function LessonContent({ lesson, studentName = "" }) {
           ))}
         </div>
       )}
-
-      <div className="ad-delivery-area">
-        <button
-          type="button"
-          className="ad-delivery-toggle"
-          onClick={() => setShowDelivery((value) => !value)}
-          aria-expanded={showDelivery}
-        >
-          {showDelivery
-            ? "Ocultar entrega académica"
-            : "Abrir entrega académica y PDF"}
-        </button>
-
-        {showDelivery &&
-          (lesson.courseId === "seo" ? (
-            <SeoDownloadPDF lesson={lesson} studentName={studentName} />
-          ) : (
-            <DownloadPDF studentName={studentName} />
-          ))}
-      </div>
     </section>
   );
 }

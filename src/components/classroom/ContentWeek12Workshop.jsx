@@ -1,4 +1,5 @@
 import { useState } from "react";
+import WorkshopDownloadButton from "./WorkshopDownloadButton";
 import "../../styles/contenidoSemana12.css";
 
 const SAMPLE = [
@@ -787,9 +788,107 @@ export default function ContentWeek12Workshop({
         </div>
 
         <div className="kpi12-actions">
-          <button type="button" onClick={exportReport}>
-            Descargar informe TXT
-          </button>
+          <WorkshopDownloadButton
+            studentName={studentName}
+            lesson={{
+              courseId: "contenido",
+              number: 12,
+              title: "KPIs, métricas y dashboards visuales",
+            }}
+            title="Laboratorio 12: Análisis y optimización de campaña"
+            answers={{
+              "Tipo de información": "DATOS SIMULADOS - EJERCICIO ACADÉMICO",
+
+              Equipo: data.team,
+              "Marca de café": data.brand,
+              Campaña: data.campaign,
+              "Objetivo de campaña": data.goal,
+
+              "KPI principal TOFU": data.kpis.TOFU,
+              "KPI principal MOFU": data.kpis.MOFU,
+              "KPI principal BOFU": data.kpis.BOFU,
+
+              "Alcance agregado": formatNumber(totals.reach),
+              "Impresiones totales": formatNumber(totals.impressions),
+              "Interacciones totales": formatNumber(totals.interactions),
+              "Clics totales": formatNumber(totals.clicks),
+              "Engagement agregado por alcance": formatPercent(engagement),
+              "CTR agregado por impresiones": formatPercent(ctr),
+
+              ...Object.fromEntries(
+                data.posts.flatMap((post, index) => {
+                  const prefix = `Publicación ${index + 1}`;
+
+                  return [
+                    [`${prefix} - Nombre`, post.name],
+                    [`${prefix} - Etapa del embudo`, post.stage],
+                    [`${prefix} - Alcance`, formatNumber(number(post.reach))],
+                    [
+                      `${prefix} - Impresiones`,
+                      formatNumber(number(post.impressions)),
+                    ],
+                    [
+                      `${prefix} - Interacciones`,
+                      formatNumber(number(post.interactions)),
+                    ],
+                    [`${prefix} - Clics`, formatNumber(number(post.clicks))],
+                    [
+                      `${prefix} - Engagement`,
+                      formatPercent(
+                        percentage(
+                          number(post.interactions),
+                          number(post.reach),
+                        ),
+                      ),
+                    ],
+                    [
+                      `${prefix} - CTR`,
+                      formatPercent(
+                        percentage(
+                          number(post.clicks),
+                          number(post.impressions),
+                        ),
+                      ),
+                    ],
+                  ];
+                }),
+              ),
+
+              "Hallazgo principal": data.observation,
+              "Hipótesis de mejora": data.hypothesis,
+
+              "Publicación seleccionada para rediseño": selected.name,
+              "Diseño original - Descripción": data.before,
+              "Diseño original - Enlace": data.beforeLink,
+              "Nuevo diseño - Descripción": data.after,
+              "Nuevo diseño - Enlace": data.afterLink,
+              "Cambios realizados y justificación": data.changes,
+              "KPI para evaluar el rediseño": data.testKpi,
+
+              ...Object.fromEntries(
+                data.recommendations.map((item, index) => [
+                  `Recomendación ${index + 1}`,
+                  item,
+                ]),
+              ),
+
+              "Enlace al dashboard editable": data.dashboardLink,
+
+              ...Object.fromEntries(
+                data.done.map((checked, index) => [
+                  `Etapa ${index + 1} completada`,
+                  checked ? "Sí" : "No",
+                ]),
+              ),
+
+              "Progreso general": `${completed} de 6 etapas`,
+
+              "Observación metodológica":
+                "Los datos son simulados. El alcance agregado puede incluir " +
+                "usuarios repetidos. Las propuestas de rediseño son hipótesis " +
+                "que requieren evaluación posterior.",
+            }}
+          />
 
           <button
             type="button"
@@ -801,10 +900,10 @@ export default function ContentWeek12Workshop({
         </div>
 
         <p>{notice}</p>
+
         <p>
-          Todos los resultados son simulados. Para la entrega final en Moodle,
-          incluye el dashboard en PDF, el archivo de datos y la comparativa
-          visual antes/después.
+          Todos los resultados son simulados. Entrega en Moodle el informe PDF,
+          los datos CSV y las comparativas visuales antes/después.
         </p>
       </footer>
     </div>

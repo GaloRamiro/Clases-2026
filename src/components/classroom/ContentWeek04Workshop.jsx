@@ -1,4 +1,5 @@
 import { useState } from "react";
+import WorkshopDownloadButton from "./WorkshopDownloadButton";
 import "../../styles/contenidoSemana04.css";
 
 const STEPS = [
@@ -595,10 +596,76 @@ export default function ContentWeek04Workshop({
             ? "Laboratorio completado"
             : `${count} de 6 etapas completadas`}
         </h3>
+
         <p>
-          Tus respuestas se guardan automáticamente en este navegador. Entrega
-          los diseños y las evidencias en Moodle.
+          Tus respuestas se guardan automáticamente. Descarga el PDF para
+          entregar tu actividad. Recuerda compartir los diseños y evidencias
+          según las instrucciones de Moodle.
         </p>
+
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "contenido",
+            number: 4,
+            title: "Las palabras también venden café",
+          }}
+          title="Laboratorio 04: Copywriting, voz y tono de marca"
+          answers={{
+            "Nombre del equipo": data.team,
+            "Marca de café": data.brand,
+            "Buyer Persona": data.persona,
+            "Necesidad del consumidor": data.consumerNeed,
+
+            "Personalidad de marca": data.personality,
+            "Característica del tono 1": data.trait1,
+            "Característica del tono 2": data.trait2,
+            "Característica del tono 3": data.trait3,
+            "Voz de marca": data.voice,
+            "Adaptación del tono": data.tone,
+            "Palabras que utilizaremos": data.wordsUse,
+            "Palabras que evitaremos": data.wordsAvoid,
+            "Ejemplo de voz de marca": data.exampleVoice,
+
+            "Mensaje 1 - Presentación de marca": data.messageBrand,
+            "Mensaje 2 - Contenido educativo": data.messageEducational,
+            "Mensaje 3 - Conexión emocional": data.messageEmotional,
+            "Mensaje 4 - Promoción comercial": data.messageCommercial,
+            "Mensaje 5 - Llamado a la acción": data.messageCta,
+
+            "Publicación 1 - Texto original": data.previous1,
+            "Publicación 1 - Texto mejorado": data.improved1,
+            "Publicación 1 - Justificación": data.reason1,
+
+            "Publicación 2 - Texto original": data.previous2,
+            "Publicación 2 - Texto mejorado": data.improved2,
+            "Publicación 2 - Justificación": data.reason2,
+
+            "Pieza promocional - Título": data.promoTitle,
+            "Pieza promocional - Objetivo": data.promoGoal,
+            "Pieza promocional - Público y necesidad": data.promoAudience,
+            "Pieza promocional - Mensaje principal": data.promoBody,
+            "Pieza promocional - CTA": data.promoCta,
+            "Pieza promocional - Copy": data.promoCaption,
+            "Pieza promocional - Descripción visual": data.promoDesign,
+            "Pieza promocional - Enlace al diseño": data.promoLink,
+
+            "Revisión - Claridad": data.reviewClarity ? "Sí" : "No",
+            "Revisión - Voz de marca": data.reviewVoice ? "Sí" : "No",
+            "Revisión - Ortografía": data.reviewSpelling ? "Sí" : "No",
+            "Revisión - Promesas verificables": data.reviewEvidence
+              ? "Sí"
+              : "No",
+            "Revisión - CTA": data.reviewCta ? "Sí" : "No",
+
+            "Justificación de decisiones": data.justification,
+            "Mensaje que presentará el equipo": data.presentation,
+            "Enlace a la entrega": data.deliveryLink,
+            "Reflexión final": data.reflection,
+
+            "Etapas completadas": `${count} de 6`,
+          }}
+        />
       </footer>
     </div>
   );

@@ -1,5 +1,5 @@
-
 import { useState } from "react";
+import WorkshopDownloadButton from "./WorkshopDownloadButton";
 import "../../styles/contenidoSemana11.css";
 
 const STAGES = [
@@ -94,10 +94,7 @@ function SelectField({ label, value, options, onChange }) {
   return (
     <label className="funnel11-field">
       <span>{label}</span>
-      <select
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-      >
+      <select value={value} onChange={(e) => onChange(e.target.value)}>
         {options.map((option) => (
           <option key={option} value={option}>
             {option}
@@ -108,14 +105,7 @@ function SelectField({ label, value, options, onChange }) {
   );
 }
 
-function LabStep({
-  number,
-  title,
-  minutes,
-  checked,
-  onCheck,
-  children,
-}) {
+function LabStep({ number, title, minutes, checked, onCheck, children }) {
   return (
     <section className="funnel11-panel">
       <div className="funnel11-step-heading">
@@ -169,13 +159,7 @@ function PieceEditor({ piece, stage, onChange }) {
         <SelectField
           label="Estado de producción"
           value={piece.status}
-          options={[
-            "Idea",
-            "Redacción",
-            "Diseño",
-            "Revisión",
-            "Lista",
-          ]}
+          options={["Idea", "Redacción", "Diseño", "Revisión", "Lista"]}
           onChange={(v) => onChange("status", v)}
         />
       </div>
@@ -252,9 +236,7 @@ function loadData(key) {
         ...item,
         ...(raw.calendar?.[i] || {}),
       })),
-      done: base.done.map((_, i) =>
-        Boolean(raw.done?.[i])
-      ),
+      done: base.done.map((_, i) => Boolean(raw.done?.[i])),
     };
   } catch {
     return base;
@@ -265,8 +247,7 @@ export default function ContentWeek11Workshop({
   lessonId = "contenido-semana-11",
   studentName = "",
 }) {
-  const storageKey =
-    `aula:semana11:${lessonId}:${studentName || "anonimo"}`;
+  const storageKey = `aula:semana11:${lessonId}:${studentName || "anonimo"}`;
 
   const [session, setSession] = useState(() => ({
     key: storageKey,
@@ -275,10 +256,7 @@ export default function ContentWeek11Workshop({
 
   const [notice, setNotice] = useState("");
 
-  const data =
-    session.key === storageKey
-      ? session.data
-      : loadData(storageKey);
+  const data = session.key === storageKey ? session.data : loadData(storageKey);
 
   function save(next) {
     setSession({ key: storageKey, data: next });
@@ -287,9 +265,7 @@ export default function ContentWeek11Workshop({
       localStorage.setItem(storageKey, JSON.stringify(next));
       setNotice("Cambios guardados en este navegador.");
     } catch {
-      setNotice(
-        "No se pudo guardar. Revisa el almacenamiento del navegador."
-      );
+      setNotice("No se pudo guardar. Revisa el almacenamiento del navegador.");
     }
   }
 
@@ -301,8 +277,8 @@ export default function ContentWeek11Workshop({
     setField(
       "consumerNeeds",
       data.consumerNeeds.map((item, i) =>
-        i === index ? { ...item, [field]: value } : item
-      )
+        i === index ? { ...item, [field]: value } : item,
+      ),
     );
   }
 
@@ -310,8 +286,8 @@ export default function ContentWeek11Workshop({
     setField(
       "pieces",
       data.pieces.map((item, i) =>
-        i === index ? { ...item, [field]: value } : item
-      )
+        i === index ? { ...item, [field]: value } : item,
+      ),
     );
   }
 
@@ -319,17 +295,15 @@ export default function ContentWeek11Workshop({
     setField(
       "calendar",
       data.calendar.map((item, i) =>
-        i === index ? { ...item, [field]: value } : item
-      )
+        i === index ? { ...item, [field]: value } : item,
+      ),
     );
   }
 
   function markDone(index, checked) {
     setField(
       "done",
-      data.done.map((item, i) =>
-        i === index ? checked : item
-      )
+      data.done.map((item, i) => (i === index ? checked : item)),
     );
   }
 
@@ -341,7 +315,7 @@ export default function ContentWeek11Workshop({
       piece.title.trim() &&
       piece.copy.trim() &&
       piece.cta.trim() &&
-      piece.link.trim()
+      piece.link.trim(),
   ).length;
 
   function exportReport() {
@@ -362,7 +336,7 @@ export default function ContentWeek11Workshop({
         item.stage,
         `Situación: ${item.situation}`,
         `Necesidad: ${item.need}`,
-        `Mensaje: ${item.message}`
+        `Mensaje: ${item.message}`,
       );
     });
 
@@ -379,25 +353,17 @@ export default function ContentWeek11Workshop({
         `Composición: ${piece.visual}`,
         `Estado: ${piece.status}`,
         `Archivo: ${piece.link}`,
-        `Justificación: ${piece.justification}`
+        `Justificación: ${piece.justification}`,
       );
     });
 
     lines.push("", "CRONOPOST");
 
     data.calendar.forEach((item) => {
-      lines.push(
-        `${item.stage}: día ${item.day} · ${item.platform}`
-      );
+      lines.push(`${item.stage}: día ${item.day} · ${item.platform}`);
     });
 
-    lines.push(
-      "",
-      "REVISIÓN",
-      data.review,
-      "",
-      `Evidencias: ${data.evidence}`
-    );
+    lines.push("", "REVISIÓN", data.review, "", `Evidencias: ${data.evidence}`);
 
     const blob = new Blob([lines.join("\n")], {
       type: "text/plain;charset=utf-8",
@@ -419,9 +385,8 @@ export default function ContentWeek11Workshop({
         <span>LABORATORIO 11 · 60 MINUTOS</span>
         <h2>Tres contenidos, tres momentos</h2>
         <p>
-          Construye un embudo de contenidos y produce una
-          pieza para atraer, otra para informar y una tercera
-          para facilitar una decisión.
+          Construye un embudo de contenidos y produce una pieza para atraer,
+          otra para informar y una tercera para facilitar una decisión.
         </p>
 
         <div className="funnel11-progress">
@@ -474,39 +439,34 @@ export default function ContentWeek11Workshop({
         onCheck={(v) => markDone(0, v)}
       >
         <p>
-          Imagina tres consumidores en momentos diferentes.
-          Describe su situación, qué necesitan saber y
-          qué mensaje podría ayudarlos.
+          Imagina tres consumidores en momentos diferentes. Describe su
+          situación, qué necesitan saber y qué mensaje podría ayudarlos.
         </p>
 
         {data.consumerNeeds.map((item, index) => (
           <div className="funnel11-subcard" key={item.stage}>
-            <h4>{item.stage} · {STAGES[index].title}</h4>
+            <h4>
+              {item.stage} · {STAGES[index].title}
+            </h4>
 
             <div className="funnel11-grid">
               <TextField
                 label="Situación del consumidor"
                 value={item.situation}
-                onChange={(v) =>
-                  setNeed(index, "situation", v)
-                }
+                onChange={(v) => setNeed(index, "situation", v)}
               />
 
               <TextField
                 label="Necesidad o duda"
                 value={item.need}
-                onChange={(v) =>
-                  setNeed(index, "need", v)
-                }
+                onChange={(v) => setNeed(index, "need", v)}
               />
             </div>
 
             <TextField
               label="Mensaje apropiado"
               value={item.message}
-              onChange={(v) =>
-                setNeed(index, "message", v)
-              }
+              onChange={(v) => setNeed(index, "message", v)}
               multiline
             />
           </div>
@@ -521,8 +481,8 @@ export default function ContentWeek11Workshop({
         onCheck={(v) => markDone(1, v)}
       >
         <p>
-          Selecciona el formato de cada etapa y escribe
-          un titular, copy y CTA diferentes.
+          Selecciona el formato de cada etapa y escribe un titular, copy y CTA
+          diferentes.
         </p>
 
         {data.pieces.map((piece, index) => (
@@ -541,35 +501,27 @@ export default function ContentWeek11Workshop({
                 "Post comercial",
                 "Infografía",
               ]}
-              onChange={(v) =>
-                setPiece(index, "format", v)
-              }
+              onChange={(v) => setPiece(index, "format", v)}
             />
 
             <TextField
               label="Titular"
               value={piece.title}
-              onChange={(v) =>
-                setPiece(index, "title", v)
-              }
+              onChange={(v) => setPiece(index, "title", v)}
               placeholder={STAGES[index].example}
             />
 
             <TextField
               label="Copy"
               value={piece.copy}
-              onChange={(v) =>
-                setPiece(index, "copy", v)
-              }
+              onChange={(v) => setPiece(index, "copy", v)}
               multiline
             />
 
             <TextField
               label="CTA"
               value={piece.cta}
-              onChange={(v) =>
-                setPiece(index, "cta", v)
-              }
+              onChange={(v) => setPiece(index, "cta", v)}
               placeholder={STAGES[index].cta}
             />
           </div>
@@ -583,22 +535,17 @@ export default function ContentWeek11Workshop({
           title={`Diseña la pieza ${stage.key}`}
           minutes={index === 0 ? 15 : 10}
           checked={data.done[index + 2]}
-          onCheck={(v) =>
-            markDone(index + 2, v)
-          }
+          onCheck={(v) => markDone(index + 2, v)}
         >
           <p>
-            {stage.purpose}. Utiliza la identidad visual
-            de la Semana 8 y adapta la composición a
-            esta etapa.
+            {stage.purpose}. Utiliza la identidad visual de la Semana 8 y adapta
+            la composición a esta etapa.
           </p>
 
           <PieceEditor
             piece={data.pieces[index]}
             stage={stage}
-            onChange={(field, value) =>
-              setPiece(index, field, value)
-            }
+            onChange={(field, value) => setPiece(index, field, value)}
           />
         </LabStep>
       ))}
@@ -611,9 +558,8 @@ export default function ContentWeek11Workshop({
         onCheck={(v) => markDone(5, v)}
       >
         <p>
-          Comprueba que las tres piezas sean diferentes,
-          mantengan la identidad visual y tengan un CTA
-          adecuado.
+          Comprueba que las tres piezas sean diferentes, mantengan la identidad
+          visual y tengan un CTA adecuado.
         </p>
 
         <h4>Integra las piezas al cronopost</h4>
@@ -623,24 +569,15 @@ export default function ContentWeek11Workshop({
             <TextField
               label={`${item.stage} · Día de publicación`}
               value={item.day}
-              onChange={(v) =>
-                setCalendar(index, "day", v)
-              }
+              onChange={(v) => setCalendar(index, "day", v)}
               placeholder="Ej. 3"
             />
 
             <SelectField
               label="Plataforma"
               value={item.platform}
-              options={[
-                "Instagram",
-                "TikTok",
-                "Facebook",
-                "Otra",
-              ]}
-              onChange={(v) =>
-                setCalendar(index, "platform", v)
-              }
+              options={["Instagram", "TikTok", "Facebook", "Otra"]}
+              onChange={(v) => setCalendar(index, "platform", v)}
             />
           </div>
         ))}
@@ -683,17 +620,70 @@ export default function ContentWeek11Workshop({
           <strong>{completed}/6 etapas</strong>
         </div>
 
-        <button type="button" onClick={exportReport}>
-          Descargar ficha del laboratorio
-        </button>
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "contenido",
+            number: 11,
+            title: "Embudo de contenidos: TOFU, MOFU y BOFU",
+          }}
+          title="Laboratorio 11: Tres contenidos, tres momentos"
+          answers={{
+            "Nombre del equipo": data.team,
+            "Marca de café": data.brand,
+            "Campaña de la Semana 10": data.campaign,
+            "Buyer Persona": data.persona,
+
+            ...Object.fromEntries(
+              data.consumerNeeds.flatMap((item) => [
+                [`${item.stage} - Situación del consumidor`, item.situation],
+                [`${item.stage} - Necesidad o duda`, item.need],
+                [`${item.stage} - Mensaje apropiado`, item.message],
+              ]),
+            ),
+
+            ...Object.fromEntries(
+              data.pieces.flatMap((piece) => [
+                [`${piece.stage} - Formato`, piece.format],
+                [`${piece.stage} - Titular`, piece.title],
+                [`${piece.stage} - Copy publicitario`, piece.copy],
+                [`${piece.stage} - CTA`, piece.cta],
+                [`${piece.stage} - Composición visual`, piece.visual],
+                [`${piece.stage} - Estado de producción`, piece.status],
+                [`${piece.stage} - Enlace al diseño`, piece.link],
+                [`${piece.stage} - Justificación`, piece.justification],
+              ]),
+            ),
+
+            ...Object.fromEntries(
+              data.calendar.flatMap((item) => [
+                [`Cronopost ${item.stage} - Día de publicación`, item.day],
+                [`Cronopost ${item.stage} - Plataforma`, item.platform],
+              ]),
+            ),
+
+            "Complementariedad de las tres piezas": data.review,
+            "Enlace a la carpeta de evidencias": data.evidence,
+
+            "Piezas listas con evidencias": `${ready} de 3`,
+
+            ...Object.fromEntries(
+              data.done.map((checked, index) => [
+                `Etapa ${index + 1} completada`,
+                checked ? "Sí" : "No",
+              ]),
+            ),
+
+            "Progreso general": `${completed} de 6 etapas`,
+          }}
+        />
 
         <p>{notice}</p>
 
         <p>
-          Para casa: mejora estas tres piezas y crea
-          tres adicionales, una por cada etapa.
-          Integra las seis al cronopost y entrega los
-          diseños en Moodle.
+          Trabajo autónomo: mejora las tres piezas del laboratorio y crea otras
+          tres, una por cada etapa del embudo. Integra las seis al cronopost y
+          entrega los diseños y el PDF en Moodle.
         </p>
       </footer>
     </div>

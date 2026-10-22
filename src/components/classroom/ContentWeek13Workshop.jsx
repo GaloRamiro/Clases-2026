@@ -1,4 +1,5 @@
 import { useState } from "react";
+import WorkshopDownloadButton from "./WorkshopDownloadButton";
 import "../../styles/contenidoSemana13.css";
 
 const TASKS = [
@@ -660,9 +661,71 @@ export default function ContentWeek13Workshop({
           <strong>{productsReady}/3 archivos registrados</strong>
         </div>
 
-        <button type="button" onClick={downloadReport}>
-          Descargar ficha de producción
-        </button>
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "contenido",
+            number: 13,
+            title: "Una idea, tres formatos",
+          }}
+          title="Laboratorio 13: Una idea, tres productos digitales"
+          answers={{
+            "Nombre del equipo": data.team,
+            "Marca de café": data.brand,
+            Campaña: data.campaign,
+            "Idea central": data.idea,
+            "Público objetivo": data.audience,
+            "Identidad visual que se mantiene": data.identity,
+
+            "REEL - Formato": "MP4 vertical 9:16",
+            "REEL - Etapa del embudo": data.reel.stage,
+            "REEL - Duración planificada": `${data.reel.duration} segundos`,
+            "REEL - Gancho (0-3 segundos)": data.reel.hook,
+            "REEL - Desarrollo (3-11 segundos)": data.reel.development,
+            "REEL - Cierre (11-15 segundos)": data.reel.ending,
+            "REEL - Plano 1": data.reel.shot1,
+            "REEL - Plano 2": data.reel.shot2,
+            "REEL - Plano 3": data.reel.shot3,
+            "REEL - Plano 4": data.reel.shot4,
+            "REEL - Copy": data.reel.copy,
+            "REEL - CTA": data.reel.cta,
+            "REEL - Enlace al video MP4": data.reel.link,
+
+            "HISTORIA - Formato": "1080 x 1920 px (9:16)",
+            "HISTORIA - Etapa del embudo": data.story.stage,
+            "HISTORIA - Pregunta de encuesta": data.story.question,
+            "HISTORIA - Opción A": data.story.optionA,
+            "HISTORIA - Opción B": data.story.optionB,
+            "HISTORIA - Composición visual": data.story.composition,
+            "HISTORIA - Copy": data.story.copy,
+            "HISTORIA - CTA": data.story.cta,
+            "HISTORIA - Enlace al diseño": data.story.link,
+
+            "POST - Formato": "1080 x 1350 px (4:5)",
+            "POST - Etapa del embudo": data.post.stage,
+            "POST - Titular": data.post.headline,
+            "POST - Beneficio principal": data.post.benefit,
+            "POST - Composición visual": data.post.composition,
+            "POST - Copy": data.post.copy,
+            "POST - CTA": data.post.cta,
+            "POST - Enlace al diseño": data.post.link,
+
+            "Justificación - Adaptación de los tres formatos": data.comparison,
+            "Justificación - Recursos reutilizados": data.resources,
+            "Mejoras propuestas": data.improvements,
+            "Enlace a carpeta de entrega": data.folder,
+
+            ...Object.fromEntries(
+              data.done.map((checked, index) => [
+                `Etapa ${index + 1} completada`,
+                checked ? "Sí" : "No",
+              ]),
+            ),
+
+            "Progreso general": `${completed} de 6 etapas`,
+            "Productos con enlace registrado": `${productsReady} de 3`,
+          }}
+        />
 
         <p>{notice}</p>
 

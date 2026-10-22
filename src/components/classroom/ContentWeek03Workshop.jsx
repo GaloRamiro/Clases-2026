@@ -1,4 +1,5 @@
 import { useState } from "react";
+import WorkshopDownloadButton from "./WorkshopDownloadButton";
 import "../../styles/contenidoSemana03.css";
 const PREFIX = "aula:contenido:semana03";
 
@@ -703,10 +704,74 @@ export default function ContentWeek03Workshop({
         </strong>
 
         <p>
-          Las respuestas se guardan automáticamente en este navegador. La
-          publicación y sus evidencias deberán entregarse según las
-          instrucciones de Moodle.
+          Tus respuestas se guardan automáticamente. Descarga el PDF para
+          entregar tu actividad.
         </p>
+
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "contenido",
+            number: 3,
+            title: "Del consumidor al contenido",
+          }}
+          title="Laboratorio 03: Design Thinking y mapa de empatía"
+          answers={{
+            "Nombre del equipo": data.team,
+            "Marca de café": data.brand,
+            "Buyer Persona de la Semana 2": data.persona,
+            "Hallazgos de entrevistas y comentarios": data.previousFindings,
+
+            "Mapa de empatía - Piensa y siente": data.thinksFeels,
+            "Mapa de empatía - Ve": data.sees,
+            "Mapa de empatía - Oye": data.hears,
+            "Mapa de empatía - Dice y hace": data.saysDoes,
+            "Mapa de empatía - Esfuerzos": data.pains,
+            "Mapa de empatía - Resultados": data.gains,
+            "Evidencias disponibles": data.evidence,
+            "Hipótesis por comprobar": data.hypotheses,
+
+            "Observación del consumidor": data.observation,
+            "Necesidad identificada": data.need,
+            "Razón identificada": data.reason,
+            "Redacción final del problema": data.problem,
+            "Justificación de la necesidad prioritaria": data.priorityReason,
+
+            "Idea de contenido 1": data.idea1,
+            "Idea de contenido 2": data.idea2,
+            "Idea de contenido 3": data.idea3,
+            "Idea seleccionada": data.selectedIdea
+              ? {
+                  idea1: data.idea1,
+                  idea2: data.idea2,
+                  idea3: data.idea3,
+                }[data.selectedIdea] || data.selectedIdea
+              : "",
+            "Justificación de la idea seleccionada": data.selectionReason,
+
+            "Título de la publicación": data.contentTitle,
+            "Canal de publicación": data.contentChannel,
+            "Estrategia de contenido": data.contentStrategy,
+            "Formato de publicación": data.contentFormat,
+            "Mensaje principal": data.contentMessage,
+            "Objetivo de comunicación": data.contentObjective,
+            "Copy de la publicación": data.contentCaption,
+            "Llamado a la acción": data.contentCta,
+            "Descripción de la composición visual": data.designDescription,
+            "Enlace al diseño": data.contentLink,
+            "Referencia de evidencia": data.contentEvidence,
+
+            "Relación entre necesidad y publicación": data.justification,
+            "Resultado esperado": data.expectedResult,
+            "Mejora propuesta": data.improvement,
+
+            "Presentación del equipo": data.presentation,
+            "Enlace a la carpeta o entrega": data.deliverableLink,
+            "Reflexión final": data.finalReflection,
+
+            "Etapas completadas": `${finished} de 6`,
+          }}
+        />
       </footer>
     </div>
   );

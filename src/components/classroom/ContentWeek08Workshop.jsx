@@ -1,5 +1,5 @@
-
 import { useState } from "react";
+import WorkshopDownloadButton from "./WorkshopDownloadButton";
 import "../../styles/contenidoSemana08.css";
 
 const DEFAULT_COLORS = [
@@ -63,8 +63,10 @@ function initialData() {
 
 function getKey(lessonId, studentName) {
   return `aula:contenido:semana08:${lessonId}:${String(
-    studentName || "sin-nombre"
-  ).trim().toLowerCase()}`;
+    studentName || "sin-nombre",
+  )
+    .trim()
+    .toLowerCase()}`;
 }
 
 function loadSaved(key) {
@@ -84,11 +86,9 @@ function loadSaved(key) {
         ...p,
         ...(saved.pieces?.[i] || {}),
       })),
-      checks: defaults.checks.map((_, i) =>
-        Boolean(saved.checks?.[i])
-      ),
+      checks: defaults.checks.map((_, i) => Boolean(saved.checks?.[i])),
       completed: defaults.completed.map((_, i) =>
-        Boolean(saved.completed?.[i])
+        Boolean(saved.completed?.[i]),
       ),
     };
   } catch {
@@ -101,34 +101,23 @@ function validHex(value) {
 }
 
 function luminance(hex) {
-  const channels = [1, 3, 5].map((start) =>
-    parseInt(hex.slice(start, start + 2), 16) / 255
+  const channels = [1, 3, 5].map(
+    (start) => parseInt(hex.slice(start, start + 2), 16) / 255,
   );
   const linear = channels.map((v) =>
-    v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4
+    v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4,
   );
-  return (
-    linear[0] * 0.2126 +
-    linear[1] * 0.7152 +
-    linear[2] * 0.0722
-  );
+  return linear[0] * 0.2126 + linear[1] * 0.7152 + linear[2] * 0.0722;
 }
 
 function contrastRatio(a, b) {
   if (!validHex(a) || !validHex(b)) return null;
   const l1 = luminance(a);
   const l2 = luminance(b);
-  return (Math.max(l1, l2) + 0.05) /
-    (Math.min(l1, l2) + 0.05);
+  return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
 }
 
-function Field({
-  label,
-  value,
-  onChange,
-  placeholder = "",
-  multiline = true,
-}) {
+function Field({ label, value, onChange, placeholder = "", multiline = true }) {
   return (
     <label className="identity8-field">
       <span>{label}</span>
@@ -195,7 +184,7 @@ export default function ContentWeek08Workshop({
   function updateColor(index, changes) {
     update({
       colors: data.colors.map((c, i) =>
-        i === index ? { ...c, ...changes } : c
+        i === index ? { ...c, ...changes } : c,
       ),
     });
   }
@@ -203,24 +192,20 @@ export default function ContentWeek08Workshop({
   function updatePiece(index, changes) {
     update({
       pieces: data.pieces.map((p, i) =>
-        i === index ? { ...p, ...changes } : p
+        i === index ? { ...p, ...changes } : p,
       ),
     });
   }
 
   function toggleCheck(index, value) {
     update({
-      checks: data.checks.map((c, i) =>
-        i === index ? value : c
-      ),
+      checks: data.checks.map((c, i) => (i === index ? value : c)),
     });
   }
 
   function toggleStep(index, value) {
     update({
-      completed: data.completed.map((c, i) =>
-        i === index ? value : c
-      ),
+      completed: data.completed.map((c, i) => (i === index ? value : c)),
     });
   }
 
@@ -232,10 +217,7 @@ export default function ContentWeek08Workshop({
       ? data.colors[index].hex
       : DEFAULT_COLORS[index].hex;
 
-  const contrast = contrastRatio(
-    data.colors[3].hex,
-    data.colors[2].hex
-  );
+  const contrast = contrastRatio(data.colors[3].hex, data.colors[2].hex);
 
   const prompt = `Actúa como director de arte especializado en identidad visual.
 
@@ -297,13 +279,15 @@ Presenta las alternativas en una tabla.`;
         </span>
         <h2>Diseña la identidad de tu café.</h2>
         <p>
-          Convierte tu estrategia en un sistema visual
-          reconocible, coherente y reutilizable.
+          Convierte tu estrategia en un sistema visual reconocible, coherente y
+          reutilizable.
         </p>
 
         <div className="identity8-progress-label">
           <strong>Progreso del laboratorio</strong>
-          <span>{completedCount}/6 etapas · {progress}%</span>
+          <span>
+            {completedCount}/6 etapas · {progress}%
+          </span>
         </div>
         <div
           className="identity8-progress"
@@ -320,8 +304,8 @@ Presenta las alternativas en una tabla.`;
       <section className="identity8-panel">
         <h3>Recupera tu estrategia de marca</h3>
         <p className="identity8-description">
-          Utiliza el Buyer Persona, el concepto creativo
-          y el moodboard de las semanas anteriores.
+          Utiliza el Buyer Persona, el concepto creativo y el moodboard de las
+          semanas anteriores.
         </p>
         <div className="identity8-grid">
           {field("team", "Equipo", "Equipo 01", false)}
@@ -331,7 +315,7 @@ Presenta las alternativas en una tabla.`;
         {field(
           "concept",
           "Concepto creativo de la Semana 6",
-          "¿Qué idea conecta tu campaña?"
+          "¿Qué idea conecta tu campaña?",
         )}
       </section>
 
@@ -344,26 +328,26 @@ Presenta las alternativas en una tabla.`;
         {field(
           "personality",
           "Tres atributos de personalidad",
-          "Ej. Cálida, artesanal, contemporánea."
+          "Ej. Cálida, artesanal, contemporánea.",
         )}
         {field(
           "moodboard",
           "Hallazgos del moodboard",
-          "¿Qué patrones observaste en las cinco referencias?"
+          "¿Qué patrones observaste en las cinco referencias?",
         )}
         {field(
           "visualDirection",
           "Dirección visual elegida",
-          "Describe cómo debe verse tu marca."
+          "Describe cómo debe verse tu marca.",
         )}
         {field(
           "photography",
           "Estilo fotográfico",
-          "Luz, escenarios, encuadres, sujetos y tratamiento."
+          "Luz, escenarios, encuadres, sujetos y tratamiento.",
         )}
         <div className="identity8-hint">
-          No elijas una estética solamente porque está de moda.
-          Relaciónala con el consumidor y el concepto de campaña.
+          No elijas una estética solamente porque está de moda. Relaciónala con
+          el consumidor y el concepto de campaña.
         </div>
         {done(0)}
       </section>
@@ -389,9 +373,7 @@ Presenta las alternativas en una tabla.`;
                   type="color"
                   aria-label={`Elegir color ${item.role}`}
                   value={color(index)}
-                  onChange={(e) =>
-                    updateColor(index, { hex: e.target.value })
-                  }
+                  onChange={(e) => updateColor(index, { hex: e.target.value })}
                 />
                 <input
                   type="text"
@@ -415,9 +397,7 @@ Presenta las alternativas en una tabla.`;
               <Field
                 label="¿Por qué este color?"
                 value={item.reason}
-                onChange={(value) =>
-                  updateColor(index, { reason: value })
-                }
+                onChange={(value) => updateColor(index, { reason: value })}
                 placeholder="Justifica su función."
               />
             </div>
@@ -473,33 +453,29 @@ Presenta las alternativas en una tabla.`;
           <div>
             <strong>Contraste: texto sobre fondo</strong>
             <p>
-              Combinación: {data.colors[3].hex} /{" "}
-              {data.colors[2].hex}
+              Combinación: {data.colors[3].hex} / {data.colors[2].hex}
             </p>
           </div>
 
           <div>
             <strong>
-              {contrast === null
-                ? "HEX inválido"
-                : `${contrast.toFixed(2)}:1`}
+              {contrast === null ? "HEX inválido" : `${contrast.toFixed(2)}:1`}
             </strong>
             <span>
               {contrast === null
                 ? "Corrige los colores"
                 : contrast >= 4.5
-                ? "Cumple AA para texto normal"
-                : contrast >= 3
-                ? "Solo alcanza AA para texto grande"
-                : "Contraste insuficiente"}
+                  ? "Cumple AA para texto normal"
+                  : contrast >= 3
+                    ? "Solo alcanza AA para texto grande"
+                    : "Contraste insuficiente"}
             </span>
           </div>
         </div>
 
         <div className="identity8-hint">
-          Para texto normal, WCAG AA exige al menos 4.5:1.
-          Para texto grande, al menos 3:1.
-          Comprueba también las demás combinaciones que utilices.
+          Para texto normal, WCAG AA exige al menos 4.5:1. Para texto grande, al
+          menos 3:1. Comprueba también las demás combinaciones que utilices.
         </div>
 
         <div className="identity8-prompt">
@@ -519,7 +495,7 @@ Presenta las alternativas en una tabla.`;
         {field(
           "aiNotes",
           "¿Qué aceptaste, modificaste o descartaste de la IA?",
-          "La decisión final debe estar fundamentada."
+          "La decisión final debe estar fundamentada.",
         )}
 
         {done(1)}
@@ -537,51 +513,45 @@ Presenta las alternativas en una tabla.`;
             "headingFont",
             "Tipografía para títulos",
             "Ej. Montserrat",
-            false
+            false,
           )}
-          {field(
-            "bodyFont",
-            "Tipografía para textos",
-            "Ej. Open Sans",
-            false
-          )}
+          {field("bodyFont", "Tipografía para textos", "Ej. Open Sans", false)}
         </div>
 
         {field(
           "typographyReason",
           "Justificación tipográfica",
-          "Explica personalidad, jerarquía y legibilidad."
+          "Explica personalidad, jerarquía y legibilidad.",
         )}
 
         {field(
           "logoConcept",
           "Concepto del logotipo",
-          "¿Qué elementos visuales representan a la marca?"
+          "¿Qué elementos visuales representan a la marca?",
         )}
 
         {field(
           "logoVariants",
           "Variantes creadas",
-          "Ej. Principal, monocromática, símbolo y horizontal."
+          "Ej. Principal, monocromática, símbolo y horizontal.",
         )}
 
         {field(
           "logoReason",
           "Justificación del logotipo",
-          "Explica simplicidad, legibilidad y relación con la marca."
+          "Explica simplicidad, legibilidad y relación con la marca.",
         )}
 
         {field(
           "logoLink",
           "Enlace al logotipo editable",
           "Enlace de Canva, Figma o Drive.",
-          false
+          false,
         )}
 
         <div className="identity8-hint">
-          La vista previa de esta aplicación no sustituye
-          el archivo editable del logotipo.
-          Comprueba su lectura en tamaños pequeños.
+          La vista previa de esta aplicación no sustituye el archivo editable
+          del logotipo. Comprueba su lectura en tamaños pequeños.
         </div>
 
         {done(2)}
@@ -605,36 +575,28 @@ Presenta las alternativas en una tabla.`;
               <Field
                 label="Publicación original"
                 value={piece.previous}
-                onChange={(value) =>
-                  updatePiece(index, { previous: value })
-                }
+                onChange={(value) => updatePiece(index, { previous: value })}
                 placeholder="¿Qué pieza de una semana anterior rediseñarás?"
               />
 
               <Field
                 label="Cambios realizados"
                 value={piece.changes}
-                onChange={(value) =>
-                  updatePiece(index, { changes: value })
-                }
+                onChange={(value) => updatePiece(index, { changes: value })}
                 placeholder="Color, tipografía, composición, imágenes."
               />
 
               <Field
                 label="Copy final"
                 value={piece.copy}
-                onChange={(value) =>
-                  updatePiece(index, { copy: value })
-                }
+                onChange={(value) => updatePiece(index, { copy: value })}
                 placeholder="Texto final de la publicación."
               />
 
               <Field
                 label="CTA"
                 value={piece.cta}
-                onChange={(value) =>
-                  updatePiece(index, { cta: value })
-                }
+                onChange={(value) => updatePiece(index, { cta: value })}
                 placeholder="Llamado a la acción."
                 multiline={false}
               />
@@ -642,9 +604,7 @@ Presenta las alternativas en una tabla.`;
               <Field
                 label="Enlace a la pieza rediseñada"
                 value={piece.link}
-                onChange={(value) =>
-                  updatePiece(index, { link: value })
-                }
+                onChange={(value) => updatePiece(index, { link: value })}
                 placeholder="https://..."
                 multiline={false}
               />
@@ -653,9 +613,9 @@ Presenta las alternativas en una tabla.`;
         </div>
 
         <div className="identity8-hint">
-          Conserva las versiones anteriores para demostrar
-          el antes y después. Las tres piezas deben compartir
-          un sistema visual, no necesariamente el mismo diseño.
+          Conserva las versiones anteriores para demostrar el antes y después.
+          Las tres piezas deben compartir un sistema visual, no necesariamente
+          el mismo diseño.
         </div>
 
         {done(3)}
@@ -680,9 +640,7 @@ Presenta las alternativas en una tabla.`;
               <input
                 type="checkbox"
                 checked={data.checks[index]}
-                onChange={(e) =>
-                  toggleCheck(index, e.target.checked)
-                }
+                onChange={(e) => toggleCheck(index, e.target.checked)}
               />
               <span>{label}</span>
             </label>
@@ -702,13 +660,13 @@ Presenta las alternativas en una tabla.`;
         {field(
           "decisions",
           "¿Qué decisiones visuales tomó el equipo?",
-          "Justifica color, tipografía, logotipo y composición."
+          "Justifica color, tipografía, logotipo y composición.",
         )}
 
         {field(
           "presentation",
           "Argumentos para la presentación",
-          "¿Por qué esta identidad representa al Buyer Persona?"
+          "¿Por qué esta identidad representa al Buyer Persona?",
         )}
 
         <div className="identity8-grid">
@@ -716,13 +674,13 @@ Presenta las alternativas en una tabla.`;
             "manualLink",
             "Enlace al mini manual",
             "PDF o documento de trabajo.",
-            false
+            false,
           )}
           {field(
             "templateLink",
             "Enlace a plantillas y evidencias",
             "Carpeta compartida.",
-            false
+            false,
           )}
         </div>
 
@@ -751,11 +709,98 @@ Presenta las alternativas en una tabla.`;
             ? "Laboratorio completado"
             : `${completedCount} de 6 etapas completadas`}
         </h3>
+
         <p>
-          Las respuestas se guardan automáticamente en
-          este navegador. Entrega el manual, el logotipo
-          y las piezas editables en Moodle.
+          Tus respuestas se guardan automáticamente. Descarga el PDF del
+          laboratorio y entrega el manual, el logotipo y las piezas editables en
+          Moodle.
         </p>
+
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "contenido",
+            number: 8,
+            title:
+              "Tu café ya tiene personalidad. Ahora necesita identidad visual.",
+          }}
+          title="Laboratorio 08: Identidad visual de marca"
+          answers={{
+            "Nombre del equipo": data.team,
+            "Marca de café": data.brand,
+            "Buyer Persona": data.audience,
+            "Concepto creativo de la Semana 6": data.concept,
+
+            "Personalidad de marca": data.personality,
+            "Hallazgos del moodboard": data.moodboard,
+            "Dirección visual elegida": data.visualDirection,
+            "Estilo fotográfico": data.photography,
+
+            ...Object.fromEntries(
+              data.colors.flatMap((item, index) => [
+                [`Color ${index + 1} - Función`, item.role],
+                [`Color ${index + 1} - Código HEX`, item.hex],
+                [`Color ${index + 1} - Justificación`, item.reason],
+              ]),
+            ),
+
+            "Contraste de texto sobre fondo":
+              contrast === null
+                ? "No calculado: código HEX inválido"
+                : `${contrast.toFixed(2)}:1`,
+
+            "Evaluación de contraste":
+              contrast === null
+                ? "Revisar códigos HEX"
+                : contrast >= 4.5
+                  ? "Cumple WCAG AA para texto normal"
+                  : contrast >= 3
+                    ? "Cumple WCAG AA para texto grande"
+                    : "Contraste insuficiente",
+
+            "Prompt de exploración cromática": prompt,
+            "Decisiones sobre propuestas de IA": data.aiNotes,
+
+            "Tipografía para títulos": data.headingFont,
+            "Tipografía para textos": data.bodyFont,
+            "Justificación tipográfica": data.typographyReason,
+
+            "Concepto del logotipo": data.logoConcept,
+            "Variantes del logotipo": data.logoVariants,
+            "Justificación del logotipo": data.logoReason,
+            "Enlace al logotipo editable": data.logoLink,
+
+            ...Object.fromEntries(
+              data.pieces.flatMap((piece, index) => [
+                [`Pieza ${index + 1} - Formato`, piece.type],
+                [`Pieza ${index + 1} - Publicación original`, piece.previous],
+                [`Pieza ${index + 1} - Cambios realizados`, piece.changes],
+                [`Pieza ${index + 1} - Copy final`, piece.copy],
+                [`Pieza ${index + 1} - CTA`, piece.cta],
+                [`Pieza ${index + 1} - Enlace al diseño`, piece.link],
+              ]),
+            ),
+
+            "Revisión - Paleta con funciones definidas": data.checks[0]
+              ? "Sí"
+              : "No",
+            "Revisión - Contraste y legibilidad": data.checks[1] ? "Sí" : "No",
+            "Revisión - Jerarquía tipográfica": data.checks[2] ? "Sí" : "No",
+            "Revisión - Logotipo en diferentes tamaños": data.checks[3]
+              ? "Sí"
+              : "No",
+            "Revisión - Coherencia entre las tres piezas": data.checks[4]
+              ? "Sí"
+              : "No",
+
+            "Decisiones visuales del equipo": data.decisions,
+            "Argumentos para la presentación": data.presentation,
+            "Enlace al mini manual de identidad": data.manualLink,
+            "Enlace a plantillas y evidencias": data.templateLink,
+
+            "Etapas completadas": `${completedCount} de 6`,
+          }}
+        />
       </footer>
     </div>
   );

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import WorkshopDownloadButton from "./WorkshopDownloadButton";
 import "../../styles/contenidoSemana06.css";
 
 const STAGES = [
@@ -701,10 +702,109 @@ No inventes resultados de investigaciones ni datos del consumidor.`;
             ? "Laboratorio completado"
             : `${completedCount} de 6 etapas completadas`}
         </h3>
+
         <p>
-          Las respuestas se guardan automáticamente en este navegador. Recuerda
-          entregar las evidencias en Moodle.
+          Tus respuestas se guardan automáticamente. Descarga el PDF del
+          laboratorio y comparte las evidencias según las instrucciones de
+          Moodle.
         </p>
+
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "contenido",
+            number: 6,
+            title: "Una buena idea necesita una dirección creativa",
+          }}
+          title="Laboratorio 06: Brief creativo e inteligencia artificial"
+          answers={{
+            "Nombre del equipo": data.team,
+            "Marca de café": data.brand,
+
+            "Brief - Problema de comunicación": data.problem,
+            "Brief - Objetivo de comunicación": data.objective,
+            "Brief - Audiencia y Buyer Persona": data.audience,
+            "Brief - Insight del consumidor": data.insight,
+            "Brief - Mensaje clave": data.keyMessage,
+            "Brief - Entregables previstos": data.deliverables,
+            "Brief - Restricciones": data.restrictions,
+            "Brief - Voz y tono de marca": data.brandVoice,
+
+            "Prompt generado con el brief": generatedPrompt,
+            "Indicaciones adicionales para IA": data.promptExtra,
+            "Método de ideación": data.ideationMethod,
+            "Síntesis de propuestas obtenidas": data.aiResponse,
+            "Revisión crítica de las propuestas": data.aiReview,
+
+            ...Object.fromEntries(
+              data.concepts.flatMap((concept, index) => [
+                [`Concepto ${index + 1} - Enfoque`, concept.type],
+                [`Concepto ${index + 1} - Nombre`, concept.name],
+                [`Concepto ${index + 1} - Idea central`, concept.idea],
+                [`Concepto ${index + 1} - Mensaje clave`, concept.message],
+                [
+                  `Concepto ${index + 1} - Aplicación publicitaria`,
+                  concept.application,
+                ],
+                [
+                  `Concepto ${index + 1} - Justificación`,
+                  concept.justification,
+                ],
+                [
+                  `Concepto ${index + 1} - Relevancia`,
+                  `${concept.relevance}/5`,
+                ],
+                [
+                  `Concepto ${index + 1} - Diferenciación`,
+                  `${concept.difference}/5`,
+                ],
+                [
+                  `Concepto ${index + 1} - Coherencia`,
+                  `${concept.coherence}/5`,
+                ],
+                [
+                  `Concepto ${index + 1} - Viabilidad`,
+                  `${concept.viability}/5`,
+                ],
+                [
+                  `Concepto ${index + 1} - Puntuación total`,
+                  `${scores[index]}/20`,
+                ],
+              ]),
+            ),
+
+            "Concepto seleccionado":
+              data.selectedConcept !== ""
+                ? `${
+                    data.concepts[Number(data.selectedConcept)]?.name ||
+                    `Concepto ${Number(data.selectedConcept) + 1}`
+                  }`
+                : "",
+
+            "Justificación de selección": data.selectionReason,
+
+            "Prototipo - Formato": data.prototypeFormat,
+            "Prototipo - Titular": data.prototypeHeadline,
+            "Prototipo - Copy": data.prototypeCopy,
+            "Prototipo - CTA": data.prototypeCta,
+            "Prototipo - Dirección visual": data.prototypeVisual,
+            "Prototipo - Enlace al diseño": data.prototypeLink,
+
+            "Revisión - Audiencia": data.reviewAudience ? "Sí" : "No",
+            "Revisión - Mensaje clave": data.reviewMessage ? "Sí" : "No",
+            "Revisión - Voz de marca": data.reviewVoice ? "Sí" : "No",
+            "Revisión - Promesas verificables": data.reviewClaims ? "Sí" : "No",
+            "Revisión - Recursos disponibles": data.reviewResources
+              ? "Sí"
+              : "No",
+
+            "Defensa de la propuesta": data.presentation,
+            "Decisiones tomadas por el equipo": data.teamDecision,
+            "Enlace a las evidencias": data.deliveryLink,
+
+            "Etapas completadas": `${completedCount} de 6`,
+          }}
+        />
       </footer>
     </div>
   );

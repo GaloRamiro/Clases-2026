@@ -1,4 +1,5 @@
 import { useState } from "react";
+import WorkshopDownloadButton from "./WorkshopDownloadButton";
 import "../../styles/contenidoSemana16.css";
 
 const STAGES = [
@@ -876,9 +877,119 @@ export default function ContentWeek16Workshop({
           <strong>Versión corta: {data.short.duration} s</strong>
         </div>
 
-        <button type="button" onClick={downloadReport}>
-          Descargar ficha de edición
-        </button>
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "contenido",
+            number: 16,
+            title: "De cinco clips a un anuncio que cuenta una historia.",
+          }}
+          title="Laboratorio 16: Producción y edición audiovisual"
+          answers={{
+            Equipo: data.team,
+            "Marca de café": data.brand,
+            Campaña: data.campaign,
+            "Público objetivo": data.audience,
+            "Objetivo del anuncio": data.objective,
+            "Mensaje principal": data.message,
+            "Editor de video utilizado": data.editor,
+
+            "MATERIAL - Carpeta de producción": data.folder,
+            "MATERIAL - Storyboard Semana 15": data.storyboard,
+            "MATERIAL - Clips originales": data.footage,
+            "MATERIAL - Archivo del logotipo": data.logo,
+
+            ...Object.fromEntries(
+              data.scenes.flatMap((scene, index) => {
+                const prefix = `GUION - ESCENA ${index + 1}`;
+
+                return [
+                  [`${prefix} - Inicio`, `${scene.start} segundos`],
+                  [`${prefix} - Final`, `${scene.end} segundos`],
+                  [
+                    `${prefix} - Duración`,
+                    `${Math.max(
+                      0,
+                      Number(scene.end || 0) - Number(scene.start || 0),
+                    )} segundos`,
+                  ],
+                  [`${prefix} - Plano`, scene.shot],
+                  [`${prefix} - Acción visual`, scene.action],
+                  [`${prefix} - Texto en pantalla`, scene.text],
+                  [`${prefix} - Sonido o música`, scene.audio],
+                ];
+              }),
+            ),
+
+            "Duración acumulada de escenas": `${totalDuration} segundos`,
+
+            "MONTAJE - Ritmo narrativo": data.rhythm,
+            "MONTAJE - Transiciones": data.transitions,
+            "MONTAJE - Continuidad": data.continuity,
+            "MONTAJE - Justificación de decisiones": data.editingDecisions,
+
+            "AUDIO - Música y efectos": data.soundtrack,
+            "AUDIO - Origen y autorización": data.soundtrackRights,
+            "AUDIO - Voz en off o ambiente": data.voice,
+            "AUDIO - Textos y subtítulos": data.subtitles,
+            "AUDIO - Comprensión sin sonido": data.silentViewing,
+
+            "IDENTIDAD - Tipografía": data.typography,
+            "IDENTIDAD - Colores": data.colors,
+            "IDENTIDAD - Corrección de color": data.colorCorrection,
+            "IDENTIDAD - Titular final": data.headline,
+            "IDENTIDAD - CTA": data.cta,
+
+            "ANUNCIO PRINCIPAL - Duración": `${data.main.duration} segundos`,
+            "ANUNCIO PRINCIPAL - Resolución": data.main.resolution,
+            "ANUNCIO PRINCIPAL - Contenedor": data.main.format,
+            "ANUNCIO PRINCIPAL - Códec de video": data.main.codec,
+            "ANUNCIO PRINCIPAL - FPS": data.main.fps,
+            "ANUNCIO PRINCIPAL - Códec de audio": data.main.audio,
+            "ANUNCIO PRINCIPAL - Enlace MP4": data.main.link,
+            "ANUNCIO PRINCIPAL - Duración válida": validMain ? "Sí" : "No",
+
+            "VERSIÓN CORTA - Duración": `${data.short.duration} segundos`,
+            "VERSIÓN CORTA - Gancho inicial": data.short.hook,
+            "VERSIÓN CORTA - Mensaje": data.short.message,
+            "VERSIÓN CORTA - CTA": data.short.cta,
+            "VERSIÓN CORTA - Enlace MP4": data.short.link,
+            "VERSIÓN CORTA - Duración válida": validShort ? "Sí" : "No",
+
+            "PORTADA - Formato": "1080 × 1920 px",
+            "PORTADA - Titular": data.cover.headline,
+            "PORTADA - Composición": data.cover.composition,
+            "PORTADA - Enlace": data.cover.link,
+
+            "Retroalimentación recibida": data.feedback,
+            "Mejoras para trabajo autónomo": data.pending,
+
+            ...Object.fromEntries(
+              data.done.map((checked, index) => [
+                `Etapa ${index + 1} completada`,
+                checked ? "Sí" : "No",
+              ]),
+            ),
+
+            "Progreso general": `${completed} de 7 etapas`,
+
+            "ESTADO - Anuncio principal": data.main.link.trim()
+              ? "Registrado"
+              : "Pendiente",
+
+            "ESTADO - Versión corta": data.short.link.trim()
+              ? "Registrada"
+              : "Pendiente",
+
+            "ESTADO - Portada": data.cover.link.trim()
+              ? "Registrada"
+              : "Pendiente",
+
+            "ESTADO - Storyboard": data.storyboard.trim()
+              ? "Registrado"
+              : "Pendiente",
+          }}
+        />
 
         <p>{notice}</p>
 

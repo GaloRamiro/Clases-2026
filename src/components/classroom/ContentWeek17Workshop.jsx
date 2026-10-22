@@ -1,4 +1,5 @@
 import { useState } from "react";
+import WorkshopDownloadButton from "./WorkshopDownloadButton";
 import "../../styles/contenidoSemana17.css";
 
 const PLATFORMS = [
@@ -725,9 +726,75 @@ export default function ContentWeek17Workshop({
         </div>
 
         <div className="multi17-actions">
-          <button type="button" onClick={downloadReport}>
-            Descargar ficha TXT
-          </button>
+          <WorkshopDownloadButton
+            studentName={studentName}
+            lesson={{
+              courseId: "contenido",
+              number: 17,
+              title: "Una campaña. Tres plataformas. Tres formas de comunicar.",
+            }}
+            title="Laboratorio 17: Campaña multiplataforma"
+            answers={{
+              "Nombre del equipo": data.team,
+              "Marca de café": data.brand,
+              "Nombre de campaña": data.campaign,
+              "Idea central": data.idea,
+              "Público objetivo": data.audience,
+              "Objetivo de campaña": data.objective,
+              "Archivos base de Semana 16": data.source,
+              "Identidad visual que debe permanecer": data.identity,
+
+              ...Object.fromEntries(
+                data.platforms.flatMap((publication) => {
+                  const prefix = publication.name.toUpperCase();
+
+                  return [
+                    [`${prefix} - Formato`, publication.format],
+                    [`${prefix} - Objetivo específico`, publication.objective],
+                    [`${prefix} - Audiencia`, publication.audience],
+                    [`${prefix} - Gancho inicial`, publication.hook],
+                    [`${prefix} - Titular`, publication.headline],
+                    [`${prefix} - Copy completo`, publication.copy],
+                    [`${prefix} - CTA`, publication.cta],
+                    [`${prefix} - Decisiones visuales`, publication.visual],
+                    [
+                      `${prefix} - Adaptación respecto al original`,
+                      publication.adaptation,
+                    ],
+                    [`${prefix} - Archivo adaptado`, publication.asset],
+                    [`${prefix} - Texto alternativo`, publication.alt],
+                    [`${prefix} - Fecha de publicación`, publication.date],
+                    [`${prefix} - Hora prevista`, publication.time],
+                    [`${prefix} - Estado`, publication.status],
+
+                    ...QUALITY.map((item, index) => [
+                      `${prefix} - Calidad: ${item}`,
+                      publication.checks[index] ? "Cumple" : "Pendiente",
+                    ]),
+                  ];
+                }),
+              ),
+
+              "Retroalimentación del docente": data.feedback,
+              "Correcciones pendientes": data.corrections,
+              "Carpeta del portafolio final": data.portfolio,
+
+              ...Object.fromEntries(
+                data.done.map((checked, index) => [
+                  `Etapa ${index + 1}: ${STEPS[index][0]}`,
+                  checked ? "Completada" : "Pendiente",
+                ]),
+              ),
+
+              "Progreso general": `${completed} de 6 etapas`,
+
+              "Copies y CTA registrados": `${copiesReady} de 3`,
+
+              "Archivos adaptados registrados": `${assetsReady} de 3`,
+
+              "Controles de calidad marcados": `${checkedCount} de 30`,
+            }}
+          />
 
           <button
             type="button"

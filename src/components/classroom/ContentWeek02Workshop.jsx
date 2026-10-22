@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../../styles/contenidoSemana02.css";
-
+import WorkshopDownloadButton from "./WorkshopDownloadButton";
 const PREFIX = "aula:contenido:semana02";
 
 const STEPS = [
@@ -747,6 +747,56 @@ Termina con cinco preguntas para entrevistar consumidores reales.`;
           Tus respuestas se guardan automáticamente en este navegador. Para la
           entrega formal, utiliza las instrucciones publicadas en Moodle.
         </p>
+
+        <WorkshopDownloadButton
+          studentName={studentName}
+          lesson={{
+            courseId: "contenido",
+            number: 2,
+            title: "Investigación del consumidor y Buyer Persona",
+          }}
+          title="Taller práctico: investigación del consumidor y Buyer Persona"
+          answers={{
+            "Nombre del equipo": data.team,
+            "Nombre de la marca": data.brand,
+            "Propuesta de valor": data.valueProposition,
+            "Investigación de la Semana 1": data.previousResearch,
+            "Hallazgos sobre competidores": data.competitorFindings,
+            "Segmento prioritario": data.segmentName,
+            "Segmentación demográfica": data.demographic,
+            "Segmentación geográfica": data.geographic,
+            "Segmentación psicográfica": data.psychographic,
+            "Segmentación conductual": data.behavioral,
+            "Justificación del segmento": data.segmentReason,
+            "Prompt de investigación": data.researchPrompt,
+            "Hipótesis propuestas por IA": data.aiHypotheses,
+            "Evidencias observadas": data.observedEvidence,
+            "Fuentes de las evidencias": data.evidenceSources,
+            "Hipótesis pendientes de validar": data.pendingValidation,
+            "Nombre del Buyer Persona": data.personaName,
+            "Edad del Buyer Persona": data.personaAge,
+            Ocupación: data.personaOccupation,
+            "Contexto y rutina": data.personaContext,
+            "Objetivo principal": data.personaGoal,
+            Necesidades: data.personaNeeds,
+            Motivaciones: data.personaMotivations,
+            "Problemas y frustraciones": data.personaFrustrations,
+            "Objeciones de compra": data.personaObjections,
+            "Plataformas digitales": data.personaPlatforms,
+            "Criterios de decisión": data.personaPurchaseDecision,
+            "Frase representativa": data.personaQuote,
+            "Mensaje PUSH": data.pushMessage,
+            "Canal PUSH": data.pushChannel,
+            "Justificación PUSH": data.pushReason,
+            "Mensaje PULL": data.pullMessage,
+            "Canal PULL": data.pullChannel,
+            "Justificación PULL": data.pullReason,
+            "Defensa del segmento": data.defense,
+            "Principal descubrimiento": data.discovery,
+            "Decisión que cambiaríamos": data.decisionChange,
+            "Próxima pregunta de investigación": data.nextResearchQuestion,
+          }}
+        />
       </footer>
     </div>
   );

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import WorkshopDownloadButton from "./WorkshopDownloadButton";
 import "../../styles/contenidoSemana18.css";
 
 const RUBRIC = [
@@ -640,9 +641,77 @@ export default function ContentWeek18Workshop({
         </div>
 
         <div className="final18-actions">
-          <button type="button" onClick={downloadAct}>
-            Descargar acta del equipo
-          </button>
+          <WorkshopDownloadButton
+            studentName={studentName}
+            lesson={{
+              courseId: "contenido",
+              number: 18,
+              title:
+                "De una idea a una marca. Hoy presentas tu campaña al mundo.",
+            }}
+            title={`Acta de defensa final - ${active.name}`}
+            answers={{
+              "Equipo evaluado": active.name,
+              "Marca de café": active.brand,
+              Integrantes: active.members,
+              "Estado de la defensa": active.status,
+
+              "DOCUMENTACIÓN - Presentación final": active.presentation,
+              "DOCUMENTACIÓN - Portafolio PDF": active.portfolio,
+              "DOCUMENTACIÓN - Carpeta de archivos": active.folder,
+              "DOCUMENTACIÓN - Dashboard de datos simulados": active.dashboard,
+
+              "Concepto creativo de campaña": active.concept,
+              "Audiencia y Buyer Persona": active.audience,
+              "Propuesta de valor": active.value,
+
+              ...Object.fromEntries(
+                DELIVERABLES.map((item, index) => [
+                  `ENTREGABLE - ${item}`,
+                  active.deliverables[index] ? "Verificado" : "Pendiente",
+                ]),
+              ),
+
+              "Entregables verificados": `${checked} de ${DELIVERABLES.length}`,
+
+              ...Object.fromEntries(
+                RUBRIC.map((item, index) => [
+                  `RÚBRICA - ${item.name}`,
+                  `${Math.min(
+                    item.max,
+                    Math.max(0, Number(active.scores[index]) || 0),
+                  )} de ${item.max} puntos`,
+                ]),
+              ),
+
+              "CALIFICACIÓN FINAL": `${total} de 50 puntos`,
+
+              ...Object.fromEntries(
+                DEFENSE.map((item, index) => [
+                  `DEFENSA - ${item.name}`,
+                  `${active.defenseMinutes[index]} minutos (referencia: ${item.minutes})`,
+                ]),
+              ),
+
+              "Tiempo total de defensa": `${minutes} minutos`,
+
+              "Tiempo de referencia": "15 minutos",
+
+              "Principal fortaleza de la campaña": active.strength,
+
+              "Mejora prioritaria": active.improvement,
+
+              "Preguntas realizadas durante la defensa": active.questions,
+
+              "Observaciones finales del docente": active.feedback,
+
+              "Notas generales de la sesión": data.sessionNotes,
+
+              "Total de equipos registrados": data.teams.length,
+
+              "Equipos evaluados": evaluated,
+            }}
+          />
 
           <button
             type="button"
