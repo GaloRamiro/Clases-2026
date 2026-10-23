@@ -193,7 +193,7 @@ const semana01 = {
 
       body: "Aprenderemos cómo las empresas organizan la información comercial, gestionan oportunidades y construyen relaciones con sus clientes.",
 
-      image: `${IMG}portada-crm.webp`,
+      image: "images/gestion/Gemini_Generated_Image_b0hid3b0hid3b0hi.jpg",
       imageHint:
         "Asesor comercial utilizando una plataforma CRM en una oficina moderna.",
     },
@@ -215,7 +215,7 @@ const semana01 = {
       question:
         "¿Por qué una empresa puede recibir 100 consultas y concretar solamente cinco ventas?",
 
-      image: `${IMG}ventas-sin-crm.webp`,
+      image: "images/gestion/Gemini_Generated_Image_trpu85trpu85trpu.jpg",
     },
 
     {
@@ -236,7 +236,7 @@ const semana01 = {
       question:
         "¿Qué información debería conocer un vendedor antes de volver a contactar a un cliente?",
 
-      image: `${IMG}fundamentos-crm.webp`,
+      image: "/images/gestion/Gemini_Generated_Image_m12qrcm12qrcm12q.jpg",
     },
 
     {
