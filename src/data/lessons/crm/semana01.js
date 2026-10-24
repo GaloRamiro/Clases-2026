@@ -257,7 +257,7 @@ const semana01 = {
       question:
         "¿Qué puede automatizar una empresa sin perder el trato humano?",
 
-      image: `${IMG}historia-crm.webp`,
+      image: "/images/gestion/Gemini_Generated_Image_4fk3y04fk3y04fk3.jpg",
     },
 
     {
@@ -277,7 +277,7 @@ const semana01 = {
         ["Desafío", "Identificar oportunidades de mejora"],
       ],
 
-      image: `${IMG}caso-ventas-perdidas.webp`,
+      image: "/images/gestion/Gemini_Generated_Image_2w109b2w109b2w10.jpg",
     },
 
     {
@@ -298,7 +298,7 @@ const semana01 = {
       question:
         "¿Cuál es la diferencia entre una persona interesada y una oportunidad de venta?",
 
-      image: `${IMG}diccionario-comercial.webp`,
+      image: "/images/gestion/Gemini_Generated_Image_s5vgjws5vgjws5vg.jpg",
     },
 
     {
@@ -327,7 +327,7 @@ const semana01 = {
 
       question: "¿Cómo se conecta un lead con un seguimiento y una conversión?",
 
-      image: `${IMG}presentacion-equipos.webp`,
+      image: "/images/gestion/Gemini_Generated_Image_wbozd7wbozd7wboz.jpg",
     },
 
     {
@@ -342,7 +342,7 @@ const semana01 = {
       instructions:
         "Realiza las seis etapas del laboratorio y registra evidencias de cada actividad.",
 
-      image: `${IMG}laboratorio-bitrix24.webp`,
+      image: "/images/gestion/Gemini_Generated_Image_t4ez9zt4ez9zt4ez.jpg",
     },
 
     {
@@ -357,7 +357,7 @@ const semana01 = {
       instructions:
         "Clasifica el contacto, redacta un mensaje comercial y plantea dos acciones de seguimiento.",
 
-      image: `${IMG}seguimiento-cliente.webp`,
+      image: "/images/gestion/Gemini_Generated_Image_9xdcgy9xdcgy9xdc.jpg",
     },
 
     {
@@ -376,7 +376,7 @@ const semana01 = {
 
       note: "Cada equipo comparte una decisión comercial que aprendió a justificar.",
 
-      image: `${IMG}reflexion-crm.webp`,
+      image: "/images/gestion/Gemini_Generated_Image_b0hid3b0hid3b0hi.jpg",
     },
 
     {
@@ -392,7 +392,7 @@ const semana01 = {
 
       next: "SEMANA 02 · Etapas del cliente y embudo de ventas",
 
-      image: `${IMG}tarea-glosario.webp`,
+      image: "/images/gestion/Gemini_Generated_Image_s5vgjws5vgjws5vg.jpg",
     },
   ],
 };
