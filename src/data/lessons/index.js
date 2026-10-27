@@ -15,17 +15,30 @@ import contenidoSemana10 from "./contenido/semana10";
 import contenidoSemana11 from "./contenido/semana11";
 import contenidoSemana12 from "./contenido/semana12";
 import contenidoSemana13 from "./contenido/semana13";
-
 import contenidoSemana14 from "./contenido/semana14";
-
 import contenidoSemana15 from "./contenido/semana15";
-
 import contenidoSemana16 from "./contenido/semana16";
-
 import contenidoSemana17 from "./contenido/semana17";
 import contenidoSemana18 from "./contenido/semana18";
+
 import seoSemana01 from "./seo/semana01";
 import seoSemana02 from "./seo/semana02";
+import seoSemana03 from "./seo/semana03";
+import seoSemana04 from "./seo/semana04";
+import seoSemana05 from "./seo/semana05";
+import seoSemana06 from "./seo/semana06";
+import seoSemana07 from "./seo/semana07";
+import seoSemana08 from "./seo/semana08";
+import seoSemana09 from "./seo/semana09";
+import seoSemana10 from "./seo/semana10";
+import seoSemana11 from "./seo/semana11";
+import seoSemana12 from "./seo/semana12";
+import seoSemana13 from "./seo/semana13";
+import seoSemana14 from "./seo/semana14";
+import seoSemana15 from "./seo/semana15";
+import seoSemana16 from "./seo/semana16";
+import seoSemana17 from "./seo/semana17";
+import seoSemana18 from "./seo/semana18";
 import crmSemana01 from "./crm/semana01";
 import crmSemana02 from "./crm/semana02";
 import crmSemana03 from "./crm/semana03";
@@ -56,6 +69,22 @@ const lessons = {
   seo: {
     1: seoSemana01,
     2: seoSemana02,
+    3: seoSemana03,
+    4: seoSemana04,
+    5: seoSemana05,
+    6: seoSemana06,
+    7: seoSemana07,
+    8: seoSemana08,
+    9: seoSemana09,
+    10: seoSemana10,
+    11: seoSemana11,
+    12: seoSemana12,
+    13: seoSemana13,
+    14: seoSemana14,
+    15: seoSemana15,
+    16: seoSemana16,
+    17: seoSemana17,
+    18: seoSemana18,
   },
 
   crm: {

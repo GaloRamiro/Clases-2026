@@ -4,12 +4,32 @@ import PushPullLab from "./PushPullLab";
 import { getLessonWork, saveLessonWork } from "../../services/storage";
 import "../../styles/semana01.css";
 import SeoWorkshop from "./SeoWorkshop";
+import SeoKeywordWorkshop from "./SeoKeywordWorkshop.jsx";
+import SeoWeek03Workshop from "./SeoWeek03Workshop";
+import SeoWeek04Workshop from "./SeoWeek04Workshop";
+import SeoWeek05Workshop from "./SeoWeek05Workshop";
+import SeoWeek06Workshop from "./SeoWeek06Workshop";
+import SeoWeek07Workshop from "./SeoWeek07Workshop";
+import SeoWeek08Workshop from "./SeoWeek08Workshop";
+import SeoWeek09Workshop from "./SeoWeek09Workshop";
+import SeoWeek10Workshop from "./SeoWeek10Workshop";
+import SeoWeek11Workshop from "./SeoWeek11Workshop";
+import SeoWeek12Workshop from "./SeoWeek12Workshop";
+import SeoWeek13Workshop from "./SeoWeek13Workshop";
+import SeoWeek14Workshop from "./SeoWeek14Workshop";
+import SeoWeek14Resources from "./SeoWeek14Resources";
+import SeoWeek15Workshop from "./SeoWeek15Workshop";
+import SeoWeek15Resources from "./SeoWeek15Resources";
+import SeoWeek16Workshop from "./SeoWeek16Workshop";
+import SeoWeek16Resources from "./SeoWeek16Resources";
+import SeoWeek17Workshop from "./SeoWeek17Workshop";
+import SeoWeek17Resources from "./SeoWeek17Resources";
+import SeoWeek18Workshop from "./SeoWeek18Workshop";
+import SeoWeek18Resources from "./SeoWeek18Resources";
 import CrmWorkshop from "./CrmWorkshop";
-
 import CrmWeek02Workshop from "./CrmWeek02Workshop";
 import CrmWeek03Workshop from "./CrmWeek03Workshop";
 import CrmWeek04Workshop from "./CrmWeek04Workshop";
-import SeoKeywordWorkshop from "./SeoKeywordWorkshop.jsx";
 import ContentWeek02Workshop from "./ContentWeek02Workshop";
 import ContentWeek03Workshop from "./ContentWeek03Workshop";
 import ContentWeek04Workshop from "./ContentWeek04Workshop";
@@ -165,12 +185,20 @@ function Rows({ columns, rows }) {
 }
 
 function SlideBody({ slide, lesson, studentName }) {
+  console.log("DIAGNÓSTICO AULA DIGITAL", {
+    semana: lesson.number,
+    slide: slide.id,
+    kind: slide.kind,
+  });
   switch (slide.kind) {
     case "cover":
       return (
         <div className="ad-cover-layout">
           <div className="ad-cover-copy">
-            <span className="ad-overline">UNIDAD 01 · SEMANA 01</span>
+            <span className="ad-overline">
+              {slide.block ||
+                `SEMANA ${String(lesson.number).padStart(2, "0")}`}
+            </span>
             <h2>{slide.title}</h2>
             <h3>{slide.subtitle}</h3>
             <p>{slide.body}</p>
@@ -328,12 +356,193 @@ function SlideBody({ slide, lesson, studentName }) {
           studentName={studentName}
         />
       );
+    case "seo-architecture-lab":
+    case "seo-onpage-lab":
+    case "seo-peer-review":
+      return (
+        <SeoWeek04Workshop
+          kind={slide.kind}
+          slide={slide}
+          lessonId={lesson.id}
+          studentName={studentName}
+        />
+      );
+    case "seo-crawl-audit":
+    case "seo-performance-audit":
+      return (
+        <SeoWeek05Workshop
+          kind={slide.kind}
+          slide={slide}
+          lessonId={lesson.id}
+          studentName={studentName}
+        />
+      );
+    case "seo-offpage-research":
+    case "seo-offpage-strategy":
+      return (
+        <SeoWeek06Workshop
+          kind={slide.kind}
+          slide={slide}
+          lessonId={lesson.id}
+          studentName={studentName}
+        />
+      );
+    case "seo-integral-audit":
+    case "seo-roadmap-lab":
+      return (
+        <SeoWeek07Workshop
+          kind={slide.kind}
+          slide={slide}
+          lessonId={lesson.id}
+          studentName={studentName}
+        />
+      );
+    case "seo-sem-research":
+    case "seo-sem-brief":
+      return (
+        <SeoWeek08Workshop
+          kind={slide.kind}
+          slide={slide}
+          lessonId={lesson.id}
+          studentName={studentName}
+        />
+      );
+    case "seo-sem-keywords":
+    case "seo-sem-campaign":
+      return (
+        <SeoWeek09Workshop
+          kind={slide.kind}
+          slide={slide}
+          lessonId={lesson.id}
+          studentName={studentName}
+        />
+      );
+    case "seo-sem-ad-copy":
+    case "seo-sem-landing-ab":
+      return (
+        <SeoWeek10Workshop
+          kind={slide.kind}
+          slide={slide}
+          lessonId={lesson.id}
+          studentName={studentName}
+        />
+      );
+    case "seo-multichannel-funnel":
+    case "seo-multichannel-media":
+      return (
+        <SeoWeek11Workshop
+          kind={slide.kind}
+          slide={slide}
+          lessonId={lesson.id}
+          studentName={studentName}
+        />
+      );
+    case "seo-sem-performance":
+    case "seo-sem-optimization":
+      return (
+        <SeoWeek12Workshop
+          kind={slide.kind}
+          slide={slide}
+          lessonId={lesson.id}
+          studentName={studentName}
+        />
+      );
+    case "seo-aeo-audit":
+    case "seo-aeo-content":
+      return (
+        <SeoWeek13Workshop
+          kind={slide.kind}
+          slide={slide}
+          lessonId={lesson.id}
+          studentName={studentName}
+        />
+      );
+    case "seo-geo-audit":
+    case "seo-geo-publish":
+      return (
+        <SeoWeek14Workshop
+          kind={slide.kind}
+          slide={slide}
+          lessonId={lesson.id}
+          studentName={studentName}
+        />
+      );
+
+    case "seo-geo-template":
+    case "seo-geo-publish-guide":
+      return <SeoWeek14Resources kind={slide.kind} />;
+    case "seo15-install":
+    case "seo15-events":
+      return (
+        <SeoWeek15Workshop
+          kind={slide.kind}
+          slide={slide}
+          lessonId={lesson.id}
+          studentName={studentName}
+        />
+      );
+
+    case "seo15-flow":
+    case "seo15-cta-guide":
+    case "seo15-faq-guide":
+      return <SeoWeek15Resources kind={slide.kind} />;
+    case "seo16-gsc-lab":
+    case "seo16-dashboard-lab":
+      return (
+        <SeoWeek16Workshop
+          kind={slide.kind}
+          slide={slide}
+          lessonId={lesson.id}
+          studentName={studentName}
+        />
+      );
+
+    case "seo16-looker-guide":
+    case "seo16-dashboard-resource":
+      return <SeoWeek16Resources kind={slide.kind} />;
+    case "seo17-diagnosis-lab":
+    case "seo17-roadmap-lab":
+    case "seo17-presentation-lab":
+    case "seo17-peer-review":
+      return (
+        <SeoWeek17Workshop
+          kind={slide.kind}
+          slide={slide}
+          lessonId={lesson.id}
+          studentName={studentName}
+        />
+      );
+
+    case "seo17-priority-guide":
+    case "seo17-report-guide":
+    case "seo17-presentation-guide":
+      return <SeoWeek17Resources kind={slide.kind} />;
+
+    case "seo18-checklist":
+    case "seo18-evidence":
+    case "seo18-defense":
+    case "seo18-reflection":
+    case "seo18-portfolio":
+    case "seo18-final":
+      return (
+        <SeoWeek18Workshop
+          kind={slide.kind}
+          slide={slide}
+          lessonId={lesson.id}
+          studentName={studentName}
+        />
+      );
+
+    case "seo18-rules":
+    case "seo18-presentation-guide":
+      return <SeoWeek18Resources kind={slide.kind} />;
     case "crm-glossary":
     case "crm-bitrix-lab":
     case "crm-followup":
       return (
         <CrmWorkshop
           kind={slide.kind}
+          slide={slide}
           lessonId={lesson.id}
           studentName={studentName}
         />
@@ -437,6 +646,19 @@ function SlideBody({ slide, lesson, studentName }) {
     case "seo-keyword-lab":
     case "seo-keyword-matrix":
       return <SeoKeywordWorkshop slide={slide} />;
+
+    case "seo-competitor-map":
+    case "seo-benchmark-lab":
+    case "seo-competitive-plan":
+      return (
+        <SeoWeek03Workshop
+          kind={slide.kind}
+          slide={slide}
+          lessonId={lesson.id}
+          studentName={studentName}
+        />
+      );
+
     case "content-buyer-lab":
       return (
         <ContentWeek02Workshop lessonId={lesson.id} studentName={studentName} />
