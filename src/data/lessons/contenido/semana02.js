@@ -94,7 +94,7 @@ const semana02 = {
       title: "Tu café no es para todo el mundo",
       subtitle: "¿Quién compraría nuestro café?",
       body: "No todos compran café por la misma razón. Hoy descubriremos quién podría comprar nuestra marca y cómo adaptar nuestros contenidos.",
-      image: "/public/images/contenido/semana 2/Semana dos 1.jpg",
+      image: "/images/contenido/semana 2/Semana dos 1.jpg",
     },
     {
       id: 2,
@@ -106,7 +106,7 @@ const semana02 = {
       question:
         "¿En qué evidencias nos basamos para decidir quién compraría nuestro café?",
       note: "Dos o tres equipos presentan un hallazgo de las marcas reales investigadas.",
-      image: "/public/images/contenido/semana 2/Semana dos 2.jpg",
+      image: "/images/contenido/semana 2/Semana dos 2.jpg",
     },
     {
       id: 3,
@@ -116,12 +116,12 @@ const semana02 = {
       accent: "EL MISMO CAFÉ PUEDE SIGNIFICAR COSAS DISTINTAS",
       body: "Estudiante: precio y practicidad. Profesional: rutina y conveniencia. Aficionado: origen, sabor y experiencia.",
       question: "¿Les ofrecerías el mismo mensaje a los tres?",
-      image: "/public/images/contenido/semana 2/Semana dos 3.jpg",
+      image: "/images/contenido/semana 2/Semana dos 3.jpg",
     },
     {
       id: 4,
       kind: "table",
-      image: "/public/images/contenido/semana 2/Semana dos 4.jpg",
+      image: "/images/contenido/semana 2/Semana dos 4.jpg",
       block: "FUNDAMENTOS · 7 MIN",
       title: "Segmentar es encontrar diferencias relevantes",
       subtitle:
@@ -155,7 +155,7 @@ const semana02 = {
       accent: "COMPRA UNA SOLUCIÓN, UNA EXPERIENCIA O UN BENEFICIO",
       body: "Una persona busca energía para estudiar; otra, una pausa agradable; otra, descubrir nuevos sabores. El producto puede ser similar, pero la motivación cambia.",
       question: "¿Qué necesidad concreta podría resolver nuestra marca?",
-      image: "/public/images/contenido/semana 2/Semana dos 5.jpg",
+      image: "/images/contenido/semana 2/Semana dos 5.jpg",
     },
     {
       id: 6,
@@ -166,7 +166,7 @@ const semana02 = {
       body: "Un Buyer Persona es una representación semificticia del cliente objetivo, construida a partir de investigación, observaciones e hipótesis explícitas.",
       quote:
         "Necesitamos entender qué busca, qué le preocupa, cómo decide y dónde encuentra información.",
-      image: "/public/images/contenido/semana 2/Semana dos 6.jpg",
+      image: "/images/contenido/semana 2/Semana dos 6.jpg",
     },
     {
       id: 7,
@@ -177,7 +177,7 @@ const semana02 = {
       body: "Marca: café para estudiantes. PULL: consejos para preparar café antes de ir a clases. PUSH: presentación de una opción práctica y accesible.",
       question:
         "¿Qué cambiaríamos si nuestro público fueran profesionales de 35 a 45 años?",
-      image: "/public/images/contenido/semana 2/Semana dos 7.jpg",
+      image: "/images/contenido/semana 2/Semana dos 7.jpg",
     },
     {
       id: 8,
@@ -187,7 +187,7 @@ const semana02 = {
       accent: "DANIEL · 22 AÑOS · PERFIL HIPOTÉTICO",
       body: "Daniel es estudiante universitario, combina clases y trabajo, busca practicidad y precios accesibles, consulta redes sociales y compara opciones antes de comprar.",
       note: "Este perfil es un ejemplo didáctico. No representa una investigación validada.",
-      image: "/public/images/contenido/semana 2/Semana dos 8.png",
+      image: "/images/contenido/semana 2/Semana dos 8.png",
     },
     {
       id: 9,
@@ -198,7 +198,7 @@ const semana02 = {
       body: "Construye un prompt con contexto de la marca, segmento, objetivo, información disponible y formato de respuesta. Solicita motivaciones, objeciones, necesidades y preguntas del consumidor.",
       question:
         "¿Qué afirmaciones podríamos utilizar y cuáles necesitan validación?",
-      image: "/public/images/contenido/semana 2/Semana dos 9.jpg",
+      image: "/images/contenido/semana 2/Semana dos 9.jpg",
     },
     {
       id: 10,
@@ -209,7 +209,7 @@ const semana02 = {
       body: "Podemos investigar mediante comentarios públicos, entrevistas, encuestas breves y análisis de competidores. Debemos separar los datos observados de nuestras suposiciones.",
       question:
         "¿Cómo comprobaríamos que nuestros consumidores valoran más el precio que la calidad?",
-      image: "/public/images/contenido/semana 2/Semana dos 10.jpg",
+      image: "/images/contenido/semana 2/Semana dos 10.jpg",
     },
     {
       id: 11,
@@ -227,12 +227,12 @@ const semana02 = {
       body: "Cada equipo presenta su segmento prioritario, la necesidad identificada, las evidencias disponibles y las decisiones que cambiará en su comunicación.",
       quote:
         "No basta con presentar un perfil atractivo. Hay que justificar las decisiones.",
-      image: "/public/images/contenido/semana 2/Semana dos 11.jpg",
+      image: "/images/contenido/semana 2/Semana dos 11.jpg",
     },
     {
       id: 13,
       kind: "questions",
-      image: "/public/images/contenido/semana 2/Semana dos 12.jpg",
+      image: "/images/contenido/semana 2/Semana dos 12.jpg",
       block: "REFLEXIÓN · 5 MIN",
       title: "¿Qué cambió en nuestra forma de pensar?",
       questions: [
@@ -251,7 +251,7 @@ const semana02 = {
       body: "Realiza tres entrevistas breves, analiza cinco comentarios públicos, actualiza tu Buyer Persona y presenta los hallazgos en cinco diapositivas.",
       note: "Entrega el informe de investigación y el Buyer Persona actualizado en Moodle.",
       next: "SEMANA 03 · Design Thinking, empatía y mapa de empatía.",
-      image: "/public/images/contenido/semana 2/Semana dos 13.jpg",
+      image: "/images/contenido/semana 2/Semana dos 13.jpg",
       
     },
   ],
