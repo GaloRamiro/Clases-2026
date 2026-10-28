@@ -103,6 +103,8 @@ const semana02 = {
       title: "Ya tenemos una marca. ¿Pero conocemos a su cliente?",
       accent: "UNA MARCA NECESITA CONOCER A QUIÉN LE HABLA",
       body: "En la Semana 1 definimos un nombre, una propuesta de valor, una plataforma y estrategias PUSH y PULL.",
+      quote:
+        "Definir una marca es el primer paso. Conocer a sus consumidores nos permite tomar decisiones de comunicación fundamentadas.",
       question:
         "¿En qué evidencias nos basamos para decidir quién compraría nuestro café?",
       note: "Dos o tres equipos presentan un hallazgo de las marcas reales investigadas.",
@@ -115,6 +117,8 @@ const semana02 = {
       title: "Un producto. Diferentes consumidores.",
       accent: "EL MISMO CAFÉ PUEDE SIGNIFICAR COSAS DISTINTAS",
       body: "Estudiante: precio y practicidad. Profesional: rutina y conveniencia. Aficionado: origen, sabor y experiencia.",
+      quote:
+        "No segmentamos únicamente por edad: buscamos diferencias que cambien la manera de comunicar el valor del producto.",
       question: "¿Les ofrecerías el mismo mensaje a los tres?",
       image: "/images/contenido/semana 2/Semana dos 3.jpg",
     },
@@ -154,6 +158,8 @@ const semana02 = {
       title: "El cliente no compra solo el producto",
       accent: "COMPRA UNA SOLUCIÓN, UNA EXPERIENCIA O UN BENEFICIO",
       body: "Una persona busca energía para estudiar; otra, una pausa agradable; otra, descubrir nuevos sabores. El producto puede ser similar, pero la motivación cambia.",
+      quote:
+        "El contenido debe comunicar el beneficio que la persona busca, no limitarse a describir las características del café.",
       question: "¿Qué necesidad concreta podría resolver nuestra marca?",
       image: "/images/contenido/semana 2/Semana dos 5.jpg",
     },
@@ -175,6 +181,8 @@ const semana02 = {
       title: "Conocer al cliente cambia el contenido",
       accent: "UNA AUDIENCIA DIFERENTE NECESITA OTRO MENSAJE",
       body: "Marca: café para estudiantes. PULL: consejos para preparar café antes de ir a clases. PUSH: presentación de una opción práctica y accesible.",
+      quote:
+        "Si cambia la audiencia, también deben cambiar el mensaje, el formato y la plataforma.",
       question:
         "¿Qué cambiaríamos si nuestro público fueran profesionales de 35 a 45 años?",
       image: "/images/contenido/semana 2/Semana dos 7.jpg",
@@ -186,6 +194,8 @@ const semana02 = {
       title: "Construyamos un Buyer Persona",
       accent: "DANIEL · 22 AÑOS · PERFIL HIPOTÉTICO",
       body: "Daniel es estudiante universitario, combina clases y trabajo, busca practicidad y precios accesibles, consulta redes sociales y compara opciones antes de comprar.",
+      quote:
+        "Un Buyer Persona útil describe necesidades y comportamientos que permiten justificar decisiones de contenido.",
       note: "Este perfil es un ejemplo didáctico. No representa una investigación validada.",
       image: "/images/contenido/semana 2/Semana dos 8.png",
     },
@@ -196,6 +206,8 @@ const semana02 = {
       title: "La IA propone hipótesis. Nosotros las comprobamos.",
       accent: "UNA RESPUESTA GENERADA NO ES EVIDENCIA",
       body: "Construye un prompt con contexto de la marca, segmento, objetivo, información disponible y formato de respuesta. Solicita motivaciones, objeciones, necesidades y preguntas del consumidor.",
+      quote:
+        "La inteligencia artificial puede orientar la investigación, pero las decisiones profesionales necesitan contrastarse con fuentes y personas reales.",
       question:
         "¿Qué afirmaciones podríamos utilizar y cuáles necesitan validación?",
       image: "/images/contenido/semana 2/Semana dos 9.jpg",
@@ -207,6 +219,8 @@ const semana02 = {
       title: "Una buena idea necesita evidencia",
       accent: "OBSERVAR · PREGUNTAR · CONTRASTAR",
       body: "Podemos investigar mediante comentarios públicos, entrevistas, encuestas breves y análisis de competidores. Debemos separar los datos observados de nuestras suposiciones.",
+      quote:
+        "Una hipótesis sobre el consumidor se convierte en un hallazgo más sólido cuando la contrastamos con información verificable.",
       question:
         "¿Cómo comprobaríamos que nuestros consumidores valoran más el precio que la calidad?",
       image: "/images/contenido/semana 2/Semana dos 10.jpg",
@@ -252,7 +266,6 @@ const semana02 = {
       note: "Entrega el informe de investigación y el Buyer Persona actualizado en Moodle.",
       next: "SEMANA 03 · Design Thinking, empatía y mapa de empatía.",
       image: "/images/contenido/semana 2/Semana dos 13.jpg",
-      
     },
   ],
 };
