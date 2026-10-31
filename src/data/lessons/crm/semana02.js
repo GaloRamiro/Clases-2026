@@ -234,7 +234,7 @@ const semana02 = {
 
       body: "Aprenderemos a organizar personas, empresas y oportunidades comerciales para tomar mejores decisiones de venta.",
 
-      image: `${IMG}portada-contactos.webp`,
+      image: "/images/gestion/semana2/Seman  2 imagen 1.jpg",
       imageHint: "Profesional analizando una base de clientes.",
     },
 
@@ -254,7 +254,7 @@ const semana02 = {
 
       question: "¿A qué clientes contactarías primero y por qué?",
 
-      image: `${IMG}desafio-clientes.webp`,
+      image: "/images/gestion/semana2/semna 2 iamgen 2.jpg",
     },
 
     {
@@ -275,7 +275,7 @@ const semana02 = {
       question:
         "¿Por qué no debemos tratar todos los registros como si fueran ventas?",
 
-      image: `${IMG}tipos-registros.webp`,
+      image: "/images/gestion/semana2/semna 2 imagen 3.jpg",
     },
 
     {
@@ -295,7 +295,7 @@ const semana02 = {
         ["Contrato potencial", "Oportunidad"],
       ],
 
-      image: `${IMG}caso-movilidad.webp`,
+      image: "/images/gestion/semana2/semana 2 iamgen 4.jpg",
     },
 
     {
@@ -314,7 +314,7 @@ const semana02 = {
 
       question: "¿Qué segmento podría necesitar una oferta de mantenimiento?",
 
-      image: `${IMG}segmentacion.webp`,
+      image: "/images/gestion/semana2/semana 2 imagen 5.jpg",
     },
 
     {
@@ -332,7 +332,7 @@ const semana02 = {
 
       note: "Trabajen en equipos de tres o cuatro estudiantes. Registren sus decisiones en el taller interactivo.",
 
-      image: `${IMG}actividad-clasificacion.webp`,
+      image: "/images/gestion/semana2/semna 2 imagen 6.jpg",
     },
 
     {
@@ -361,7 +361,7 @@ const semana02 = {
       quote:
         "No buscamos que todos clasifiquen igual, sino que puedan defender sus decisiones.",
 
-      image: `${IMG}presentacion-clientes.webp`,
+      image: "/images/gestion/semana2/semna 2 imagen 7.jpg",
     },
 
     {
@@ -377,7 +377,7 @@ const semana02 = {
       instructions:
         "Completa las cinco etapas del laboratorio y documenta sus evidencias.",
 
-      image: `${IMG}laboratorio-contactos.webp`,
+      image: "/images/gestion/semana2/semana 2 imagen 8.jpg",
     },
 
     {
@@ -409,7 +409,7 @@ const semana02 = {
 
       note: "Compara tu decisión inicial con lo aprendido en el laboratorio.",
 
-      image: `${IMG}reflexion-segmentacion.webp`,
+      image: "/images/gestion/semana2/semana 2 imagen 9.jpg",
     },
 
     {
@@ -425,7 +425,7 @@ const semana02 = {
 
       next: "SEMANA 03 · Embudos de ventas y modelo AIDA",
 
-      image: `${IMG}tarea-base-clientes.webp`,
+      image: "/images/gestion/semana2/semana 2 imagen 10.jpg",
     },
   ],
 };
