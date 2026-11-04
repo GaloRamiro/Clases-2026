@@ -91,7 +91,7 @@ const semana03 = {
       title: "Tu cliente no necesita otra publicación",
       subtitle: "Necesita una razón para prestarte atención",
       body: "No vendemos café. Resolvemos necesidades. Hoy aprenderemos a comprender al consumidor antes de diseñar contenido.",
-      image: "/images/contenido/semana03/portada.webp",
+      image: "/images/contenido/Semana3/Sem3 A1.jpg",
     },
     {
       id: 2,
@@ -103,7 +103,7 @@ const semana03 = {
       question:
         "¿Lo que descubrimos está respaldado por entrevistas o es una suposición del equipo?",
       note: "Cada equipo comparte un hallazgo de sus entrevistas o comentarios investigados.",
-      image: "/images/contenido/semana03/conexion.webp",
+      image: "/images/contenido/Semana3/Sem3 A2.jpg",
     },
     {
       id: 3,
@@ -137,6 +137,7 @@ const semana03 = {
         ],
       ],
       note: "Una publicación atractiva no es suficiente si no responde a una necesidad.",
+      image: "/images/contenido/Semana3/Sem3 A3.jpg",
     },
     {
       id: 4,
@@ -148,7 +149,7 @@ const semana03 = {
       quote: "Tengo poco tiempo para desayunar antes de ir a clases.",
       question: "¿Qué necesidad podría existir detrás de esta afirmación?",
       note: "Distingue lo que dijo la persona de la interpretación del equipo.",
-      image: "/images/contenido/semana03/empatia.webp",
+      image: "/images/contenido/Semana3/Sem3 A4.jpg",
     },
     {
       id: 5,
@@ -167,6 +168,7 @@ const semana03 = {
         ["Resultados", "Beneficios y logros que busca"],
       ],
       note: "Cada afirmación debe identificarse como evidencia, interpretación o hipótesis.",
+      image: "/images/contenido/Semana3/Sem3 A5.jpg",
     },
     {
       id: 6,
@@ -177,7 +179,7 @@ const semana03 = {
       body: "Observación: Quiero preparar café en casa, pero no sé cuánto utilizar. Necesidad: instrucciones sencillas y confiables. Oportunidad: contenido educativo. Idea: Tres pasos para preparar tu primera taza.",
       question:
         "¿Qué diferencia existe entre una observación y una propuesta de contenido?",
-      image: "/images/contenido/semana03/insights.webp",
+      image: "/images/contenido/Semana3/Sem3 A6.jpg",
     },
     {
       id: 7,
@@ -189,6 +191,7 @@ const semana03 = {
       quote:
         "Los estudiantes con poco tiempo necesitan opciones prácticas para preparar café porque sus rutinas dificultan dedicar tiempo al desayuno.",
       note: "El ejemplo es una hipótesis de trabajo, no un hallazgo validado.",
+      image: "/images/contenido/Semana3/Sem3 A7.jpg",
     },
     {
       id: 8,
@@ -200,7 +203,7 @@ const semana03 = {
       question:
         "¿Qué formato resolvería mejor la necesidad con los recursos disponibles?",
       note: "Hoy crearemos una publicación estática como primer prototipo.",
-      image: "/images/contenido/semana03/ideacion.webp",
+      image: "/images/contenido/Semana3/Sem3 A8.jpg",
     },
     {
       id: 9,
@@ -210,7 +213,7 @@ const semana03 = {
       accent: "INVESTIGAR → COMPRENDER → PROPONER",
       body: "Marca de ejemplo: Café Raíz. Consumidor: persona interesada en preparar café artesanal en casa. Problema: desconoce las proporciones y pasos básicos. Necesidad: una explicación sencilla. Oportunidad: contenido educativo para principiantes.",
       note: "El docente completa un mapa de empatía con datos hipotéticos e identifica qué afirmaciones necesitan validación.",
-      image: "/images/contenido/semana03/cafe-raiz.webp",
+      image: "/images/contenido/Semana3/Sem3 A9.jpg",
     },
     {
       id: 10,
@@ -221,7 +224,7 @@ const semana03 = {
       body: "Mensaje: empieza con una receta sencilla y ajusta el sabor a tu gusto. Objetivo: atraer a personas que desean aprender. Estrategia: PULL. Formato: publicación vertical para Instagram.",
       question:
         "¿Qué parte de esta publicación responde directamente a la necesidad del consumidor?",
-      image: "/images/contenido/semana03/primera-publicacion.webp",
+      image:  "/images/contenido/Semana3/Sem3 A10.jpg",
     },
     {
       id: 11,
@@ -231,7 +234,7 @@ const semana03 = {
       accent: "CLARIDAD ANTES QUE DECORACIÓN",
       body: "Cuida un mensaje principal claro, jerarquía visual, imagen relacionada con el contenido, texto breve y legible, y coherencia con el concepto de marca.",
       note: "No se exige todavía un logotipo final ni una paleta cromática definitiva. Se puede trabajar en Canva gratuito, Google Slides o PowerPoint.",
-      image: "/images/contenido/semana03/criterio-visual.webp",
+      image: "/images/contenido/Semana3/Sem3 A11.jpg",
     },
     {
       id: 12,
@@ -249,13 +252,14 @@ const semana03 = {
       body: "Cada equipo presenta la necesidad identificada, la evidencia disponible, la idea seleccionada y el resultado que espera conseguir con su publicación.",
       quote:
         "Una decisión creativa debe poder justificarse desde las necesidades del consumidor.",
-      image: "/images/contenido/semana03/presentacion.webp",
+      image: "/images/contenido/Semana3/Sem3 A12.jpg",
     },
     {
       id: 14,
       kind: "questions",
       block: "REFLEXIÓN · 5 MIN",
       title: "¿Qué aprendimos realmente?",
+      image: "/images/contenido/Semana3/Sem3 A13.jpg",
       questions: [
         "¿Qué cambió al pensar primero en el consumidor?",
         "¿Qué diferencia existe entre crear algo atractivo y crear algo útil?",
@@ -271,7 +275,7 @@ const semana03 = {
       body: "Actualiza el mapa de empatía, identifica tres necesidades del consumidor y crea dos publicaciones digitales adicionales con sus textos y justificaciones.",
       note: "Entrega en Moodle un PDF con el mapa actualizado y las dos publicaciones nuevas. Prepara también una presentación de cinco diapositivas.",
       next: "SEMANA 04 · Copywriting, tono de voz y mensajes persuasivos.",
-      image: "/images/contenido/semana03/tarea.webp",
+      image: "/images/contenido/Semana3/Sem3 A5.jpg",
     },
   ],
 };
