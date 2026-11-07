@@ -70,7 +70,7 @@ const semana03 = {
       title: "Benchmarking SEO y análisis de competidores",
       subtitle: "Descubre quién posiciona, por qué y dónde puedes competir",
       body: "Hoy convertiremos nuestra investigación de keywords en un mapa de competencia y un plan de posicionamiento basado en evidencias.",
-      image: `/public/images/seo/Semana 3/Sem3 A1.jpg`,
+      image: `/images/seo/Semana 3/Sem3 A1.jpg`,
     },
     {
       id: 2,
@@ -83,7 +83,7 @@ const semana03 = {
         "Tu competencia SEO no siempre es tu competencia comercial directa.",
       question: "¿Por qué Google muestra esos resultados y no otros?",
       note: "Trabajo individual 4 minutos y conversación en parejas 6 minutos.",
-      image: `/public/images/seo/Semana 3/Sem3 A2.jpg`,
+      image: `/images/seo/Semana 3/Sem3 A2.jpg`,
     },
     {
       id: 3,
@@ -96,7 +96,7 @@ const semana03 = {
         "No se trata de copiar al competidor, sino de descubrir cómo ofrecer una mejor respuesta.",
       question:
         "¿Qué aspectos se pueden comparar sin acceso a las analíticas privadas del competidor?",
-      image: `/public/images/seo/Semana 3/Sem3 A3.jpg`,
+      image: `/images/seo/Semana 3/Sem3 A3.jpg`,
     },
     {
       id: 4,
@@ -125,7 +125,7 @@ const semana03 = {
       ],
       question:
         "¿Tus tres principales rivales de ventas aparecen en las keywords que seleccionaste?",
-      image: `/public/images/seo/Semana 3/Sem3 A4.jpg`,
+      image: `/images/seo/Semana 3/Sem3 A4.jpg`,
     },
     {
       id: 5,
@@ -163,7 +163,7 @@ const semana03 = {
         ],
       ],
       note: "Una posición observada en Google puede variar según ubicación, dispositivo y momento.",
-      image: `/public/images/seo/Semana 3/Sem3 A5.jpg`,
+      image: `/images/seo/Semana 3/Sem3 A5.jpg`,
     },
     {
       id: 6,
@@ -175,7 +175,7 @@ const semana03 = {
       quote:
         "Cada elección debe tener una búsqueda y una evidencia verificable.",
       note: "En la siguiente diapositiva encontrarás el formulario editable. Evita contar anuncios como resultados orgánicos.",
-      image: `/public/images/seo/Semana 3/Sem3 A6.jpg`,
+      image: `/images/seo/Semana 3/Sem3 A6.jpg`,
     },
     {
       id: 7,
@@ -197,7 +197,7 @@ const semana03 = {
         "No confundas una debilidad percibida con un problema demostrado: registra la evidencia.",
       question: "¿Qué consulta podría resolver mejor tu empresa?",
       note: "Cada equipo formula una oportunidad y la contrasta con un resultado real.",
-      image: `/public/images/seo/Semana 3/Sem3 A8.jpg`,
+      image: `/images/seo/Semana 3/Sem3 A8.jpg`,
     },
     {
       id: 9,
@@ -227,7 +227,7 @@ const semana03 = {
         "Una estrategia SEO se construye con prioridades, no con una lista interminable de tareas.",
       question:
         "¿Qué acción puedes implementar primero y cómo comprobarás si ayudó?",
-      image: `/public/images/seo/Semana 3/Sem3 A11.jpg`,
+      image: `/images/seo/Semana 3/Sem3 A11.jpg`,
     },
     {
       id: 12,
@@ -249,7 +249,7 @@ const semana03 = {
         "Una decisión bien justificada vale más que una suposición atractiva.",
       question: "¿Qué evidencia respalda tu propuesta?",
       note: "Selecciona dos equipos para una intervención breve y deja las demás defensas registradas en el taller.",
-      image: `/public/images/seo/Semana 3/Sem3 A13.jpg`,
+      image: `/images/seo/Semana 3/Sem3 A13.jpg`,
     },
     {
       id: 14,
@@ -259,7 +259,7 @@ const semana03 = {
       body: "Completa el análisis de cinco keywords y tres competidores, consolida la matriz comparativa y plantea tres acciones SEO prioritarias.",
       note: "Entrega en Moodle: T3_APELLIDO_NOMBRE.pdf. Adjunta capturas y conclusión de 100 a 150 palabras.",
       next: "SEMANA 04 · Arquitectura web y SEO on-page",
-      image: `/public/images/seo/Semana 3/Sem3 A14.jpg`,
+      image: `/images/seo/Semana 3/Sem3 A14.jpg`,
     },
   ],
 };
