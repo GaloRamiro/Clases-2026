@@ -49,7 +49,7 @@ const semana04 = {
       title: "Un buen diseño atrae. Un buen mensaje da una razón para actuar.",
       subtitle: "Las palabras también venden café",
       body: "Hoy aprenderemos a escribir textos que informan, generan interés y persuaden sin perder la personalidad de nuestra marca.",
-      image: "/images/contenido/semana04/portada.webp",
+      image: "/images/contenido/Sem4/Sem4 A1.jpg",
     },
     {
       id: 2,
@@ -57,6 +57,7 @@ const semana04 = {
       block: "ACTIVACIÓN · 15 MIN",
       title: "¿Cuál de estos mensajes te convence más?",
       subtitle: "Dos mensajes para un mismo producto",
+      image: "/images/contenido/Sem4/Sem4 A2.jpg",
       columns: ["Mensaje A", "Mensaje B"],
       rows: [
         [
@@ -76,6 +77,7 @@ const semana04 = {
       block: "FUNDAMENTOS · COPYWRITING",
       title: "¿Qué es copywriting?",
       accent: "NO SE TRATA DE ESCRIBIR MÁS, SINO DE COMUNICAR MEJOR",
+      image: "/images/contenido/Sem4/Sem4 A3.jpg",
       body: "Es la escritura estratégica de mensajes destinados a generar una respuesta en una audiencia. Esa respuesta puede ser descubrir un producto, solicitar información, visitar una página o realizar una compra.",
       question:
         "¿Qué respuesta esperamos de los consumidores de nuestra marca?",
@@ -85,6 +87,7 @@ const semana04 = {
       kind: "table",
       block: "FUNDAMENTOS · BENEFICIOS",
       title: "No hables solo de tu producto. Habla de lo que aporta.",
+      image: "/images/contenido/Sem4/Sem4 A4.jpg",
       columns: ["Característica", "Beneficio comunicado"],
       rows: [
         ["Café molido", "Facilita preparar café en casa"],
@@ -101,6 +104,7 @@ const semana04 = {
       title: "Si tu marca fuera una persona, ¿cómo hablaría?",
       subtitle:
         "La voz es relativamente constante; el tono se adapta a la situación.",
+      image: "/images/contenido/Sem4/Sem4 A5-2.jpg",
       columns: ["Personalidad", "Ejemplo de voz"],
       rows: [
         ["Café juvenil", "Cercana, dinámica"],
@@ -114,6 +118,7 @@ const semana04 = {
       kind: "table",
       block: "FUNDAMENTOS · MODELO AIDA",
       title: "De la atención a la acción",
+      image: "/images/contenido/Sem4/Sem4 A6-2.jpg",
       columns: ["Etapa", "Propósito"],
       rows: [
         ["A · Atención", "Una frase que detiene al lector"],
@@ -131,6 +136,7 @@ const semana04 = {
       accent: "UN CTA PROPONE EL SIGUIENTE PASO",
       body: "Ejemplos: descubre nuestras variedades; aprende a preparar tu café; consulta las presentaciones disponibles; conoce nuestra historia.",
       question: "¿Todos estos llamados a la acción buscan el mismo resultado?",
+      image: "/images/contenido/Sem4/Sem4 A7-2.jpg",
     },
     {
       id: 8,
@@ -140,6 +146,7 @@ const semana04 = {
       accent: "CLARIDAD · RELEVANCIA · CREDIBILIDAD",
       body: "Evitamos promesas falsas, testimonios inventados, beneficios no comprobados y urgencias ficticias.",
       note: "No afirmaremos que nuestro café mejora la concentración sin evidencia suficiente.",
+      image: "/images/contenido/Sem4/Sem4 A8-2.jpg",
     },
     {
       id: 9,
@@ -149,7 +156,7 @@ const semana04 = {
       accent: "EL BENEFICIO DEBE SER RELEVANTE",
       body: "Consumidor: persona que quiere preparar café artesanal en casa. Necesidad: aprender de manera sencilla. Mensaje inicial: «Vendemos café artesanal». Mensaje mejorado: «Tu primera taza de café artesanal puede empezar en casa. Descubre cómo prepararla paso a paso».",
       question: "¿Qué hace más útil el segundo mensaje?",
-      image: "/images/contenido/semana04/cafe-raiz.webp",
+      image: "/images/contenido/Sem4/Sem4 A9-2.jpg",
     },
     {
       id: 10,
@@ -157,6 +164,7 @@ const semana04 = {
       block: "DEMOSTRACIÓN · AIDA",
       title: "Construyamos un mensaje paso a paso",
       columns: ["Etapa", "Ejemplo"],
+      image: "/images/contenido/Sem4/Sem4 A10-2.jpg",
       rows: [
         ["Atención", "¿Tu café siempre sabe diferente?"],
         ["Interés", "La proporción de agua puede influir en el resultado."],
@@ -173,7 +181,7 @@ const semana04 = {
       accent: "TÍTULO + MENSAJE + CTA + TEXTO DE ACOMPAÑAMIENTO",
       body: "Título: ¿Preparas café en casa? Mensaje: descubre una forma sencilla de empezar. CTA: conoce nuestra guía. El texto de acompañamiento amplía el valor sin repetir todo lo que aparece en la imagen.",
       note: "Recupera una publicación de la Semana 3 y mejora su redacción.",
-      image: "/images/contenido/semana04/copy-diseno.webp",
+      image: "/images/contenido/Sem4/Sem4 A11-2.jpg",
     },
     {
       id: 12,
@@ -190,6 +198,7 @@ const semana04 = {
       title: "No me digas que tu mensaje es bonito. Dime por qué funcionaría.",
       body: "Cada equipo presenta uno de sus mensajes y explica qué necesidad atiende, cómo refleja la personalidad de la marca y qué respuesta espera conseguir.",
       quote: "Una decisión creativa debe poder justificarse.",
+      image: "/images/contenido/Sem4/Sem4 A13-2.jpg",
     },
     {
       id: 14,
@@ -202,6 +211,7 @@ const semana04 = {
         "¿Qué mensaje mejoramos y por qué?",
         "¿Qué CTA sería más adecuado para nuestra marca?",
       ],
+      image: "/images/contenido/Sem4/Sem4 A13.jpg",
     },
     {
       id: 15,
@@ -211,6 +221,7 @@ const semana04 = {
       body: "Corrige la guía de voz y tono. Crea tres publicaciones nuevas: una educativa, una emocional y una comercial.",
       note: "Incluye título, texto, CTA, necesidad atendida y justificación. Entrega un PDF en Moodle y prepara cinco diapositivas.",
       next: "SEMANA 05 · Tipos y formatos de contenido digital.",
+      image: "/images/contenido/Sem4/Sem4 A14.jpg",
     },
   ],
 };
