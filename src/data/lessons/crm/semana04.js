@@ -100,7 +100,7 @@ const semana04 = {
       title: "Fidelización y retención de clientes",
       subtitle: "Clientes que regresan, clientes que recomiendan",
       body: "Aprenderemos a diseñar programas de lealtad, segmentar clientes y utilizar Bitrix24 para fortalecer relaciones comerciales.",
-      image: `${IMG}portada-fidelizacion.webp`,
+      image: `/images/gestion/Semana 04/CRM_01.png`,
     },
     {
       id: 2,
@@ -114,7 +114,7 @@ const semana04 = {
       question:
         "Elige una marca y escribe tres razones por las que vuelves a comprar o utilizarla.",
       note: "3 minutos individuales y discusión en parejas. Identifica factores emocionales y comerciales.",
-      image: `${IMG}clientes-que-regresan.webp`,
+      image: `/images/gestion/Semana 04/CRM_02.png`,
     },
     {
       id: 3,
@@ -126,7 +126,7 @@ const semana04 = {
       quote:
         "La experiencia después de la compra también forma parte de la venta.",
       note: "Pregunta: ¿qué acciones comerciales pueden provocar que un cliente no regrese?",
-      image: `${IMG}concepto-fidelizacion.webp`,
+      image: `/images/gestion/Semana 04/CRM_03.png`,
     },
     {
       id: 4,
@@ -150,7 +150,7 @@ const semana04 = {
         ],
       ],
       note: "Ejercicio: 100 clientes iniciales, 20 nuevos y 90 finales. Retención = (90 - 20) / 100 × 100 = 70 %.",
-      image: `${IMG}metricas-fidelizacion.webp`,
+      image: `/images/gestion/Semana 04/CRM_04.png`,
     },
     {
       id: 5,
@@ -163,7 +163,7 @@ const semana04 = {
         "El valor de un programa de lealtad está en ofrecer razones para regresar.",
       question:
         "¿Qué datos debería registrar el CRM para identificar clientes frecuentes?",
-      image: `${IMG}starbucks-rewards.webp`,
+      image: `/images/gestion/Semana 04/CRM_05.png`,
     },
     {
       id: 6,
@@ -175,7 +175,7 @@ const semana04 = {
       quote:
         "Define un público objetivo, tres niveles, beneficios y un indicador de éxito.",
       note: "En la siguiente diapositiva registrarás las decisiones del equipo.",
-      image: `${IMG}taller-lealtad.webp`,
+      image: `/images/gestion/Semana 04/CRM_06.png`,
     },
     {
       id: 7,
@@ -193,7 +193,7 @@ const semana04 = {
       body: "Cada equipo presenta su propuesta y explica por qué el cliente querría participar, qué beneficio recibiría y cómo la empresa mediría el resultado.",
       quote:
         "Un beneficio atractivo también debe ser sostenible para el negocio.",
-      image: `${IMG}presentacion-programa.webp`,
+      image: `/images/gestion/Semana 04/CRM_08.png`,
     },
     {
       id: 9,
@@ -223,7 +223,7 @@ const semana04 = {
         "¿Cómo sabrías si tu programa está funcionando?",
       ],
       note: "Cada estudiante explica una decisión que tomó durante el laboratorio.",
-      image: `${IMG}reflexion-clientes.webp`,
+      image: `/images/gestion/Semana 04/CRM_11.png`,
     },
     {
       id: 12,
@@ -233,7 +233,7 @@ const semana04 = {
       body: "Analiza la baja fidelización de una empresa, diseña tres niveles de lealtad, clasifica diez contactos y crea tres actividades de seguimiento en Bitrix24.",
       note: "Entrega en Moodle: T4_APELLIDO_NOMBRE.pdf. Incluye capturas, propuesta NPS y conclusión.",
       next: "SEMANA 05 · Comunicación efectiva y automatizada en CRM.",
-      image: `${IMG}trabajo-autonomo.webp`,
+      image: `/images/gestion/Semana 04/CRM_12.png`,
     },
   ],
 };
